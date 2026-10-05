@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-th="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#F5F3EE">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="321職場生活">
+<meta name="description" content="321職場生活——國度321空中團契・321學神院 職場生活操練 App">
+<title>321職場生活</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<style>:root{--bg:#F5F3EE;--card:#FFFEFB;--ink:#22262B;--mute:#6B7078;--line:#E2DED5;--acc:#1E3F7A;--accS:#E2E8F3;--good:#3E7A5A;--sh:0 1px 2px rgba(60,45,20,.06),0 4px 16px rgba(60,45,20,.06);--fs:1}
+html[data-th=noon]{--bg:#F2F4F7;--card:#FCFDFE;--ink:#1F2630;--mute:#66707E;--line:#DCE2EA;--acc:#1F6F78;--accS:#DCEDEE;--good:#3E7A5A}
+html[data-th=night]{--bg:#121828;--card:#1B2337;--ink:#ECE8DE;--mute:#9AA0B2;--line:#2C3650;--acc:#D8B36A;--accS:#2E3448;--good:#9CBF6E;--sh:0 1px 2px rgba(0,0,0,.3)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink)}
+body{font-family:-apple-system,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;font-size:calc(16px*var(--fs));line-height:1.7;padding-bottom:calc(76px + env(safe-area-inset-bottom))}
+.serif,.vs{font-family:"Noto Serif TC","Songti TC","PMingLiU",serif}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+textarea,input,select{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 12px;width:100%}
+textarea{min-height:84px;resize:vertical}
+textarea:focus,input:focus{outline:2px solid var(--acc);outline-offset:-1px}
+header.top{position:sticky;top:0;z-index:5;background:var(--bg);display:flex;align-items:center;justify-content:space-between;padding:calc(10px + env(safe-area-inset-top)) 18px 8px}
+.brand{font-weight:700;letter-spacing:.06em;font-size:1.05em}
+.brand small{display:block;font-weight:400;color:var(--mute);font-size:.7em;letter-spacing:.1em}
+.icb{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.icb svg{width:22px;height:22px;stroke:var(--ink)}
+main{max-width:640px;margin:0 auto;padding:4px 16px 24px}
+h1{font-size:1.5em;margin:6px 0 2px;line-height:1.35}
+h2{font-size:1.15em;margin:22px 0 10px}
+.sub{color:var(--mute);font-size:.9em}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin:12px 0;box-shadow:var(--sh)}
+.card.hero{background:linear-gradient(160deg,var(--accS),var(--card) 70%);border-color:transparent}
+.kick{font-size:.78em;letter-spacing:.12em;color:var(--acc);font-weight:600}
+.ttl{font-size:1.25em;font-weight:700;margin:4px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:24px;background:var(--acc);color:#fff;font-weight:600}
+html[data-th=night] .btn{color:#1B2337}
+.btn.ghost{background:transparent;color:var(--acc);border:1.5px solid var(--acc)}
+.btn.sm{min-height:38px;padding:0 14px;font-size:.9em}
+.btn.full{width:100%}
+.row{display:flex;gap:10px;align-items:center}
+.row.sp{justify-content:space-between}
+.vs{font-size:1.12em;line-height:1.95}
+.vs sup{color:var(--acc);font-size:.62em;margin-right:3px;font-family:sans-serif}
+.ref{color:var(--mute);font-size:.88em;margin-top:6px}
+.chip{display:inline-block;padding:6px 14px;border-radius:18px;border:1px solid var(--line);margin:4px 6px 4px 0;font-size:.9em}
+.chip.on{background:var(--acc);border-color:var(--acc);color:#fff}
+html[data-th=night] .chip.on{color:#1B2337}
+.banner{background:var(--accS);border-radius:16px;padding:14px 16px;margin:10px 0}
+.li{display:flex;gap:12px;align-items:center;padding:12px 2px;border-bottom:1px solid var(--line)}
+.li:last-child{border-bottom:0}
+.li .n{width:34px;height:34px;flex:none;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:.85em;color:var(--mute)}
+.li .n.ok{background:var(--good);border-color:var(--good);color:#fff}
+.li .b{flex:1;min-width:0}
+.li .b b{display:block;font-weight:600}
+.li .b span{color:var(--mute);font-size:.85em}
+.lock{opacity:.5}
+nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--card);border-top:1px solid var(--line);display:flex;padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
+nav.tabs button{flex:1;display:flex;flex-direction:column;align-items:center;font-size:.72em;color:var(--mute);min-height:52px;justify-content:center;gap:2px}
+nav.tabs button svg{width:24px;height:24px;stroke:currentColor}
+nav.tabs button.on{color:var(--acc);font-weight:600}
+.ov{position:fixed;inset:0;z-index:20;background:var(--bg);overflow-y:auto;-webkit-overflow-scrolling:touch;display:none}
+.ov.show{display:block}
+.ovh{position:sticky;top:0;background:var(--bg);display:flex;align-items:center;justify-content:space-between;padding:calc(10px + env(safe-area-inset-top)) 12px 6px;z-index:2}
+.dots{display:flex;gap:6px}
+.dots i{width:30px;height:5px;border-radius:3px;background:var(--line)}
+.dots i.on{background:var(--acc)}
+.stepbody{max-width:620px;margin:0 auto;padding:10px 20px 120px;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.big{font-size:4.2em;font-weight:700;color:var(--acc);line-height:1;font-family:"Noto Serif TC",serif}
+.stepfoot{position:fixed;left:0;right:0;bottom:0;background:var(--bg);padding:12px 20px calc(14px + env(safe-area-inset-bottom));display:flex;gap:10px;max-width:660px;margin:0 auto;z-index:3}
+.stepfoot .btn{flex:1}
+.light{border-left:3px solid var(--acc);padding:6px 0 6px 14px;margin:16px 0;color:var(--ink)}
+.q{margin:18px 0 6px;font-weight:600}
+.opt{display:block;width:100%;text-align:left;padding:14px 16px;border:1.5px solid var(--line);border-radius:14px;margin:8px 0;background:var(--card)}
+.opt.on{border-color:var(--acc);background:var(--accS)}
+.breath{width:150px;height:150px;border-radius:50%;margin:26px auto;background:radial-gradient(circle,var(--accS),transparent 70%);border:2px solid var(--acc);animation:br 8s ease-in-out infinite}
+@keyframes br{0%,100%{transform:scale(.72);opacity:.6}50%{transform:scale(1);opacity:1}}
+.flip{min-height:190px;display:flex;flex-direction:column;justify-content:center;text-align:center}
+.stat{font-size:2.2em;font-weight:700;color:var(--acc);line-height:1.1}
+.tl{border-left:2px solid var(--line);margin-left:6px;padding-left:16px}
+.tl .it{position:relative;padding:4px 0 14px}
+.tl .it:before{content:"";position:absolute;left:-22px;top:12px;width:10px;height:10px;border-radius:50%;background:var(--acc)}
+.tl .it .d{font-size:.78em;color:var(--mute)}
+.tag{font-size:.72em;padding:1px 8px;border-radius:8px;background:var(--accS);color:var(--acc);margin-left:6px}
+.grid7{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mod{border:1px solid var(--line);border-radius:14px;padding:12px;background:var(--card)}
+.mod b{display:block}
+.mod span{font-size:.8em;color:var(--mute)}
+.seg{display:flex;background:var(--accS);border-radius:14px;padding:4px;margin:8px 0}
+.seg button{flex:1;padding:8px 0;border-radius:10px;font-size:.9em}
+.seg button.on{background:var(--card);font-weight:600;box-shadow:var(--sh)}
+.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:20px;font-size:.9em;z-index:40;opacity:0;transition:opacity .3s;pointer-events:none}
+.toast.show{opacity:.92}
+.empty{text-align:center;color:var(--mute);padding:26px 10px}
+.foot{text-align:center;color:var(--mute);font-size:.82em;margin:28px 0 8px}
+label.f{display:block;margin:14px 0 6px;font-weight:600;font-size:.92em}
+.done-mark{width:84px;height:84px;margin:30px auto 10px;border-radius:50%;background:var(--accS);display:flex;align-items:center;justify-content:center}
+.done-mark svg{width:42px;height:42px;stroke:var(--acc)}
+.li .n svg{width:18px;height:18px;stroke:#fff}
+.btn{white-space:nowrap;flex:none}
+.btn svg{width:18px;height:18px;stroke:currentColor}
+.heroimg{display:block;width:100%;max-width:420px;aspect-ratio:1;object-fit:cover;border-radius:22px;margin:18px auto 0;box-shadow:0 8px 28px rgba(60,45,20,.18)}
+html[data-th=night] .btn.ghost{color:var(--acc)}
+.prog{height:6px;border-radius:3px;background:var(--line);margin:12px 0 6px;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--acc);border-radius:3px}
+.card.wk{padding:4px 14px}
+.card.wk.cur{border-color:var(--acc)}
+.chev svg{width:20px;height:20px;stroke:var(--mute);transition:transform .2s}
+.chev.up svg{transform:rotate(180deg)}
+.li.sm{padding:9px 2px}
+.li.sm .n{width:30px;height:30px}
+.scale{display:flex;gap:8px;margin:6px 0 4px}
+.scale button{flex:1;height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);font-weight:600}
+.scale button.on{background:var(--acc);border-color:var(--acc);color:#fff}
+html[data-th=night] .scale button.on{color:#1B2337}
+.radar{display:block;width:100%;max-width:400px;margin:8px auto}
+.radar .rn{fill:var(--acc);fill-opacity:.22;stroke:var(--acc);stroke-width:2}
+.radar .rp{fill:none;stroke:var(--mute);stroke-width:1.5;stroke-dasharray:4 4}
+.lg{display:inline-block;width:14px;height:4px;vertical-align:middle;margin-right:4px;border-radius:2px}
+.lg.rn{background:var(--acc)}.lg.rp{background:var(--mute)}
+/* ===== v2 additions ===== */
+html[lang="zh-Hans"] body{font-family:-apple-system,"PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif}
+html[lang="zh-Hans"] .serif,html[lang="zh-Hans"] .vs,html[lang="zh-Hans"] .vsp{font-family:"Noto Serif SC","Songti SC","STSong","SimSun",serif}
+html[lang="en"] body{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.6}
+html[lang="en"] .serif,html[lang="en"] .vs,html[lang="en"] .vsp{font-family:Georgia,"Times New Roman",serif}
+.big.en{font-size:2.6em;letter-spacing:-.01em}
+header.top{gap:8px}
+.brand{flex:1;min-width:0}
+.brand small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.langsw{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-size:.74em;flex:none}
+.langsw button{padding:6px 9px;font-weight:600;color:var(--mute);background:var(--card)}
+.langsw button+button{border-left:1px solid var(--line)}
+.langsw button.on{background:var(--acc);color:#fff}
+html[data-th=night] .langsw button.on{color:#1B2337}
+nav.tabs button span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+html[lang="en"] nav.tabs button{font-size:.62em}
+.vsp{font-family:"Noto Serif TC","Songti TC","PMingLiU",serif;font-size:1.05em;line-height:1.95}
+.vn{font-family:sans-serif;font-size:.6em;font-weight:700;color:var(--acc);vertical-align:.5em;margin:0 .18em 0 .1em}
+.stepbody p.blk{margin:0 0 14px}
+.light.blk{border-left:3px solid var(--acc);padding:6px 0 6px 14px;margin:16px 0}
+.sent{cursor:pointer;border-radius:3px;transition:box-shadow .2s}
+.sent[data-hl]{background:linear-gradient(transparent 56%,var(--hlg) 56%)}
+.sent[data-color=gold]{--hlg:#F3DFA8}.sent[data-color=green]{--hlg:#CFE7CB}.sent[data-color=blue]{--hlg:#CCDDF3}.sent[data-color=pink]{--hlg:#F7D2DA}
+.sent[data-color=purple]{--hlg:#DDD0EE}.sent[data-color=maroon]{--hlg:#EBCBCB}.sent[data-color=brown]{--hlg:#E6D6BE}.sent[data-color=charcoal]{--hlg:#D8D6D0}
+html[data-th=night] .sent[data-color=gold]{--hlg:#5A4A22}html[data-th=night] .sent[data-color=green]{--hlg:#2A4128}html[data-th=night] .sent[data-color=blue]{--hlg:#24385A}html[data-th=night] .sent[data-color=pink]{--hlg:#57303A}
+html[data-th=night] .sent[data-color=purple]{--hlg:#3E3254}html[data-th=night] .sent[data-color=maroon]{--hlg:#4A2A2A}html[data-th=night] .sent[data-color=brown]{--hlg:#4A3B26}html[data-th=night] .sent[data-color=charcoal]{--hlg:#3A3A36}
+.sent.tts-reading{box-shadow:inset 0 0 0 999px rgba(108,147,209,.22);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hl-note{margin:-6px 0 14px;padding:8px 12px;background:var(--accS);border-left:3px solid #D9B168;border-radius:6px;font-size:.88em;white-space:pre-wrap;cursor:pointer;line-height:1.6}
+.hl-note[data-color=green]{border-left-color:#6FAE71}.hl-note[data-color=blue]{border-left-color:#6C93D1}.hl-note[data-color=pink]{border-left-color:#E58FA0}.hl-note[data-color=purple]{border-left-color:#A48AC9}.hl-note[data-color=maroon]{border-left-color:#8C4A4E}.hl-note[data-color=brown]{border-left-color:#8A6740}.hl-note[data-color=charcoal]{border-left-color:#54534E}
+.hl-tip{background:var(--accS);color:var(--acc);border-radius:10px;padding:9px 12px;font-size:.82em;line-height:1.6;margin:8px 0 12px}
+.ovmid{flex:1;display:flex;justify-content:center;min-width:0;font-weight:600}
+.ovr{display:flex;align-items:center}
+.ttsb[data-state=playing],.ttsb[data-state=loading]{background:var(--acc)}
+.ttsb[data-state=playing] svg,.ttsb[data-state=loading] svg{stroke:#fff}
+.ttsb[data-state=loading]{opacity:.7}
+.askrow{margin:18px 0 4px;text-align:center}
+.btn svg{margin-right:2px}
+.btn.gold{background:#B8862F;color:#fff;border:0}
+.danger{color:#B4503C!important;border-color:#B4503C!important}
+.chips{display:flex;flex-wrap:wrap}
+/* bottom sheet */
+.sheet-mask{position:fixed;inset:0;background:rgba(0,0,0,.42);z-index:60;display:flex;align-items:flex-end;animation:fade .2s}
+.sheet-card{background:var(--card);width:100%;max-width:640px;margin:0 auto;max-height:86vh;overflow-y:auto;border-radius:20px 20px 0 0;padding:18px 18px calc(18px + env(safe-area-inset-bottom));box-shadow:0 -8px 30px rgba(0,0,0,.25)}
+.sheet-title{font-weight:700;font-size:1.05em;margin-bottom:10px;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.sheet-ref{font-size:.8em;color:var(--acc);font-weight:600}
+.sheet-quote{display:block;background:var(--accS);border-radius:10px;padding:10px 12px;line-height:1.8;margin-bottom:12px;font-family:"Noto Serif TC",serif}
+.sheet-row{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.sheet-lab{font-size:.82em;color:var(--mute);white-space:nowrap;min-width:3em}
+.swatches{display:flex;gap:9px;flex-wrap:wrap}
+.hlswatch{width:30px;height:30px;border-radius:50%;border:2px solid transparent;box-shadow:inset 0 0 0 1px rgba(0,0,0,.1)}
+.hlswatch.on{border-color:var(--ink)}
+.spanrow{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.spanbtn{min-width:36px;height:32px;padding:0 8px;border-radius:9px;border:1px solid var(--line);background:var(--bg)}
+.spanbtn.wide{font-size:.85em;padding:0 12px}
+.spannum{font-size:.85em;color:var(--mute);min-width:44px;text-align:center}
+.sheet-ta{min-height:76px;margin-bottom:12px}
+.sheet-acts{display:flex;gap:10px;margin-bottom:10px}.sheet-acts .btn{flex:1}
+.sheet-acts2{display:flex;gap:8px;flex-wrap:wrap}.sheet-acts2 .btn{flex:1 1 auto}
+.holdpv img{width:100%;border-radius:10px}
+/* my highlights */
+.hitem{border-bottom:1px solid var(--line);padding:12px 0}.hitem:last-child{border-bottom:0}
+.hitem .q{font-size:.98em;line-height:1.85;margin-bottom:6px;padding-left:10px;border-left:3px solid #D9B168}
+.hitem .q[data-c=green]{border-left-color:#6FAE71}.hitem .q[data-c=blue]{border-left-color:#6C93D1}.hitem .q[data-c=pink]{border-left-color:#E58FA0}.hitem .q[data-c=purple]{border-left-color:#A48AC9}.hitem .q[data-c=maroon]{border-left-color:#8C4A4E}.hitem .q[data-c=brown]{border-left-color:#8A6740}.hitem .q[data-c=charcoal]{border-left-color:#54534E}
+.hitem .n{font-size:.88em;background:var(--accS);border-radius:6px;padding:7px 10px;margin-bottom:6px;white-space:pre-wrap}
+.hitem .m{font-size:.78em;color:var(--mute);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.hitem .m button{padding:4px 8px;color:var(--mute)}.hitem .m button svg{width:16px;height:16px;stroke:var(--mute);vertical-align:-3px}
+.hitem .md{font-size:.92em}
+/* xiaozhi */
+.xzcard{cursor:pointer}.xzimg{width:46px;height:46px;border-radius:12px;flex:none}
+.xz-head{display:flex;gap:12px;align-items:center;margin:6px 0 10px}.xz-head img{width:44px;height:44px;border-radius:12px}.xz-head b{font-size:1.15em;font-family:"Noto Serif TC",serif}
+.chatctx{font-size:.78em;color:var(--mute);background:var(--accS);border-radius:999px;padding:5px 12px;display:inline-block;margin-bottom:8px}
+.qs-toggle{display:block;border:1px solid var(--acc);color:var(--acc);border-radius:999px;padding:6px 14px;font-size:.82em;font-weight:600;margin:4px 0 8px}
+.qs-panel{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:10px;margin-bottom:10px;display:flex;flex-direction:column;gap:6px}
+.qs-chip{text-align:left;border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:.88em;background:var(--bg)}
+.chatlog{padding:4px 0 90px}
+.msg{max-width:88%;padding:11px 15px;border-radius:16px;margin-bottom:12px;line-height:1.75;font-size:.95em}
+.msg.user{background:var(--acc);color:#fff;margin-left:auto;border-bottom-right-radius:4px;white-space:pre-wrap}
+html[data-th=night] .msg.user{color:#1B2337}
+.msg.ai{background:var(--card);border:1px solid var(--line);margin-right:auto;border-bottom-left-radius:4px;max-width:96%;box-shadow:var(--sh)}
+.msg-body p,.md p{margin:0 0 9px}.msg-body p:last-child{margin-bottom:0}
+.msg-body h4,.msg-body h5,.md h4{margin:14px 0 6px;font-size:1.02em;color:var(--acc);font-family:"Noto Serif TC",serif;padding-bottom:4px;border-bottom:1px dashed var(--line)}
+.msg-body h4:first-child{margin-top:2px}
+.msg-body b{color:var(--ink)}
+.msg-body blockquote,.md blockquote{margin:10px 0;padding:10px 14px;border-left:4px solid var(--acc);background:var(--accS);border-radius:0 10px 10px 0;font-family:"Noto Serif TC",serif;font-size:1.02em}
+.msg-body ul,.msg-body ol,.md ul{margin:4px 0 10px;padding-left:22px}.msg-body li{margin-bottom:5px}
+.msg-body ol{list-style:decimal}
+.msg-body hr{border:0;border-top:1px solid var(--line);margin:12px 0}
+.vref{color:var(--acc);font-weight:600;white-space:nowrap}
+.mdtb{display:block;width:100%;overflow-x:auto;border-collapse:collapse;margin:10px 0;font-size:.88em;line-height:1.6}
+.mdtb th,.mdtb td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+.mdtb th{background:var(--accS);color:var(--acc);white-space:nowrap}
+.mdtb tr:nth-child(even) td{background:var(--bg)}
+.msg-actions{display:flex;flex-wrap:wrap;gap:2px;margin-top:8px;padding-top:6px;border-top:1px solid var(--line)}
+.msg-act{font-size:.78em;color:var(--mute);padding:4px 8px;border-radius:999px}.msg-act.on{color:var(--acc);font-weight:700}
+.typing{display:inline-flex;gap:3px;vertical-align:middle}.typing i{width:6px;height:6px;border-radius:50%;background:var(--acc);animation:tp 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes tp{0%,100%{opacity:.25;transform:translateY(0)}50%{opacity:1;transform:translateY(-3px)}}
+.chatinput{position:fixed;left:0;right:0;bottom:calc(64px + env(safe-area-inset-bottom));display:flex;gap:8px;padding:10px 16px;background:var(--bg);border-top:1px solid var(--line);max-width:640px;margin:0 auto;z-index:5}
+.chatinput textarea{min-height:44px;max-height:110px;padding:10px 12px}
+.chatinput button{background:var(--acc);color:#fff;border-radius:12px;padding:0 16px;font-weight:700}
+/* studio */
+.cardpv{border-radius:14px;overflow:hidden;background:var(--accS);margin:8px 0 12px;min-height:120px;display:flex;align-items:center;justify-content:center}
+.cardpv img{width:100%;max-height:52vh;object-fit:contain;display:block;-webkit-touch-callout:default}
+.pxgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;min-height:100px}
+.pxcell{position:relative;border-radius:10px;overflow:hidden;aspect-ratio:3/4;background:var(--accS);padding:0}
+.pxcell img{width:100%;height:100%;object-fit:cover;display:block}
+.pxcell span{position:absolute;left:0;right:0;bottom:0;padding:10px 5px 3px;font-size:9.5px;color:#fff;text-align:left;white-space:nowrap;overflow:hidden;background:linear-gradient(transparent,rgba(0,0,0,.6))}
+.pxchips{max-height:96px;overflow-y:auto;margin-bottom:10px}
+.obLang{margin:6px 0 8px;text-align:center}
+.row .btn.full{flex:1;width:auto;min-width:0}
+.chatinput button{white-space:nowrap;flex:none}
+html[lang="en"] .vs,html[lang="en"] .vsp{line-height:1.7}
+.updbar{position:fixed;left:0;right:0;top:0;z-index:90;background:#B8862F;color:#fff;font-weight:700;text-align:center;padding:calc(10px + env(safe-area-inset-top)) 16px 10px;font-size:.9em;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+.sosg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}.sosb{padding:12px 6px;border-radius:14px;border:1.5px solid var(--line);background:var(--card);font-weight:600;color:var(--acc)}.sosb:active{background:var(--accS)}.scene{background:var(--accS);border-radius:16px;padding:12px 16px 4px;margin:16px 0 6px}.scene .kick{margin-bottom:2px}.unit{font-size:.8em;color:var(--mute);letter-spacing:.06em;margin:18px 4px 6px;font-weight:600}</style>
+</head>
+<body>
+<header class="top"><div class="brand serif"><span id="brandName">321職場生活</span><small id="brandSub">職場得勝者・生活操練</small></div><div class="langsw" id="langsw"></div><button class="icb" id="gear" data-act="settings" aria-label="settings"></button></header>
+<main id="main"></main>
+<nav class="tabs" id="tabs"></nav>
+<div class="ov" id="ov" role="dialog" aria-modal="true"></div>
+<div class="toast" id="toast" role="status"></div>
+<script>(function(){
+'use strict';
+var APPVER="1.0.10050122";
+var W1ZH={"w":1,"mem":{"ref":"歌羅西書 3:23–24","t":"無論作甚麼，都要從心裏作，像是給主作的，不是給人作的，因你們知道從主那裏必得着基業為賞賜；你們所事奉的乃是主基督。"},"lessons":[{"title":"神是第一位工人","theme":"工作不是人發明的，是神親自示範的","passages":[{"ref":"創世記 2:1–3","v":[[1,"天地萬物都造齊了。"],[2,"到第七日，神造物的工已經完畢，就在第七日歇了他一切的工，安息了。"],[3,"神賜福給第七日，定為聖日；因為在這日，神歇了他一切創造的工，就安息了。"]]},{"ref":"約翰福音 5:17","v":[[17,"耶穌就對他們說：「我父作事直到如今，我也作事。」"]]}],"more":"創世記 1:1–2:3","still":"上班前，先停三十秒。深呼吸，對主說：「主啊，你是第一位作工的。今天我不是一個人上班，我跟着你一起作工。」把待辦清單交在祂手中。","teach":["聖經翻開第一頁，第一個出場的工人不是亞當，而是神。六日之間，祂分開光暗、劃定海陸、栽種青草、安排星宿——祂設計、建造、檢查品質，最後「看着一切所造的都甚好」。工作不是人類墮落後才發明的苦差事，而是神自己的樣式。","所以，當你打開電腦、走進工地、站上講台、接起客服電話，你正在做一件「像神」的事：在混亂中建立秩序，在空白處創造價值。就像學徒看着師傅的手藝，我們的工作是在模仿天上那位總工程師。","神作完工也「歇了」，又賜福給第七日。祂不是因為累了才休息，而是為了欣賞、慶祝、享受所造的。耶穌說：「我父作事直到如今，我也作事。」今天，祂仍在你的職場作工；你不是在為神打工，而是與神同工。"],"light":"321 光照：耶穌是我的榜樣——父作事，子也作事。改變觀念就改變生命：從「我在為老闆賣命」，改變成「我在與神同工」。焦點不在薪水單，而在那位與我同工的主。","scene":"志明是一家物流公司的倉管，每天重複點貨、上架、對帳。他常想：「這種工作，跟神有甚麼關係？」直到有一天，他發現自己仔細排好的貨架，讓整個團隊少加了兩小時的班。","q":["神是誰？——從創造的六日，你看見神是一位怎樣的工人？","我是誰？——你通常用「苦差事」「謀生工具」還是「與神同工」來看待自己的工作？","我該怎樣回應？——今天你的哪一項工作，可以帶着「像神」的態度去完成？"],"jesus":"拿撒勒人稱耶穌為「那木匠」（可6:3）。祂刨過木板、做過工具，也領過工錢。在祂開口傳道以前，祂的手早已沾滿木屑。那雙釘在十字架上的手，也曾是一雙作工的手。","pray":"創造天地的主，謝謝你親自示範工作的尊貴。今天求你與我同工，讓我的手所作的成為美好，讓我的心不再只為薪水，乃是為你。我把今天的每一件事交給你，願你在我的工作中作王。奉主耶穌的名，阿們。","acts":["上班第一件事，默禱：「主，今天我與你同工」","挑一件例行工作，用「甚好」的品質完成它","下班前花一分鐘，為今天的工作感謝神"],"noon":"「我父作事直到如今，我也作事。」——主啊，此刻我放下焦躁，在你同在中繼續作工。"},{"title":"園子裏的管理員","theme":"神把世界交在人手中，要我們修理看守","passages":[{"ref":"創世記 2:8–9","v":[[8,"耶和華神在東方的伊甸立了一個園子，把所造的人安置在那裏。"],[9,"耶和華神使各樣的樹從地裏長出來，可以悅人的眼目，其上的果子好作食物。園子當中又有生命樹和分別善惡的樹。"]]},{"ref":"創世記 2:15","v":[[15,"耶和華神將那人安置在伊甸園，使他修理看守。"]]}],"more":"創世記 2:4–25","still":"坐下打開電腦前，把雙手攤開放在桌上，對主說：「主啊，這張桌子、這份工作是你託付的園子。今天我來修理看守，不是來佔為己有。」然後再開始第一件事。","teach":["「耶和華神將那人安置在伊甸園，使他修理看守。」（創2:15）請留意：人還沒有犯罪，神就給了他工作。伊甸園不是度假村，而是一座等待耕耘的園子。「修理」一詞含有耕作、服事的意思，「看守」則是保護、守望。神先親手栽種，把園子立好，才把人「安置」在其中——工作從一開始就是神的託付，不是人的發明。","想像你接下一棟大樓的物業管理。第一天，前任把一大串鑰匙交給你：機房、頂樓、地下停車場。你不是屋主，卻要對每一扇門負責：漏水要修，陌生人要問，住戶要照顧。職場也是這樣：報表、客戶、團隊、機台，都是交到你手上的鑰匙。管理員的榮譽不在於擁有，而在於忠心。","有己的人把託付當成地盤：「這是我的部門、我的客戶、我的功勞。」於是守得很緊，卻修得很少。讓耶穌作王，就是承認園主是祂，我只是被安置的人。這個觀念一換，生命就鬆開了：不必再為保住位子焦慮，只要在今天被安置的地方修理、看守，將來向主交帳。"],"light":"321 光照：謙卑＝放下權力回到本位。人的本位是園丁，不是園主；讓人作人、讓神作神。當我回到「被安置」的本位，工作就不再是證明自己的戰場，而是服事神的園子。","scene":"阿德在台中一個老社區當管理員。管委會開會時，有住戶當眾指責他沒管好垃圾分類。散會後，主委私下對他說：「你就推給清潔公司吧，反正合約不是你簽的。」阿德拿着那張回收時間表，猶豫要不要自己每晚多巡一次垃圾間。","q":["神是誰？——神先栽種園子，再把人安置其中，祂是一位怎樣的主人？","我是誰？——你比較像「守地盤」的人，還是「修理看守」的管家？","我該怎樣回應？——如果你是阿德，「修理看守」會讓你怎樣面對那張回收時間表？"],"jesus":"耶穌說：「我是好牧人；好牧人為羊捨命。」（約10:11）雇工看見狼來就逃走，祂卻守在羊群前面，直到為羊捨命。祂是最忠心的看守者，看守我們到底；也因此，我們能學會甘心看守別人。","pray":"主啊，謝謝你把我安置在這個崗位。我承認這裏不是我的地盤，而是你的園子。求你給我修理的勤快、看守的警醒，善待交到我手中的每一位同事、每一份檔案、每一位客戶。當我想推卸或想爭功時，提醒我你才是園主。奉主耶穌的名，阿們。","acts":["列出今天手中的三把「鑰匙」，為它們禱告","修好一件拖了很久的小事（檔案、設備或流程）","下班前檢查一次，有甚麼要替下一班看守好"],"noon":"「耶和華神將那人安置在伊甸園，使他修理看守。」——主啊，此刻我回到你安置我的位置，忠心看守。"},{"title":"戴着祂的形像上班","theme":"人照神形像受造，工作是榮耀的管理，不是咒詛","passages":[{"ref":"創世記 1:26–28","v":[[26,"神說：「我們要照着我們的形像、按着我們的樣式造人，使他們管理海裏的魚、空中的鳥、地上的牲畜和全地，並地上所爬的一切昆蟲。」"],[27,"神就照着自己的形像造人，乃是照着他的形像造男造女。"],[28,"神就賜福給他們，又對他們說：「要生養眾多，遍滿地面，治理這地，也要管理海裏的魚、空中的鳥，和地上各樣行動的活物。」"]]},{"ref":"詩篇 8:4–6","v":[[4,"便說：人算甚麼，你竟顧念他？世人算甚麼，你竟眷顧他？"],[5,"你叫他比天使微小一點，並賜他榮耀尊貴為冠冕。"],[6,"你派他管理你手所造的，使萬物，就是一切的牛羊、田野的獸、空中的鳥、海裏的魚，凡經行海道的，都服在他的腳下。"]]}],"more":"詩篇 8:1–9","still":"出門前照鏡子時，停三十秒，對主說：「主啊，我身上有你的形像。今天別人看見我的工作，願他們隱約看見你。」整理好衣領，帶着這份尊貴出門。","teach":["在創造的高峯，神說：「我們要照着我們的形像、按着我們的樣式造人，使他們管理……」（創1:26）形像與管理連在一起：人被造得像神，所以被託付去治理這地。工作在墮落以前就已經存在，它不是神對人的懲罰，而是神給人的冠冕。詩篇說，神「賜他榮耀尊貴為冠冕」，又「派他管理你手所造的」（詩8:5–6）。","古代的君王會在疆土各處立起自己的像，宣告：「這裏歸我管。」神把祂的形像放在人身上，再把人放進世界——你就是神立在職場的形像。好比總公司派駐海外的分公司經理：他不是老闆，但客戶透過他認識總公司。你怎樣開會、回信、處理客訴，都在替那位「總公司」說話。","管理不是控制，而是代表。有己的管理想要當王：「照我的意思來。」形像的管理是要反映王：「照祂的樣式來。」改變觀念就改變生命——當你從「我在混口飯吃」轉成「我戴着神的形像工作」，你會發現，同一張會議桌竟成了彰顯神性情的地方：公平、創意、守信、憐憫。"],"light":"321 光照：觀點轉換——從人的觀點「工作是咒詛」，轉到神的觀點「工作是冠冕」。讓耶穌得着一切的榮耀：我管理得好，不是證明我多厲害，而是讓人看見那位造我的神。","scene":"雅婷剛升任廣告公司的小組長，帶四個比她資深的組員。第一次提案就被客戶退回，她很想在群組裏點名是誰的圖出錯，好保住自己的面子。那段話已經打好，她的手指停在「傳送」鍵上。","q":["神是誰？——神為甚麼把「管理」託付給照祂形像造的人？","我是誰？——你的管理方式，比較像在「當王」，還是在「反映王」？","我該怎樣回應？——如果你是雅婷，戴着神的形像，你會怎樣改寫那段訊息？"],"jesus":"耶穌是「那不能看見之神的像」（西1:15）。祂完美地反映了父：祂斥責風浪，也彎腰洗門徒的腳。在祂身上，我們看見真正的權柄是服事；我們破損的形像，也要在祂裏面被更新。","pray":"創造我的神，謝謝你把你的形像放在我身上，又把管理的冠冕交給我。原諒我常把權柄當成面子，把同事當成工具。今天在會議裏、在訊息中，求你讓我反映你的公義與溫柔，讓人透過我的工作看見你。奉主耶穌的名，阿們。","acts":["想一位團隊成員，今天具體肯定他一件事","傳送訊息前多讀一次：像不像神的性情？","把一項「我的功勞」公開歸給團隊"],"noon":"「神就照着自己的形像造人」——主啊，此刻讓我的言語和決定反映你的樣式。"},{"title":"拿撒勒的工作台","theme":"耶穌在隱藏的歲月作工，使平凡的工作成為聖潔","passages":[{"ref":"馬可福音 6:1–3","v":[[1,"耶穌離開那裏，來到自己的家鄉；門徒也跟從他。"],[2,"到了安息日，他在會堂裏教訓人。眾人聽見，就甚希奇，說：「這人從那裏有這些事呢？所賜給他的是甚麼智慧？他手所作的是何等的異能呢？"],[3,"這不是那木匠嗎？不是馬利亞的兒子雅各、約西、猶大、西門的長兄嗎？他妹妹們不也是在我們這裏嗎？」他們就厭棄他。"]]},{"ref":"路加福音 2:51–52","v":[[51,"他就同他們下去，回到拿撒勒，並且順從他們。他母親把這一切的事都存在心裏。"],[52,"耶穌的智慧和身量，並神和人喜愛他的心，都一齊增長。"]]}],"more":"路加福音 2:39–52","still":"搭車或走路時，用手輕摸一下你的工作證或工具，默禱：「主耶穌，你也曾日復一日地作工。今天這些沒人看見的事，我為你作。」然後安靜呼吸三次。","teach":["家鄉的人說：「這不是那木匠嗎？」（可6:3）原文這個字可泛指用木或石建造的工匠。福音書對耶穌三十歲以前幾乎沉默，只告訴我們祂「順從他們」，並且「神和人喜愛他的心，都一齊增長」（路2:51–52）。我們不知道祂做過多少門框或犁具，但可以想像，祂的工作日常而重複，以致街坊熟悉到一個地步，後來反而因此厭棄祂。","一個好用的App，使用者只看見漂亮的畫面，卻看不見後台：伺服器、資料庫、一行行沒人誇獎的程式碼。可是後台一停，整個系統就當機。耶穌在拿撒勒的歲月，好像救恩計畫的後台。你那些不被看見的對帳、備料、排班、清潔，也是神國的後台工程。","有己的心最怕被埋沒：「我做這麼多，怎麼沒人看見？」耶穌卻甘心在小城的工作台前，等候父所定的時候。無己不是消失，而是把「被看見」交給神。神看重的不是舞台多大，而是心是否順服。今天你在後台忠心，就是在學習基督的樣式。"],"light":"321 光照：耶穌是我的榜樣——祂先在拿撒勒順服，才在加利利傳道。先生命、再關係、後事工：隱藏的歲月不是浪費，而是生命被塑造的地方。","scene":"冠宇在新竹一家科技公司做系統維護三年，同期的同事都去做新產品、上台發表。這週主管又要他接下一個沒人想碰的舊系統。下班後，冠宇打開人力銀行的頁面，游標停在「投遞履歷」上。","q":["神是誰？——神為甚麼讓祂的兒子在拿撒勒度過漫長而平凡的歲月？","我是誰？——當你的工作沒人看見時，你心裏最常出現的聲音是甚麼？","我該怎樣回應？——在決定要不要投履歷之前，冠宇可以先怎樣面對眼前的工作？"],"jesus":"那位托住萬有的主，曾在小鎮作工、領工錢，被鄰舍稱為「那木匠」。祂沒有因為工作平凡而覺得屈辱。正是這位甘心隱藏的耶穌，後來為我們走上十字架，使我們平凡的日子也被救贖。","pray":"主耶穌，你曾在拿撒勒默默作工，謝謝你讓我知道，沒人看見的工作在你眼中仍有價值。我承認我常渴望被看見、被稱讚。求你使我在後台也忠心，在等候中也順服。若我需要轉換跑道，求你清楚引導，不讓我因為不甘心而逃跑。奉主耶穌的名，阿們。","acts":["做一件沒人會發現的小事，把它獻給主","對一位「後台」同事（清潔、行政、IT）說謝謝","寫下：「這份工作正在塑造我的哪一部分？」"],"noon":"「這不是那木匠嗎？」——主啊，此刻在平凡的工作裏，我願像你一樣順服。"},{"title":"我的職場呼召宣言","theme":"把「為主而作」寫下來，成為每天上班的方向","passages":[{"ref":"歌羅西書 3:17","v":[[17,"無論作甚麼，或說話或行事，都要奉主耶穌的名，藉着他感謝父神。"]]},{"ref":"歌羅西書 3:23–24","v":[[23,"無論作甚麼，都要從心裏作，像是給主作的，不是給人作的，"],[24,"因你們知道從主那裏必得着基業為賞賜；你們所事奉的乃是主基督。"]]}],"more":"歌羅西書 3:12–4:1","still":"今天上班前，把手機翻面三十秒。安靜地對主說：「主啊，我是你的人，我的工作屬於你。」然後在備忘錄打下第一句：「我在這裏，是為了……」","teach":["保羅寫信給歌羅西教會的僕人——他們多半沒有選擇職業的自由，保羅卻說：「無論作甚麼，都要從心裏作，像是給主作的，不是給人作的。」（西3:23）他沒有先改變他們的工作，而是先改變他們眼中的「老闆」：「你們所事奉的乃是主基督。」（西3:24）這一週我們看見：神是第一位工人，把人安置在園中，賜下形像與管理，祂的兒子也親自在拿撒勒作工。","每一份工作都有職務說明書，寫着你負責的項目與KPI。但它只說「做甚麼」，沒有說「為誰做」「為甚麼做」。呼召宣言就是你人生的另一份職務說明書——不是公司發給你的，而是神寫給你的。它不取代你的工作清單，卻會改變你完成每一項工作的心。","今天請寫下三四句：「神是我真正的老闆；我被安置在＿＿＿；我要像耶穌一樣＿＿＿；我要讓人透過我的工作看見＿＿＿。」改變觀念要從清楚的資訊開始，求聖靈給你啟示，直到你真心信服、願意實踐。把它設為手機桌布或貼在螢幕旁，讓星期一早上的第一眼，看見的是你的呼召，而不是你的焦慮。"],"light":"321 光照：八大步驟從「資訊、啟示、信服、實踐」開始。這週得着的資訊，求聖靈化為啟示；寫下宣言，就是邁向實踐。兩個核心：讓耶穌作王，讓祂得着一切的榮耀。","scene":"Joanne在新加坡一家銀行做法遵，每天抓錯、退件、寫報告，常被業務同事當成「擋路的人」。週日晚上，她坐在書桌前想寫呼召宣言，卻只寫出一句：「我只是在做份工。」她看着這句話，不知道該刪掉，還是繼續寫下去。","q":["神是誰？——「你們所事奉的乃是主基督」，這句話怎樣改變你對「老闆」的理解？","我是誰？——如果只用一句話描述你的工作身分，你現在會怎麼寫？","我該怎樣回應？——如果你是Joanne，你會怎樣把「我只是在做份工」改寫成呼召宣言？"],"jesus":"耶穌說：「我的食物就是遵行差我來者的旨意，作成他的工。」（約4:34）祂一生有清楚的呼召：父差祂來，祂就完成父的工，直到在十字架上說「成了」。我們寫呼召宣言，是跟隨這位已經作成一切的主。","pray":"主啊，你是我真正的老闆。我不只是在做份工，我是在事奉你。求你幫我寫下你給我的呼召，也幫我每天活出它：被誤解時仍然誠實，重複時仍然用心，有壓力時仍然記得我是給你作的。我把這份宣言和我的星期一，都交在你手中。奉主耶穌的名，阿們。","acts":["用三四句寫下你的職場呼召宣言","把宣言設為手機桌布或貼在螢幕邊","把宣言傳給一位屬靈同伴，請他為你禱告"],"noon":"「你們所事奉的乃是主基督。」——主啊，此刻我記得，我是為你工作。"}]};
+var META={"zh":{"appVerseRef":"COL 3:23","extraMem":[],"stages":[{"n":"觀念","w":"第 1–8 週","img":"從人的觀點轉到神的觀點","goal":"看見工作是神的設計與呼召；看見職場中的有己，讓耶穌作王"},{"n":"生命","w":"第 9–21 週","img":"僕人的心","goal":"活出無己的僕人生命，在職場結出九種聖靈果子"},{"n":"生活","w":"第 22–30 週","img":"忠心的管家","goal":"在安息、金錢與誠信上，過讓耶穌作王的生活"},{"n":"關係","w":"第 31–44 週","img":"使人和睦的人","goal":"與上司、同事、下屬、客戶建立屬神的關係"},{"n":"事工","w":"第 45–52 週","img":"職場的大使","goal":"作光作鹽、成為職場屬靈父母，建立屬神的體系"}],"stageEnd":[8,21,30,44,52],"units":[{"c":"U1","n":"工作的設計者：呼召與職分","a":1,"b":4},{"c":"U2","n":"有己與無己的工作者","a":5,"b":8},{"c":"U3","n":"僕人的心：謙卑戰勝驕傲","a":9,"b":12},{"c":"U4","n":"聖靈果子在職場","a":13,"b":21},{"c":"U5","n":"工作與安息的節奏","a":22,"b":24},{"c":"U6","n":"金錢、薪酬與管家","a":25,"b":27},{"c":"U7","n":"誠信與倫理抉擇","a":28,"b":30},{"c":"U8","n":"與上司：順服與尊重","a":31,"b":34},{"c":"U9","n":"與同事：合作、衝突與饒恕","a":35,"b":39},{"c":"U10","n":"與下屬及客戶：僕人領導","a":40,"b":44},{"c":"U11","n":"職場見證與宣教","a":45,"b":48},{"c":"U12","n":"建立屬神體系：職場屬靈父母","a":49,"b":52}],"modules":[{"n":"呼召身分","s":"工作是神的呼召","ref":"西 3:23"},{"n":"無己僕人","s":"謙卑戰勝驕傲","ref":"腓 2:5–7"},{"n":"聖靈果子","s":"920 在職場","ref":"加 5:22–23"},{"n":"安息平衡","s":"工作與安息的節奏","ref":"太 11:28"},{"n":"誠信管家","s":"金錢與倫理","ref":"路 16:10"},{"n":"職場關係","s":"上司・同事・下屬・客戶","ref":"羅 12:18"},{"n":"見證繁殖","s":"作光作鹽・235","ref":"太 5:16"}],"partnerQ":["這週哪一個職場時刻，你看見耶穌在作王？","這週哪一個時刻是「我」在作王？（搶功、推責、比較、控制、討好）","這週的職場任務做得怎樣？有甚麼要檢討、修正？","下週你想在哪一件工作上讓耶穌作王？","我可以怎樣為你和你的同事禱告？"],"examen":[{"k":"s","t":"今天在職場，哪一個時刻是「我」在作王？","h":"檢討：搶功、推責、比較、控制、討好，還是焦慮？"},{"k":"g","t":"今天有哪一件事，我要把榮耀歸給主？","h":"謝恩：再小的事都算數，成功也不是我的功勞"},{"k":"f","t":"有誰需要我饒恕、道歉或和好？","h":"人比事重要：不要為了事傷害人"},{"k":"n","t":"明天我要怎樣讓耶穌在一件工作上作王？","h":"修正：一個具體的小改變"}],"steps":[{"k":"still","n":"靜","d":"上班前安靜交託","m":"聖靈是我的引導"},{"k":"read","n":"看","d":"看神的話","m":"聖經是我的準則"},{"k":"think","n":"聽","d":"聽講解・想情境","m":"聖經是我的準則"},{"k":"see","n":"見","d":"看見職場中的耶穌","m":"耶穌是我的榜樣"},{"k":"pray","n":"講","d":"向主說話","m":"讓耶穌作王"},{"k":"do","n":"行","d":"今天的職場任務","m":"讓耶穌得榮耀"}],"assess":[["我清楚知道我的工作是神的呼召，不只是謀生。","星期一走進職場時，我意識到自己是與神同工。","我的價值不是由職稱、業績或薪水決定。"],["功勞被別人拿走時，我能不苦毒、交託給神。","我會主動服事同事，不計較是不是我的份內事。","被稱讚時，我會真心把榮耀歸給神。"],["同事說我在壓力下仍然有耐心、溫柔。","我能為難相處的同事禱告、祝福他。","我會為我的「2」（同事、主管、下屬）做一件愛的事。"],["我每週有一段真正停下工作的安息。","面對壓力與焦慮，我會先禱告交託，而不是先抱怨。","工作沒有擠掉我與家人、與神相處的時間。"],["我在報帳、數據、時數上完全誠實。","我把薪水看作神的託付，有計畫地奉獻與管理。","遇到灰色地帶，我會用聖經準則而不是「大家都這樣」來決定。"],["我真心尊重、並為我的上司禱告。","與同事起衝突時，我願意先去和好。","我說的話多半是造就人的好話，不參與八卦與抱怨。"],["同事知道我是基督徒，而且看見我的生命不同。","我曾經在職場自然地分享信仰或為人禱告。","我正在陪伴或培育一位職場上的屬靈同伴或兒女。"]],"chatQ":["今天這一課怎麼應用在我的工作上？請給一個具體例子。","老闆要我做我覺得不對的事，我該怎麼辦？","我的功勞被同事搶走了，怎樣不苦毒？","工作壓力好大，常常焦慮失眠，可以怎樣禱告？","我可以怎樣自然地向同事分享信仰？","我是主管，怎樣用僕人領導帶團隊？","請幫我預備一段和同事和好的對話。","我該不該換工作？請用 321 幫我想清楚。"],"sos":[{"k":"wrong","n":"被屈","ref":"1PE 2:23","w":"耶穌被罵不還口，把自己交託那按公義審判人的主。你不必立刻證明自己，神看見。","p":"主啊，我覺得委屈。我把這件事、這個人和我的名聲都交在你手中。求你保守我的口，也保守我的心不生苦毒。","a":"先不回訊息，等十分鐘、禱告後再回應"},{"k":"anx","n":"焦慮","ref":"PHP 4:6","w":"焦慮是想把明天扛在今天的肩上。把它變成禱告，平安會站崗保守你的心。","p":"主啊，我把這份報告、這個期限、這場會議交給你。我做我能做的，結果交給你。求你的平安保守我的心。","a":"寫下三件擔心的事，逐一說：「主，這交給你」"},{"k":"angry","n":"生氣","ref":"JAS 1:19","w":"怒氣是一封還沒寫完的信——先別按送出。快快的聽，慢慢的說，慢慢的動怒。","p":"主啊，我現在很生氣。求你讓我先聽懂，再開口；讓我對事不對人，不為了事傷害人。","a":"深呼吸三次，先問一個問題，再表達意見"},{"k":"tempt","n":"誘惑","ref":"1CO 10:13","w":"你不是唯一被試探的人，神也從不讓你無路可走。出路往往就在「現在就離開」。","p":"主啊，我承認我被吸引了。謝謝你是信實的，求你給我出路，也給我立刻走出去的勇氣。","a":"離開那個畫面或場合，告訴一位屬靈同伴"},{"k":"tired","n":"倦怠","ref":"ISA 40:31","w":"倦怠不是失敗，是身體與心靈在說：該回到源頭了。等候耶和華的，必從新得力。","p":"主啊，我好累，好像已經沒有力氣。求你親自補充我；也給我智慧，知道甚麼該放下、該向誰求助。","a":"今天準時下班，好好睡一覺；必要時找可信任的人談談"},{"k":"proud","n":"得意","ref":"1CO 4:7","w":"驕傲常在成功時悄悄進門。你所有的，哪一樣不是領受的？把掌聲轉成感恩。","p":"主啊，謝謝你讓這件事成功。這不是我的功勞，是你的恩典，也是團隊的同心。一切榮耀歸給你。","a":"今天公開感謝一位幫助過你的同事"}],"rhythm":[{"k":"am","n":"上班前","from":5,"to":10,"ref":"PSA 90:17","p":"主啊，今天我與你同工。願你堅立我手所作的工，讓我所作的一切都榮耀你。"},{"k":"meet","n":"會議前","from":10,"to":12,"ref":"JAS 1:5","p":"主啊，這場會議請你作王。給我智慧與溫柔，讓我先聽、後說，不為了事傷害人。"},{"k":"noon","n":"午間","from":12,"to":17,"ref":"PSA 46:10","p":"主啊，我停下來。你是神，不是我；下午的每一件事，我重新交給你。"},{"k":"pm","n":"下班後","from":17,"to":29,"ref":"MAT 11:28","p":"主啊，今天的工作交還給你。做好的歸榮耀給你，沒做好的求你補足。我在你裏面安息。"}],"decide":[{"k":"j","n":"耶穌是我的榜樣","q":"如果耶穌在我的位置上，祂會怎麼做？","h":"想想耶穌怎樣對待權柄、金錢、弱者與敵人。"},{"k":"b","n":"聖經是我的準則","q":"聖經在這件事上有甚麼原則？","h":"誠實、公義、憐憫、順服的界線（徒5:29）。"},{"k":"h","n":"聖靈是我的引導","q":"安靜禱告兩分鐘，聖靈在提醒我甚麼？","h":"用心靠聖靈，不用腦靠自己；平安還是不安？"},{"k":"g","n":"讓耶穌得榮耀","q":"這個選擇讓誰得榮耀？是耶穌，還是我自己？","h":"問自己：我是在保護面子，還是讓耶穌作王？"},{"k":"x","n":"人比事重要","q":"誰可能受傷害？我怎樣顧到人與關係？","h":"不要為了事傷害人，不要為了東西破壞關係。"}],"caseCats":["誠信","上司","同事","領導","金錢","安息壓力","見證","職涯抉擇"]}};
+var I18N={"zh":{"app":"321職場生活","brandSub":"職場得勝者・生活操練","fellowship":"國度321空中團契","tToday":"今日","tCourse":"課程","tVerse":"經文","tChat":"小智","tPray":"禱告","tGrace":"恩典","gMorning":"早安，願你在主裏得力","gNoon":"午安，回到主的同在裏","gNight":"晚安，在主懷中安息","wk":"週","welcomeBack":"歡迎回家","welcomeBackS":"這裏沒有中斷的紀錄，只有永遠敞開的門。從今天重新開始就好。","satK":"週六・反覆與繁殖","satT":"與同伴分享這週的職場見證","satS":"重溫本週背誦經文，與屬靈同伴或職場得勝小組交換一個「耶穌作王」的時刻，也誠實分享一次失敗。","openPartner":"打開同伴對談卡","reviewMem":"背經複習","sunK":"主日・安息","sunT":"今天不必完成任何功課，也不必回工作訊息","sunS":"好好敬拜、好好休息、好好陪家人。只記下今天敬拜中觸動你的一句話。","sunBtn":"記下觸動我的一句話","mornK":"晨・今日操練","wkDay":"第 {0} 週 第 {1} 課","loading":"載入中……","doneTodayN":"今天已完成 {0} 課。可以繼續，也可以明天再來，讓真理慢慢扎根。","minsLabel":"約 {0} 分鐘","startDevo":"開始今日操練","allDoneK":"全年 52 週完成","allDoneT":"感謝主！你走完了職場得勝者的一年","allDoneS":"一切都是神在耶穌裏所作所成就的。現在，回到職場作基督的大使，去陪伴一位職場屬靈兒女吧！","reviewCourse":"重溫課程","noonK":"午・一句話","noonBtn":"我已把焦點轉回耶穌","noonToast":"願主的平安充滿你","eveK":"晚・職場日誌","eveS":"誰在作王、歸榮耀、待饒恕、明天，約 3 分鐘","eveDone":"今晚已寫","again":"再寫一次","eveBtn":"寫職場日誌","meetK":"今年在職場與主同工的日子","meetS":"不比天數，只數恩典","meetS2":"完成操練、職場日誌或記錄恩典的日子","yearProg":"全年課程 {0} / 260 課","xzCardT":"問小智","xzCardS":"你的 AI 職場導師：解經、難題、禱告、職場應用","courseMap":"課程地圖","courseMapS":"五階段 × 十二單元 × 52 週，每週五課，全年 260 課","assessed":"已自評","retreat":"階段回顧","nOf5":"{0} / 5 課","curProg":"目前進度","memLabel":"背誦：","assessBtn":"職場健康自評","sevenMods":"七大模組","verseS":"每週一節背誦經文，跟着課程進度加入。記得了就隔久一點，忘了就明天再練。在等電梯、等開會的空檔就可以背。","todayMem":"今日背經","flipHint":"先在心裏背一次，再點一下看經文","again2":"再練一次","gotIt":"我記得了","makeCard":"做成美圖","memAllDone":"今天的背經都完成了，感謝主！","weekVerses":"第 {0} 週經文","hlTip":"點一下任何一句就能畫線；再點一次可換顏色、寫默想、問小智、朗讀或做成美圖。","lessonN":"第 {0} 課","myMem":"我的背經卡（{0}）","wkN":"第 {0} 週","memorised":"熟記","bibleCredit":"經文：新標點和合本（神版，公領域）","addPrayer":"新增禱告事項","prayerPH":"為誰、為甚麼事禱告？","addToList":"加入禱告清單","praying":"正在禱告（{0}）","noPrayer":"還沒有禱告事項。","since":"{0} 起","answered":"蒙應允","answeredN":"已蒙應允（{0}）","lordsPrayer":"主禱文","graceBook":"恩典與職場日誌","graceBookS":"記下「主在我的工作中作了甚麼」，不是「我做了多少」","addGrace":"記下一個恩典","fAll":"全部","fGrace":"恩典","fDevo":"操練","fExam":"日誌","fHl":"畫線","fFav":"收藏","todayAct":"今天的實踐：","thanksL":"歸榮耀：","tomorrowL":"明天：","noRecord":"還沒有記錄。完成第一課後，這裏會開始寫下神的作為。","localOnly":"職場日誌只存在你自己的手機裏；請勿寫入公司機密或客戶資料","tyRest":"安息","tyGrace":"恩典","tyDevo":"操練","tyAssess":"自評","tyAnswered":"禱告蒙應允","breathHint":"隨着圓圈吸氣、吐氣，至少三次","readHint":"慢慢讀兩遍：第一遍讀懂，第二遍讓一個詞停在心裏。點一下句子可以畫線。","moreRead":"延伸閱讀（30 分鐘版）：","qPH":"寫下聖靈給你的感動（可略過）","askLesson":"問小智這一課","seeQ":"今天我看見的耶穌是……","seePH":"用一句話寫下","myPrayQ":"用我自己的話對主說","myPrayPH":"主啊……","doHint":"選一個具體、小、今天就能做的行動","ownAct":"或者寫下你自己的行動","ownPH":"今天我要……","stageReview":"階段回顧","stageReviewS":"用 5 分鐘誠實地回顧這一階段：檢討、修正，看見神在你工作中的恩典。","assessStart":"開始職場健康自評","prev":"上一步","next":"下一步","finish":"完成，榮耀歸主","gloryJesus":"一切榮耀歸給耶穌","gloryS":"不是我做了甚麼，乃是主在我裏面作了甚麼。","todayAct2":"今天的實踐","backToday":"回到今日","weekDone":"第 {0} 週全部完成！週六記得與同伴分享，並複習背誦經文：{1}。","nextLesson":"下一課：第 {0} 週第 {1} 課（明天再來，讓真理慢慢扎根）","yearDone":"全年 260 課完成！願你成為得勝者，與主同坐寶座。","assessBig":"評","assessK":"職場健康自評・{0}階段","assessIntro":"不是為了打分數，而是為了看見恩典、找到下一步。1 = 很少，5 = 經常。","seeRadar":"看我的屬靈健康圖","assessLeft":"還有 {0} 題未作答","radarT":"我的職場健康圖","thisTime":"本次","lastStage":"上一階段","graceOnYou":"神在你身上的恩典","graceOnYouS":"這是主在你生命中動工最明顯的地方，為此獻上感謝，把榮耀歸給耶穌。","nextInvite":"下一階段可以邀請主動工的地方","nextInviteS":"不是你的失敗，而是主要帶你走得更深的方向。課程中與「{0}」相關的週次，可以多花一點時間默想。","assessToGrace":"把這次的領受記入恩典簿","done":"完成","reassess":"這一階段已自評過，要重新自評嗎？","examBig":"誌","examK":"職場日誌・檢討與修正","examSave":"交給主，下班安息","writeOne":"寫一句也好，再小的恩典都算數","goodnight":"晚安","graceBig":"恩","graceK":"記下主的作為","graceQ":"主今天在我身上作了甚麼？","gracePH":"例如：今天會議上被質疑，我沒有反擊，先聽完再回應，心裏有平安……","graceSave":"記下，榮耀歸主","writeOne2":"寫一句就好","graceSaved":"已記入恩典記錄簿","partnerBig":"伴","partnerK":"屬靈同伴・每週五題對談卡","myPartner":"我的屬靈同伴","partnerPH":"同伴的稱呼","weekMem":"本週背誦","invite":"邀請同伴一起操練","save":"儲存","saved":"已儲存","copied":"已複製","inviteText":"我正在用「321職場生活」App 操練，每天通勤 10 分鐘，學習在職場讓耶穌作王。邀請你作我的屬靈同伴，週六互相分享一個職場見證！","settings":"設定","language":"語言","nameLabel":"稱呼","namePH":"我該怎麼稱呼你？","devoTime":"每日靈修時間","minN":"{0} 分鐘","devoTimeS":"10 分鐘版：靜、看、講、行；20 分鐘版：完整六步；30 分鐘版：六步加延伸閱讀","fontSize":"字級","fs1":"標準","fs2":"大","fs3":"特大","fs4":"超大","themeL":"色調","th0":"隨晨午晚","th1":"晨光青","th2":"午後藍","th3":"深夜藍","voiceL":"朗讀聲音","godWord":"經文用字","gwShen":"神版","gwSD":"上帝版","godWordS":"兩版經文內容相同，只在稱呼「神／上帝」不同","partnerL":"屬靈同伴","partnerBtn":"同伴對談卡與邀請","offline":"離線使用","offlineS":"課程依週次自動下載。出國或網路不穩前，可一次下載全年 52 週（目前語言）。","dlAll":"下載全年課程","dlDone":"已下載 {0} / 52 週","dlIng":"下載中 {0} / 52","dlOk":"全年課程已可離線使用","dlPart":"部分週次下載失敗，請稍後再試","backup":"資料備份","backupS":"所有日誌只存在這支手機。換手機前請先匯出。","exportB":"匯出備份","importB":"匯入備份","exported":"已匯出備份","imported":"已匯入備份","badFile":"檔案格式不正確","diag":"連線測試","diagRun":"測試小智與朗讀","diagBusy":"測試中……","about321":"關於 321","about321T":"<b>三個基礎</b>：耶穌是我的榜樣；聖經是我的準則；聖靈是我的引導。<br><b>兩個核心</b>：讓耶穌作王；讓耶穌得着一切的榮耀。<br><b>一個目的</b>：建立屬神的體系。","aboutVer":"國度321空中團契・321學神院 生活操練課程（職場）<br>版本 1.0・全年 52 週 260 課・繁／简／English","resetAll":"清除所有資料","resetConfirm":"確定清除所有日誌、禱告與進度？此動作無法復原。","welcomeHome":"歡迎來到職場得勝者之路","obIntro":"這不是一個打卡工具，而是一條把信仰帶進星期一的路：一年 52 週、五個階段，從觀念、生命、生活、關係到事工，在職場讓耶穌作王，成為職場得勝者。三個小問題，讓我們為你預備起點。","obName":"我該怎麼稱呼你？（可略過）","obSince":"你目前在職場的角色是？","obS0":"職場新鮮人・或正在找工作","obS1":"上班族・專業人士","obS2":"主管・經理人","obS3":"老闆・創業者・自由工作者","obTime":"每天大約有多少時間？","obM10":"10 分鐘・通勤精簡版（建議）","obM20":"20 分鐘・完整六步","obM30":"30 分鐘・六步加延伸閱讀","obTimeS":"隨時可以在設定裏調整。","obGrow":"你最想在哪方面得勝？","obMulti":"可複選","obStart":"開始第一課","pickOne":"請選一項","nextReview":"下次複習：{0}","needNet":"需要網路才能下載這一週的課程","loadFail":"讀不到課程檔案：","loadFailS":"請確認網站上已上傳 content 資料夾與 lang-zs.json、lang-en.json；或檢查網路後重試。","retry":"重試","updReady":"已有新版本，點這裏立即更新","updFound":"找到新版本，正在更新……","updLatest":"已是最新版本（{0}）","updFail":"暫時無法檢查更新","verL":"版本","chkUpd":"檢查更新","storeFull":"儲存空間不足，請匯出備份","prayerAdded":"已加入禱告清單","howAnswered":"神怎樣應允了？（可略過）","answeredToast":"感謝主！已記入恩典記錄簿","delPrayer":"刪除這個禱告事項？","hlAdded":"已畫線，再點一下可換色、寫默想、做美圖","hlTitle":"這一句","hlColor":"顏色","hlSpan":"範圍","spanUnit":"{0} 句","spanP":"整段","spanIsP":"這一段已經整段畫起來了","spanDoneP":"已畫整段，共 {0} 句","hlNotePH":"寫下默想……","askXz":"問小智","readThis":"朗讀","copy":"複製","share":"分享","hlDel":"刪除畫線","delHl":"刪除這條畫線？","noHl":"還沒有畫線。上課時點一下任何一句就能畫線。","noFav":"還沒有收藏。小智的回答按 ★ 就能收藏。","lessonRef":"第 {0} 週第 {1} 課〈{2}〉","meditateQ":"請就這句幫助我默想：{0}（{1}）","askLessonQ":"請幫我更深理解第 {0} 週第 {1} 課〈{2}〉：重點是甚麼？我今天可以怎樣具體實踐？","ttsErr":"這台裝置不支援朗讀","ttsFallback":"改用裝置內建語音","xzName":"小智","xzTag":"321 AI 職場導師","xzCtx":"正在陪你上：第 {0} 週第 {1} 課〈{2}〉","xzExamples":"不知道問甚麼？看看範例","xzPH":"輸入你的問題……","send":"送出","xzEmpty":"嗨，我是小智，你的職場導師。今天的課程、老闆同事的難題、壓力與抉擇、怎樣在職場作見證，都可以問我。","thinking":"小智思考中……","favB":"收藏","favSaved":"已收藏","chatErr":"小智暫時連不上，請稍後再試","xzReplied":"小智回覆了","clearChat":"清除所有對話？","xzSystem":"你是「小智」，國度321空中團契「321職場生活」App 的 AI 職場導師。你是福音派、敬虔愛主、懂職場的牧者與聖經教師，以 321 理念回應：三個基礎（耶穌是我的榜樣、聖經是我的準則、聖靈是我的引導）、兩個核心（讓耶穌作王、讓耶穌得着一切的榮耀）、一個目的（建立屬神的體系）；幫助上班族、主管、老闆從有己的舊生命進入無己的新生命，謙卑戰勝驕傲，在職場作光作鹽，人比事重要、關係比東西重要。回答深入淺出、善用比喻、條理清晰、溫暖有盼望、具體可行，引用新標點和合本聖經（標明出處），用繁體中文回答，簡明扼要。遇到違法、霸凌、過勞、身心危機等情況，除了屬靈建議，也要提醒尋求可信任的人或專業協助；不提供法律、醫療、投資的專業意見。","xzFormat":" 回答格式：需要並列或對照時可以用 markdown 表格；用簡短的小標題（####）與條列分段；請把最重要的一句用「> 」標成引言，那一句會被做成美圖。不要用程式碼區塊或念不出來的裝飾符號。若寫到禱告，結尾一律用「奉主耶穌的名禱告，阿們」。","studioT":"經文美圖","saveImg":"存到相簿","cTpl":"版型","cSize":"尺寸","cBorder":"邊框","cFs":"字級","cardBless":"願神賜福你的工作！","cPhoto":"背景相片","pickPhoto":"從相簿選","pexels":"免費圖庫","noPhoto":"移除相片","cText":"經文／金句","cRef":"出處","cNote":"領受（可留空）","cNotePH":"寫下你的領受……","cTo":"送給（可留空）","cToPH":"例如：親愛的媽媽","cTop":"團體名稱","cSignL":"落款","cardSign":"321職場生活　新標點和合本","tplNavy":"深藍聖夜","tplPaper":"素樸信箋","tplDawn":"晨曦盼望","tplGrace":"青草安歇","tplRose":"溫柔玫瑰","tplSky":"平安晴空","tplLinen":"素雅棉麻","tplNight":"深夜星光","tplPlain":"純白簡潔","sz916":"直式 9:16","sz45":"直式 4:5","szSq":"方形","szWide":"橫式","bd_classic":"古典雙框","bd_corner":"雅緻角飾","bd_inline":"內斂細線","bd_dots":"珠鏈點框","bd_ornate":"華麗花角","bd_none":"無邊框","cfs0":"小一點","cfs1":"標準","cfs2":"大","cfs3":"特大","cfs4":"超大","photoBad":"這張相片讀不進來，換一張試試","holdT":"長按圖片存到相簿","holdS":"長按下面的圖片，選「加入照片」就會存進相簿。","saveIOS":"在分享面板選「儲存影像」就會存進相簿","savedFile":"已下載圖片","close":"關閉","pexelsT":"Pexels 免費圖庫","pxPH":"想找甚麼樣的畫面……","search":"搜尋","more":"再多一些","pxHint":"照片來自 Pexels，免費可商用。挑一張當背景，字會自動壓上一層遮罩。","pxNone":"找不到相符的照片，換個字試試","pxErr":"連不上圖庫","pxLoading":"下載照片中……","pxPicked":"已選好這張照片","fDec":"抉擇","kingL":"誰在作王：","forgiveL":"待饒恕：","sosK":"我現在需要","sosS":"點一下，給你一節經文、一句禱告、一個行動","sosAct":"現在就做：","sosPray":"禱告","sosAmen":"阿們，我交託了","rhK":"工作日禱告節奏","rhS":"上班前・會議前・午間・下班後，各 30 秒","rhAll":"看全部四個時段","rhDone":"我禱告了","rhNow":"現在：{0}","decK":"職場難題決策器","decS":"遇到灰色地帶？用 321 五問想清楚，或看 60 個常見案例","decMine":"想我自己的難題","decCases":"看常見案例","decTitle":"職場難題決策器","decIntro":"先把難題寫下來，再依「三個基礎、兩個核心」逐一想清楚。寫的內容只存在你的手機。","decWhat":"我遇到的難題是……","decWhatPH":"例如：主管要我在報表上把數字「調漂亮一點」……","decStep":"第 {0} 步，共 5 步","decSum":"我的決定與下一步","decSumPH":"綜合以上，我決定……；下一步我要……","decSave":"交給主，存入日誌","decSaved":"已存入抉擇日誌","decNeed":"請先寫下你的難題","caseAll":"全部","caseLoad":"載入案例中……","caseJ":"耶穌會怎麼做","caseB":"聖經的準則","caseH":"聖靈的引導","caseG":"讓誰得榮耀","caseX":"人比事重要","caseN":"智慧的下一步","caseUse":"用這個案例想我自己的難題","caseBack":"回到案例列表","sceneK":"職場情境"}};
+var SYL={"zh":[{"w":1,"m":0,"t":"起點：神是第一位工人","mem":"歌羅西書 3:23–24","memT":"無論作甚麼，都要從心裏作，像是給主作的，不是給人作的，因你們知道從主那裏必得着基業為賞賜；你們所事奉的乃是主基督。"},{"w":2,"m":0,"t":"呼召：你的工作是神的差派","mem":"以弗所書 2:10","memT":"我們原是他的工作，在基督耶穌裏造成的，為要叫我們行善，就是神所預備叫我們行的。"},{"w":3,"m":0,"t":"打破聖俗二分：星期一也是主日","mem":"哥林多前書 10:31","memT":"所以，你們或吃或喝，無論作甚麼，都要為榮耀神而行。"},{"w":4,"m":0,"t":"墮落與救贖：從勞苦到事奉","mem":"哥林多前書 15:58","memT":"所以，我親愛的弟兄們，你們務要堅固，不可搖動，常常竭力多作主工；因為知道，你們的勞苦在主裏面不是徒然的。"},{"w":5,"m":1,"t":"職場中的有己：我要作王","mem":"雅各書 4:6","memT":"但他賜更多的恩典，所以經上說：神阻擋驕傲的人，賜恩給謙卑的人。"},{"w":6,"m":1,"t":"成功的偶像：當工作成為神","mem":"馬太福音 6:33","memT":"你們要先求他的國和他的義，這些東西都要加給你們了。"},{"w":7,"m":1,"t":"身分在基督裏：職稱不定義我","mem":"加拉太書 2:20","memT":"我已經與基督同釘十字架，現在活着的不再是我，乃是基督在我裏面活着；並且我如今在肉身活着，是因信神的兒子而活；他是愛我，為我捨己。"},{"w":8,"m":1,"t":"讓耶穌在工作中作王","mem":"箴言 16:3","memT":"你所作的，要交託耶和華，你所謀的，就必成立。"},{"w":9,"m":1,"t":"耶穌的僕人領導","mem":"馬可福音 10:45","memT":"因為人子來，並不是要受人的服事，乃是要服事人，並且要捨命作多人的贖價。"},{"w":10,"m":1,"t":"謙卑戰勝驕傲：功勞與榮耀","mem":"彼得前書 5:6","memT":"所以，你們要自卑，服在神大能的手下，到了時候他必叫你們升高。"},{"w":11,"m":1,"t":"捨己：為別人工作","mem":"腓立比書 2:4","memT":"各人不要單顧自己的事，也要顧別人的事。"},{"w":12,"m":1,"t":"忠心：在小事上忠心","mem":"馬太福音 25:21","memT":"主人說：『好，你這又良善又忠心的僕人，你在不多的事上有忠心，我要把許多事派你管理；可以進來享受你主人的快樂。』"},{"w":13,"m":2,"t":"仁愛：在職場彼此相愛","mem":"哥林多前書 13:4","memT":"愛是恒久忍耐，又有恩慈；愛是不嫉妒；愛是不自誇，不張狂。"},{"w":14,"m":2,"t":"喜樂：在壓力中靠主喜樂","mem":"腓立比書 4:4","memT":"你們要靠主常常喜樂。我再說，你們要喜樂。"},{"w":15,"m":2,"t":"和平：心裏的平安與使人和睦","mem":"腓立比書 4:7","memT":"神所賜出人意外的平安，必在基督耶穌裏保守你們的心懷意念。"},{"w":16,"m":2,"t":"忍耐：熬過漫長的工作季節","mem":"雅各書 1:4","memT":"但忍耐也當成功，使你們成全、完備，毫無缺欠。"},{"w":17,"m":2,"t":"恩慈：用溫暖的手服事人","mem":"以弗所書 4:32","memT":"並要以恩慈相待，存憐憫的心，彼此饒恕，正如神在基督裏饒恕了你們一樣。"},{"w":18,"m":2,"t":"良善：行善不可喪志","mem":"加拉太書 6:9","memT":"我們行善，不可喪志；若不灰心，到了時候就要收成。"},{"w":19,"m":2,"t":"信實：說到做到的人","mem":"哥林多前書 4:2","memT":"所求於管家的，是要他有忠心。"},{"w":20,"m":2,"t":"溫柔：回答柔和使怒消退","mem":"箴言 15:1","memT":"回答柔和，使怒消退；言語暴戾，觸動怒氣。"},{"w":21,"m":2,"t":"節制：管住自己的人","mem":"箴言 16:32","memT":"不輕易發怒的，勝過勇士；治服己心的，強如取城。"},{"w":22,"m":3,"t":"安息日的恩典：停下來","mem":"馬太福音 11:28","memT":"凡勞苦擔重擔的人可以到我這裏來，我就使你們得安息。"},{"w":23,"m":3,"t":"焦慮與壓力：把重擔卸給神","mem":"彼得前書 5:7","memT":"你們要將一切的憂慮卸給神，因為他顧念你們。"},{"w":24,"m":3,"t":"工作與家庭的次序","mem":"詩篇 127:2","memT":"你們清晨早起，夜晚安歇，喫勞碌得來的飯，本是枉然；惟有耶和華所親愛的，必叫他安然睡覺。"},{"w":25,"m":4,"t":"薪水與管家：一切都是神的","mem":"箴言 3:9","memT":"你要以財物和一切初熟的土產尊榮耶和華。"},{"w":26,"m":4,"t":"知足與野心：敬虔加上知足","mem":"提摩太前書 6:6","memT":"然而，敬虔加上知足的心便是大利了。"},{"w":27,"m":4,"t":"慷慨與債務：活出施比受更有福","mem":"哥林多後書 9:7","memT":"各人要隨本心所酌定的，不要作難，不要勉強，因為捐得樂意的人是神所喜愛的。"},{"w":28,"m":4,"t":"誠實無偽：天平與口舌","mem":"箴言 11:3","memT":"正直人的純正必引導自己；奸詐人的乖僻必毀滅自己。"},{"w":29,"m":4,"t":"灰色地帶的抉擇","mem":"使徒行傳 5:29","memT":"彼得和眾使徒回答說：順從神，不順從人，是應當的。"},{"w":30,"m":4,"t":"但以理：在巴比倫職場不妥協","mem":"箴言 22:29","memT":"你看見辦事殷勤的人嗎？他必站在君王面前，必不站在下賤人面前。"},{"w":31,"m":5,"t":"與上司：順服與尊重","mem":"以弗所書 6:7","memT":"甘心事奉，好像服事主，不像服事人。"},{"w":32,"m":5,"t":"為上司與公司禱告","mem":"提摩太前書 2:1","memT":"我勸你，第一要為萬人懇求、禱告、代求、祝謝。"},{"w":33,"m":5,"t":"面對不公的主管","mem":"彼得前書 2:19","memT":"倘若人為叫良心對得住神，就忍受冤屈的苦楚，這是可喜愛的。"},{"w":34,"m":5,"t":"約瑟：在逆境中被神使用","mem":"創世記 50:20","memT":"從前你們的意思是要害我，但神的意思原是好的，要保全許多人的性命，成就今日的光景。"},{"w":35,"m":5,"t":"合作與團隊：二人勝過一人","mem":"傳道書 4:9","memT":"兩個人總比一個人好，因為二人勞碌同得美好的果效。"},{"w":36,"m":5,"t":"衝突的處理","mem":"馬太福音 18:15","memT":"倘若你的弟兄得罪你，你就去，趁着只有他和你在一處的時候，指出他的錯來。他若聽你，你便得了你的弟兄。"},{"w":37,"m":5,"t":"饒恕與和好","mem":"歌羅西書 3:13","memT":"倘若這人與那人有嫌隙，總要彼此包容，彼此饒恕；主怎樣饒恕了你們，你們也要怎樣饒恕人。"},{"w":38,"m":5,"t":"職場的舌頭：造就人的好話","mem":"以弗所書 4:29","memT":"污穢的言語一句不可出口，只要隨事說造就人的好話，叫聽見的人得益處。"},{"w":39,"m":5,"t":"嫉妒與比較","mem":"加拉太書 5:26","memT":"不要貪圖虛名，彼此惹氣，互相嫉妒。"},{"w":40,"m":5,"t":"洗腳的領導","mem":"約翰福音 13:14","memT":"我是你們的主，你們的夫子，尚且洗你們的腳，你們也當彼此洗腳。"},{"w":41,"m":5,"t":"公平與關懷：作主人的","mem":"歌羅西書 4:1","memT":"你們作主人的，要公公平平的待僕人，因為知道你們也有一位主在天上。"},{"w":42,"m":5,"t":"培育人才：鐵磨鐵","mem":"箴言 27:17","memT":"鐵磨鐵，磨出刃來；朋友相感也是如此。"},{"w":43,"m":5,"t":"服事客戶如同服事主","mem":"加拉太書 6:10","memT":"所以，有了機會就當向眾人行善，向信徒一家的人更當這樣。"},{"w":44,"m":5,"t":"尼希米：禱告的領導者","mem":"腓立比書 2:3","memT":"凡事不可結黨，不可貪圖虛浮的榮耀；只要存心謙卑，各人看別人比自己強。"},{"w":45,"m":6,"t":"作光作鹽","mem":"馬太福音 5:16","memT":"你們的光也當這樣照在人前，叫他們看見你們的好行為，便將榮耀歸給你們在天上的父。"},{"w":46,"m":6,"t":"生命的見證：先活出再說出","mem":"彼得前書 3:15","memT":"只要心裏尊主基督為聖。有人問你們心中盼望的緣由，就要常作準備，以溫柔、敬畏的心回答各人。"},{"w":47,"m":6,"t":"向同事傳福音","mem":"歌羅西書 4:6","memT":"你們的言語要常常帶着和氣，好像用鹽調和，就可知道該怎樣回答各人。"},{"w":48,"m":6,"t":"職場中的禱告與屬靈爭戰","mem":"以弗所書 6:18","memT":"靠着聖靈，隨時多方禱告祈求；並要在此儆醒不倦，為眾聖徒祈求。"},{"w":49,"m":6,"t":"職場屬靈父母：235","mem":"提摩太後書 2:2","memT":"你在許多見證人面前聽見我所教訓的，也要交託那忠心能教導別人的人。"},{"w":50,"m":6,"t":"建立屬神的團隊","mem":"傳道書 4:12","memT":"有人攻勝孤身一人，若有二人便能敵擋他；三股合成的繩子不容易折斷。"},{"w":51,"m":6,"t":"把職場變成屬神領域","mem":"馬太福音 6:10","memT":"願你的國降臨；願你的旨意行在地上，如同行在天上。"},{"w":52,"m":6,"t":"得勝者：忠心到底","mem":"啟示錄 3:21","memT":"得勝的，我要賜他在我寶座上與我同坐，就如我得了勝，在我父的寶座上與他同坐一般。"}]};
+var VERSES={"zh":{"COL 3:23":{"r":"歌羅西書 3:23–24","t":"無論作甚麼，都要從心裏作，像是給主作的，不是給人作的，因你們知道從主那裏必得着基業為賞賜；你們所事奉的乃是主基督。"},"LUK 15:20":{"r":"路加福音 15:20","t":"於是起來，往他父親那裏去。相離還遠，他父親看見，就動了慈心，跑去抱着他的頸項，連連與他親嘴。"},"PHP 4:6":{"r":"腓立比書 4:6–7","t":"應當一無掛慮，只要凡事藉着禱告、祈求，和感謝，將你們所要的告訴神。神所賜出人意外的平安，必在基督耶穌裏保守你們的心懷意念。"},"2CO 13:5":{"r":"哥林多後書 13:5","t":"你們總要自己省察有信心沒有，也要自己試驗。豈不知你們若不是可棄絕的，就有耶穌基督在你們心裏嗎？"},"PSA 139:23":{"r":"詩篇 139:23","t":"神啊，求你鑒察我，知道我的心思，試煉我，知道我的意念。"},"PSA 139:24":{"r":"詩篇 139:24","t":"看在我裏面有甚麼惡行沒有，引導我走永生的道路。"},"PSA 4:8":{"r":"詩篇 4:8","t":"我必安然躺下睡覺，因為獨有你耶和華使我安然居住。"},"ECC 4:9":{"r":"傳道書 4:9–10","t":"兩個人總比一個人好，因為二人勞碌同得美好的果效。若是跌倒，這人可以扶起他的同伴；若是孤身跌倒，沒有別人扶起他來，這人就有禍了。"},"MAT 6:9":{"r":"馬太福音 6:9","t":"所以，你們禱告要這樣說：我們在天上的父：願人都尊你的名為聖。"},"MAT 6:10":{"r":"馬太福音 6:10","t":"願你的國降臨；願你的旨意行在地上，如同行在天上。"},"MAT 6:11":{"r":"馬太福音 6:11","t":"我們日用的飲食，今日賜給我們。"},"MAT 6:12":{"r":"馬太福音 6:12","t":"免我們的債，如同我們免了人的債。"},"MAT 6:13":{"r":"馬太福音 6:13","t":"不叫我們遇見試探；救我們脫離兇惡。因為國度、權柄、榮耀，全是你的，直到永遠。阿們！"},"1PE 2:23":{"r":"彼得前書 2:23","t":"他被罵不還口；受害不說威嚇的話，只將自己交託那按公義審判人的主。"},"JAS 1:19":{"r":"雅各書 1:19–20","t":"我親愛的弟兄們，這是你們所知道的，但你們各人要快快的聽，慢慢的說，慢慢的動怒，因為人的怒氣並不成就神的義。"},"1CO 10:13":{"r":"哥林多前書 10:13","t":"你們所遇見的試探，無非是人所能受的。神是信實的，必不叫你們受試探過於所能受的；在受試探的時候，總要給你們開一條出路，叫你們能忍受得住。"},"ISA 40:31":{"r":"以賽亞書 40:31","t":"但那等候耶和華的必從新得力。他們必如鷹展翅上騰；他們奔跑卻不困倦，行走卻不疲乏。"},"1CO 4:7":{"r":"哥林多前書 4:7","t":"使你與人不同的是誰呢？你有甚麼不是領受的呢；若是領受的，為何自誇，彷彿不是領受的呢？"},"PSA 90:17":{"r":"詩篇 90:17","t":"願主我們神的榮美歸於我們身上。願你堅立我們手所作的工；我們手所作的工，願你堅立。"},"JAS 1:5":{"r":"雅各書 1:5","t":"你們中間若有缺少智慧的，應當求那厚賜與眾人、也不斥責人的神，主就必賜給他。"},"PSA 46:10":{"r":"詩篇 46:10","t":"你們要休息，要知道我是神！我必在外邦中被尊崇，在遍地上也被尊崇。"},"MAT 11:28":{"r":"馬太福音 11:28","t":"凡勞苦擔重擔的人可以到我這裏來，我就使你們得安息。"},"PRO 3:5":{"r":"箴言 3:5–6","t":"你要專心仰賴耶和華，不可倚靠自己的聰明，在你一切所行的事上都要認定他，他必指引你的路。"}}};
+/* ===================================================== 321職場生活 v1 — core (shell from 321屬靈生活 v2) (ES5) */
+var KEY='worklife321_v1';
+var API={chat:'https://xiaozhi-proxy.spch321.workers.dev', tts:'https://azure-tts.spch321.workers.dev'};
+var PEXELS_KEY='ofCQ7i2mqaEddrACvvmzdgfrpZ90Z8gVOI9D6vYVf7uxWXCCtzQbj9yR';
+var TTS_SIL=140, TTS_SILC=140, TTS_SILE=260, TTS_RATE='+0%';
+var VOICES={
+zh:[{n:'雲哲',v:'zh-TW-YunJheNeural'},{n:'雲帆',v:'zh-CN-Yunfan:DragonHDLatestNeural'},{n:'曉辰',v:'zh-CN-Xiaochen:DragonHDLatestNeural'}],
+zs:[{n:'云帆',v:'zh-CN-Yunfan:DragonHDLatestNeural'},{n:'云哲',v:'zh-TW-YunJheNeural'},{n:'晓辰',v:'zh-CN-Xiaochen:DragonHDLatestNeural'}],
+en:[{n:'Andrew',v:'en-US-AndrewNeural'},{n:'Emma',v:'en-US-EmmaNeural'},{n:'Brian',v:'en-US-BrianNeural'}]
+};
+var S, view='today', flow=null, WK={zh:{},zs:{},en:{}};
+var cardIdx=0, cardShow=false, graceFilter='all', courseStage=-1, openWeek=0;
+
+/* ---------- utils ---------- */
+function $(id){return document.getElementById(id);}
+function qa(sel,root){return (root||document).querySelectorAll(sel);}
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function pad(n){return n<10?'0'+n:''+n;}
+function ymd(d){d=d||new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());}
+function parseYmd(s){var p=s.split('-');return new Date(+p[0],+p[1]-1,+p[2]);}
+function daysBetween(a,b){return Math.round((parseYmd(b)-parseYmd(a))/864e5);}
+function addDays(s,n){var d=parseYmd(s);d.setDate(d.getDate()+n);return ymd(d);}
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
+function each(a,f){for(var i=0;i<a.length;i++)f(a[i],i);}
+function trim(s){return String(s||'').replace(/^\s+|\s+$/g,'');}
+function blankish(s){return !trim(s);}
+function toast(t,ms){var el=$('toast');el.textContent=t;el.className='toast show';clearTimeout(toast._t);toast._t=setTimeout(function(){el.className='toast';},ms||2400);}
+function lid(w,d){return 'w'+w+'d'+d;}
+function parseId(id){var m=/^w(\d+)d(\d)$/.exec(id);return m?{w:+m[1],d:+m[2]}:null;}
+function stageOf(w){var e=META.zh.stageEnd||[8,21,30,44,52];for(var i=0;i<e.length;i++)if(w<=e[i])return i;return e.length-1;}
+function isRetreat(w){return (META.zh.stageEnd||[]).indexOf(w)>=0;}
+function ajax(method,url,body,type,cb,headers){
+var x=new XMLHttpRequest();
+try{x.open(method,url,true);}catch(e){cb(0,null);return;}
+if(type)x.responseType=type;
+x.timeout=type==='arraybuffer'||type==='blob'?25000:45000;
+if(body)x.setRequestHeader('Content-Type','application/json');
+if(headers)for(var h in headers)x.setRequestHeader(h,headers[h]);
+x.onload=function(){cb(x.status,type?x.response:x.responseText);};
+x.onerror=function(){cb(0,null);};x.ontimeout=function(){cb(-1,null);};
+try{x.send(body?JSON.stringify(body):null);}catch(e){cb(0,null);}
+}
+
+/* ---------- language ---------- */
+function LG(){return S&&S.lang?S.lang:'zh';}
+function isEN(){return LG()==='en';}
+function isZS(){return LG()==='zs';}
+function T(k){var d=I18N[LG()]||I18N.zh,v=d[k];if(v==null)v=I18N.zh[k];if(v==null)return k;
+if(arguments.length>1){var a=arguments;v=String(v).replace(/\{(\d)\}/g,function(m,i){return a[+i+1];});}return v;}
+function M(){return META[LG()]||META.zh;}
+function SY(w){return (SYL[LG()]||SYL.zh)[w-1];}
+function dv(s){s=String(s==null?'':s);if(isEN())return s;if(S.gw==='上帝')return s;return s.replace(/上帝/g,'神');}
+function verseOf(ref){var v=(VERSES[LG()]||{})[ref];return v?dv(v.t):'';}
+function verseRef(ref){var v=(VERSES[LG()]||{})[ref];return v?v.r:ref;}
+function Q(s){return isEN()?'“'+s+'”':'「'+s+'」';}
+function joinS(){return isEN()?' ':'';}
+
+/* ---------- content ---------- */
+function prepWeek(o,lg){each(o.lessons,function(l,i){l.w=o.w;l.day=i+1;l.id=lid(o.w,i+1);});WK[lg][o.w]=o;return o;}
+var loadErr='';
+/* 依序試幾個位置：content/ 資料夾，或整包被攤平放在根目錄 */
+function getJSON(names,cb){var i=0;loadErr='';(function next(){if(i>=names.length){cb(null);return;}var u=names[i++];
+ajax('GET',u+'?v='+APPVER,null,null,function(st,txt){if((st===200||(st===0&&txt))&&txt){try{cb(JSON.parse(txt));return;}catch(e){if(!loadErr)loadErr=u+'（JSON）';next();return;}}
+if(!loadErr)loadErr=u+'（'+(st>0?'HTTP '+st:(st<0?'timeout':'network'))+'）';next();});})();}
+function loadWeek(w,cb,lg){
+lg=lg||LG();
+if(WK[lg][w]){if(cb)cb(WK[lg][w]);return;}
+if(lg==='zh'&&w===1&&W1ZH){prepWeek(JSON.parse(JSON.stringify(W1ZH)),'zh');if(cb)setTimeout(function(){cb(WK.zh[1]);},0);return;}
+var f=lg+'-s'+(stageOf(w)+1)+'.json';
+getJSON(['content/'+f,f],function(o){if(o){for(var k in o)if(!WK[lg][+k])prepWeek(o[k],lg);if(cb)cb(WK[lg][w]||null);}else if(cb)cb(null);});
+}
+function lessonById(id){var p=parseId(id);if(!p||!WK[LG()][p.w])return null;return WK[LG()][p.w].lessons[p.d-1];}
+function withLesson(id,cb){var p=parseId(id);if(!p)return;loadWeek(p.w,function(o){if(!o){toast(T('loadFail')+loadErr,6000);return;}cb(o.lessons[p.d-1]);});}
+
+/* ---------- state ---------- */
+function blank(){return {v:3,lang:'zh',onboard:false,name:'',since:'',mins:20,font:1,theme:'auto',gw:'神',grow:[],start:ymd(),done:{},titles:{},draft:{},journal:[],grace:[],prayers:[],cards:{},meet:{},lastOpen:'',partner:'',assess:{},
+voice:{zh:0,zs:0,en:0},hl:{},chat:[],fav:[],lastLesson:'',card:{tpl:'navy',size:'t',border:'classic',fs:1,top:'',sign:'',to:''}};}
+function fill(){var b=blank();for(var k in b)if(!(k in S))S[k]=b[k];
+if(!S.voice||typeof S.voice!=='object')S.voice=b.voice;if(!S.card||typeof S.card!=='object')S.card=b.card;
+for(var c in b.card)if(!(c in S.card))S.card[c]=b.card[c];}
+function load(){try{var t=localStorage.getItem(KEY);S=t?JSON.parse(t):blank();}catch(e){S=blank();}fill();}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){toast(T('storeFull'));}}
+function meetToday(){S.meet[ymd()]=1;}
+function meetCount(){var y=String(new Date().getFullYear()),n=0;for(var k in S.meet)if(k.indexOf(y)===0)n++;return n;}
+function nextPos(){for(var w=1;w<=52;w++)for(var d=1;d<=5;d++)if(!S.done[lid(w,d)])return {w:w,d:d};return null;}
+function curWeek(){var p=nextPos();return p?p.w:52;}
+function weekDone(w){var n=0;for(var d=1;d<=5;d++)if(S.done[lid(w,d)])n++;return n;}
+function totalDone(){var n=0;for(var k in S.done)if(parseId(k))n++;return n;}
+function doneToday(){var t=ymd(),n=0;for(var k in S.done)if(S.done[k]===t)n++;return n;}
+function nice(s){var d=parseYmd(s);if(isEN()){return ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][d.getDay()]+', '+['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()]+' '+d.getDate();}
+return (d.getMonth()+1)+' 月 '+d.getDate()+' 日（'+T('wk')+'日一二三四五六'.charAt(d.getDay())+'）';}
+
+/* ---------- theme & chrome ---------- */
+function period(){var h=new Date().getHours();return h<11&&h>=4?'morning':(h<17&&h>=4?'noon':'night');}
+function applyTheme(){var t=S.theme==='auto'?period():S.theme,h=document.documentElement;h.setAttribute('data-th',t==='morning'?'':t);
+h.style.setProperty('--fs',S.font);
+h.setAttribute('lang',isEN()?'en':(isZS()?'zh-Hans':'zh-Hant'));
+var m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content',t==='night'?'#121828':(t==='noon'?'#F2F4F7':'#F5F3EE'));}
+function applyChrome(){applyTheme();
+$('brandName').textContent=T('app');$('brandSub').textContent=T('brandSub');document.title=T('app');
+each(qa('#langsw button'),function(b){b.className=b.getAttribute('data-l')===LG()?'on':'';});
+var nav='';each([['today','tToday'],['course','tCourse'],['verse','tVerse'],['chat','tChat'],['pray','tPray'],['grace','tGrace']],function(n){nav+='<button data-act="tab" data-v="'+n[0]+'" class="'+(view===n[0]?'on':'')+'">'+svg(n[0])+'<span>'+T(n[1])+'</span></button>';});
+$('tabs').innerHTML=nav;}
+function loadPack(l,cb){if(l==='zh'||I18N[l]){cb(true);return;}
+getJSON(['lang-'+l+'.json','lang/'+l+'.json'],function(p){if(!p){cb(false);return;}META[l]=p.META;I18N[l]=p.I18N;SYL[l]=p.SYL;VERSES[l]=p.VERSES;cb(true);});}
+function packFail(){toast(T('loadFail')+loadErr,6000);}
+function setLang(l){if(l===LG())return;loadPack(l,function(ok){if(!ok){packFail();return;}setLang2(l);});}
+function setLang2(l){stopAll();S.lang=l;save();applyChrome();
+if(flow&&!flow.done){var id=flow.L.id,i=flow.i;closeOvRaw();loadWeek(parseId(id).w,function(o){if(o){startFlow(id,i);}else render();});}
+else{closeOvRaw();render();}}
+
+var IC={
+today:'<path d="M12 3v2M12 19v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M3 12h2M19 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/><circle cx="12" cy="12" r="4"/>',
+course:'<path d="M3 6l9-3 9 3-9 3z"/><path d="M7 8v6c0 1.7 2.2 3 5 3s5-1.3 5-3V8"/>',
+verse:'<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5M12 7v6M9.5 9.5h5"/>',
+chat:'<path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.2A8.4 8.4 0 1 1 21 11.5z"/>',
+pray:'<path d="M12 21s-7-4.5-7-11a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 6.5-7 11-7 11z"/>',
+grace:'<path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/>',
+gear:'<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/>',
+x:'<path d="M6 6l12 12M18 6L6 18"/>',
+check:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+sound:'<path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/>',
+pause:'<path d="M8 5v14M16 5v14"/>',
+down:'<path d="M6 9l6 6 6-6"/>',
+img:'<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/>',
+spark:'<path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M6 18l2.5-2.5M15.5 8.5L18 6"/>'
+};
+function svg(n){return '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+IC[n]+'</svg>';}
+
+/* ---------- sentences ---------- */
+var SENT_END_ZH='。！？', CLOSERS='」』）〕”’';
+function splitS(text){
+text=String(text||'');var out=[],cur='',i;
+if(isEN()){var re=/[^.!?]*[.!?]+["'”’\)\]]*(\s+|$)/g,m,last=0;
+while((m=re.exec(text))!==null){if(trim(m[0]))out.push(m[0]);last=re.lastIndex;if(re.lastIndex===m.index)re.lastIndex++;}
+if(last<text.length&&trim(text.slice(last)))out.push(text.slice(last));return out.length?out:[text];}
+for(i=0;i<text.length;i++){cur+=text.charAt(i);
+if(SENT_END_ZH.indexOf(text.charAt(i))>=0){while(i+1<text.length&&CLOSERS.indexOf(text.charAt(i+1))>=0){cur+=text.charAt(++i);}out.push(cur);cur='';}}
+if(cur)out.push(cur);return out;}
+/* 一段文字切句：每句都可點（畫線）也可被朗讀標示 */
+function sentHtml(text,start){var ss=splitS(text),h='',k=start||0;each(ss,function(s){h+='<span class="sent" data-s="'+(k++)+'">'+esc(s)+'</span>';});sentHtml.n=k;return h;}
+/* 一個可畫線區塊：lessonId、區塊代號 */
+function blk(tag,cls,lidv,b,inner){return '<'+tag+' class="blk'+(cls?' '+cls:'')+'" data-l="'+lidv+'" data-b="'+b+'">'+inner+'</'+tag+'>';}
+function verseBlk(L,p,pi){var h='',k=0;each(p.v,function(v){h+='<span class="vn">'+v[0]+'</span>'+sentHtml(dv(v[1]),k);k=sentHtml.n;});
+return blk('div','vs',L.id,'p'+pi,h);}
+/* 經文區塊裏，每句屬於哪一節 */
+function verseNoOf(el){var n=el,vn=0;while(n){if(n.className==='vn'){vn=+n.textContent;break;}n=n.previousSibling;}return vn;}
+
+/* ===================================================== views */
+var failW=0;
+function go(v){if(v==='course'&&courseStage<0)courseStage=stageOf(curWeek());view=v;render();window.scrollTo(0,0);}
+function render(){
+applyTheme();
+var h='';
+if(view==='today')h=vToday();
+else if(view==='course')h=vCourse();
+else if(view==='verse')h=vVerse();
+else if(view==='chat')h=vChat();
+else if(view==='pray')h=vPray();
+else if(view==='grace')h=vGrace();
+$('main').innerHTML=h;
+each(qa('nav.tabs button'),function(b){b.className=b.getAttribute('data-v')===view?'on':'';});
+if(view==='verse')paintHl($('main'));
+if(view==='chat')chatAfter();
+}
+function greet(){var p=period(),n=S.name?S.name+(isEN()?', ':'，'):'';
+return n+T(p==='morning'?'gMorning':(p==='noon'?'gNoon':'gNight'));}
+function appVerseT(){return verseOf(M().appVerseRef);}
+
+function vToday(){
+var t=ymd(),d=new Date().getDay(),pos=nextPos(),h='';
+h+='<div class="sub">'+nice(t)+'</div><h1 class="serif">'+esc(greet())+'</h1>';
+if(S.lastOpen&&daysBetween(S.lastOpen,t)>=3)
+h+='<div class="banner"><b>'+T('welcomeBack')+'</b><div class="vs" style="font-size:1em">'+esc(Q(verseOf('LUK 15:20')))+'</div><div class="ref">'+esc(verseRef('LUK 15:20'))+'</div><div class="sub">'+T('welcomeBackS')+'</div></div>';
+if(d===6)h+='<div class="card"><div class="kick">'+T('satK')+'</div><div class="ttl">'+T('satT')+'</div><div class="sub">'+T('satS')+'</div><div class="row" style="margin-top:12px;flex-wrap:wrap"><button class="btn sm" data-act="partner">'+T('openPartner')+'</button><button class="btn sm ghost" data-act="tab" data-v="verse">'+T('reviewMem')+'</button></div></div>';
+else if(d===0)h+='<div class="card hero"><div class="kick">'+T('sunK')+'</div><div class="ttl">'+T('sunT')+'</div><div class="sub">'+T('sunS')+'</div><div style="margin-top:12px"><button class="btn sm" data-act="addgrace" data-ty="rest">'+T('sunBtn')+'</button></div></div>';
+var noonL=null;
+if(pos){
+var sy=SY(pos.w),L=WK[LG()][pos.w]?WK[LG()][pos.w].lessons[pos.d-1]:null;
+if(!L&&failW!==pos.w)loadWeek(pos.w,function(o){if(!o)failW=pos.w;if(view==='today'&&!flow)render();});
+var already=doneToday();
+h+='<div class="card hero"><div class="kick">'+T('mornK')+'　'+M().stages[stageOf(pos.w)].n+' · '+T('wkDay',pos.w,pos.d)+'</div>'+
+(!L&&failW===pos.w?'<div class="banner" style="margin:10px 0"><b>'+T('loadFail')+'</b><div class="sub" style="word-break:break-all">'+esc(loadErr)+'</div><div class="sub">'+T('loadFailS')+'</div><button class="btn sm" data-act="retry" style="margin-top:8px">'+T('retry')+'</button></div>':'')+'<div class="ttl serif">'+(L?esc(L.title):(failW===pos.w?esc(sy.t):T('loading')))+'</div><div class="sub">'+(L?esc(L.theme):esc(sy.t))+'</div>'+
+(already?'<div class="sub" style="margin-top:8px">'+T('doneTodayN',already)+'</div>':'')+
+'<div class="row sp" style="margin-top:14px"><span class="sub">'+T('minsLabel',S.mins)+'</span><button class="btn" data-act="start" data-id="'+lid(pos.w,pos.d)+'">'+T('startDevo')+'</button></div></div>';
+noonL=L;
+} else h+='<div class="card hero"><div class="kick">'+T('allDoneK')+'</div><div class="ttl serif">'+T('allDoneT')+'</div><div class="sub">'+T('allDoneS')+'</div><div style="margin-top:12px"><button class="btn sm ghost" data-act="tab" data-v="course">'+T('reviewCourse')+'</button></div></div>';
+if(!noonL){var lw=null;for(var k in S.done){var p=parseId(k);if(p&&WK[LG()][p.w])lw=WK[LG()][p.w].lessons[p.d-1];}noonL=lw;}
+if(noonL)h+='<div class="card"><div class="kick">'+T('noonK')+'</div><div class="vs" style="font-size:1.02em;margin-top:6px">'+esc(dv(noonL.noon))+'</div><div class="row" style="margin-top:8px"><button class="btn sm ghost" data-act="noon">'+T('noonBtn')+'</button></div></div>';
+h+=toolCards();
+var ex=findJournal('exam',t);
+h+='<div class="card"><div class="kick">'+T('eveK')+'</div><div class="sub">'+T('eveS')+'</div><div style="margin-top:10px">'+(ex?'<span class="tag">'+T('eveDone')+'</span> <button class="btn sm ghost" data-act="examen">'+T('again')+'</button>':'<button class="btn sm" data-act="examen">'+T('eveBtn')+'</button>')+'</div></div>';
+var td=totalDone();
+h+='<div class="card"><div class="row sp"><div><div class="kick">'+T('meetK')+'</div><div class="sub">'+T('meetS')+'</div></div><div class="stat">'+meetCount()+'</div></div>'+
+'<div class="prog"><i style="width:'+Math.round(td/260*100)+'%"></i></div><div class="sub">'+T('yearProg',td)+'</div></div>';
+h+='<div class="card xzcard" data-act="tab" data-v="chat"><div class="row"><img src="icon-192.png" alt="" class="xzimg"><div><div class="ttl" style="font-size:1.05em">'+T('xzCardT')+'</div><div class="sub">'+T('xzCardS')+'</div></div></div></div>';
+h+='<div class="foot serif">'+esc(Q(appVerseT()))+'<br>'+esc(verseRef(M().appVerseRef))+'</div>';
+return h;
+}
+
+function vCourse(){
+var st=M().stages,h='<h1 class="serif">'+T('courseMap')+'</h1><div class="sub">'+T('courseMapS')+'</div><div class="seg">';
+each(st,function(s,i){h+='<button class="'+(i===courseStage?'on':'')+'" data-act="stage" data-i="'+i+'">'+s.n+'</button>';});
+h+='</div>';
+var s0=st[courseStage],cw=curWeek();
+h+='<div class="card"><div class="kick">'+s0.w+'</div><div class="ttl serif">'+s0.n+' · '+s0.img+'</div><div class="sub">'+s0.goal+'</div>'+
+(S.assess[courseStage]?'<div class="sub" style="margin-top:6px"><span class="tag">'+T('assessed')+'</span> '+nice(S.assess[courseStage].date)+'</div>':'')+'</div>';
+for(var w=stageA(courseStage);w<=SEND[courseStage];w++){
+var sy=SY(w),dn=weekDone(w),isOpen=openWeek===w,un=unitAt(w);if(un)h+='<div class="unit">'+un.c+' · '+esc(un.n)+'</div>';
+h+='<div class="card wk'+(w===cw?' cur':'')+'"><div class="li" data-act="week" data-w="'+w+'"><div class="n'+(dn===5?' ok':'')+'">'+(dn===5?svg('check'):w)+'</div><div class="b"><b>'+esc(sy.t)+'</b><span>'+(sy.m<0?T('retreat'):M().modules[sy.m].n)+' · '+T('nOf5',dn)+(w===cw?' · '+T('curProg'):'')+'</span></div><span class="chev'+(isOpen?' up':'')+'">'+svg('down')+'</span></div>';
+if(isOpen){
+var o=WK[LG()][w];
+if(!o){h+='<div class="sub" style="padding:8px 4px">'+T('loading')+'</div>';loadWeek(w,function(r){if(view==='course'){if(!r)toast(T('needNet'));render();}});}
+else{
+h+='<div class="sub" style="padding:4px 2px 8px">'+T('memLabel')+esc(o.mem.ref)+'</div>';
+each(o.lessons,function(l){var ok=!!S.done[l.id];
+h+='<div class="li sm" data-act="start" data-id="'+l.id+'"><div class="n'+(ok?' ok':'')+'">'+(ok?svg('check'):l.day)+'</div><div class="b"><b>'+esc(l.title)+'</b><span>'+esc(l.passages[0].ref)+'</span></div></div>';});
+if(isRetreat(w))h+='<div style="padding:8px 0 4px"><button class="btn sm ghost" data-act="assess" data-s="'+stageOf(w)+'">'+T('assessBtn')+'</button></div>';
+}
+}
+h+='</div>';
+}
+h+='<h2>'+T('sevenMods')+'</h2><div class="grid7">';
+each(M().modules,function(m,i){h+='<div class="mod"><b>'+(i+1)+'. '+m.n+'</b><span>'+m.s+' · '+m.ref+'</span></div>';});
+return h+'</div>';
+}
+
+function memList(){var cw=curWeek(),a=[];each(M().extraMem,function(c){a.push({ref:verseRef(c.ref),t:verseOf(c.ref),wk:0});});
+each(SYL[LG()]||SYL.zh,function(s){if(s.w<=cw)a.push({ref:s.mem,t:dv(s.memT),wk:s.w});});return a;}
+function cardDue(c){var r=S.cards[c.ref];return !r||r.due<=ymd();}
+function vVerse(){
+var h='<h1 class="serif">'+T('tVerse')+'</h1><div class="sub">'+T('verseS')+'</div>';
+var all=memList(),due=[];each(all,function(c){if(cardDue(c))due.push(c);});
+if(due.length){
+if(cardIdx>=due.length)cardIdx=0;
+var c=due[cardIdx];
+h+='<div class="card flip" data-act="flip"><div class="kick">'+T('todayMem')+'　'+(cardIdx+1)+' / '+due.length+'</div><div class="ttl serif">'+esc(c.ref)+'</div>'+
+(cardShow?'<div class="vs" style="margin-top:8px">'+esc(c.t)+'</div>':'<div class="sub" style="margin-top:8px">'+T('flipHint')+'</div>')+'</div>';
+if(cardShow)h+='<div class="row"><button class="btn ghost full" data-act="card" data-ok="0">'+T('again2')+'</button><button class="btn full" data-act="card" data-ok="1">'+T('gotIt')+'</button></div><div style="text-align:center;margin-top:8px"><button class="btn sm ghost" data-act="memcard">'+svg('img')+T('makeCard')+'</button></div>';
+} else h+='<div class="card empty">'+T('memAllDone')+'</div>';
+var cw=curWeek(),o=WK[LG()][cw];
+h+='<h2>'+T('weekVerses',cw)+'</h2><div class="hl-tip">'+T('hlTip')+'</div>';
+if(!o){h+='<div class="sub">'+T('loading')+'</div>';loadWeek(cw,function(r){if(r&&view==='verse')render();});}
+else each(o.lessons,function(l){each(l.passages,function(p,pi){h+='<div class="card"><div class="kick">'+T('lessonN',l.day)+' · '+esc(l.title)+'</div><div class="ttl" style="font-size:1em">'+esc(p.ref)+'</div>'+verseBlk(l,p,pi)+'</div>';});});
+h+='<h2>'+T('myMem',all.length)+'</h2><div class="card">';
+each(all.slice().reverse(),function(c){var r=S.cards[c.ref];h+='<div class="li"><div class="b"><b>'+esc(c.ref)+(c.wk?'<span class="tag">'+T('wkN',c.wk)+'</span>':'')+'</b><span class="vs" style="font-size:.95em">'+esc(c.t)+'</span></div>'+(r&&r.lvl>=3?'<span class="tag">'+T('memorised')+'</span>':'')+'</div>';});
+h+='</div><div class="foot">'+T('bibleCredit')+'</div>';
+return h;
+}
+
+function vPray(){
+var h='<h1 class="serif">'+T('tPray')+'</h1><div class="sub">'+esc(Q(verseOf('PHP 4:6')))+'（'+esc(verseRef('PHP 4:6'))+'）</div>';
+h+='<div class="card"><label class="f" for="pin">'+T('addPrayer')+'</label><textarea id="pin" placeholder="'+T('prayerPH')+'"></textarea><div style="margin-top:10px"><button class="btn sm" data-act="padd">'+T('addToList')+'</button></div></div>';
+var act=[],ans=[];each(S.prayers,function(p){(p.answered?ans:act).push(p);});
+h+='<h2>'+T('praying',act.length)+'</h2>';
+if(!act.length)h+='<div class="card empty">'+T('noPrayer')+'</div>';
+else{h+='<div class="card">';each(act,function(p){h+='<div class="li"><div class="b"><b style="font-weight:500">'+esc(p.text)+'</b><span>'+T('since',nice(p.date))+'</span></div><button class="btn sm ghost" data-act="pans" data-id="'+p.id+'">'+T('answered')+'</button><button class="icb" data-act="pdel" data-id="'+p.id+'" aria-label="x">'+svg('x')+'</button></div>';});h+='</div>';}
+if(ans.length){h+='<h2>'+T('answeredN',ans.length)+'</h2><div class="card">';each(ans,function(p){h+='<div class="li"><div class="n ok">'+svg('check')+'</div><div class="b"><b style="font-weight:500">'+esc(p.text)+'</b><span>'+nice(p.answered)+(p.note?' · '+esc(p.note):'')+'</span></div></div>';});h+='</div>';}
+var lp='';each(['MAT 6:9','MAT 6:10','MAT 6:11','MAT 6:12','MAT 6:13'],function(r){lp+=verseOf(r)+(isEN()?' ':'');});
+if(!isEN())lp=lp.replace(/^所以，你們禱告要這樣說：|^所以，你们祷告要这样说：/,'');else lp=trim(lp.replace(/^Pray like this:\s*[“‘]*/,'').replace(/[’”]+\s*$/,''));
+h+='<h2>'+T('lordsPrayer')+'</h2><div class="card vs" style="font-size:1em">'+esc(lp)+'<div class="ref">'+esc(verseRef('MAT 6:9')).replace(/:9$/,':9–13')+'</div></div>';
+return h;
+}
+
+function vGrace(){
+var h='<h1 class="serif">'+T('graceBook')+'</h1><div class="sub">'+T('graceBookS')+'</div>';
+h+='<div class="card"><div class="row sp"><div><div class="kick">'+T('meetK')+'</div><div class="sub">'+T('meetS2')+'</div></div><div class="stat">'+meetCount()+'</div></div><div class="row" style="margin-top:12px;flex-wrap:wrap"><button class="btn sm" data-act="addgrace" data-ty="grace">'+T('addGrace')+'</button><button class="btn sm ghost" data-act="assess" data-s="'+stageOf(curWeek())+'">'+T('assessBtn')+'</button></div></div>';
+h+='<div class="seg">';
+each([['all','fAll'],['grace','fGrace'],['devo','fDevo'],['exam','fExam'],['dec','fDec'],['hl','fHl'],['fav','fFav']],function(f){h+='<button class="'+(graceFilter===f[0]?'on':'')+'" data-act="gf" data-f="'+f[0]+'">'+T(f[1])+'</button>';});
+h+='</div>';
+if(graceFilter==='hl')return h+hlListHtml();
+if(graceFilter==='fav')return h+favListHtml();
+var items=[];
+if(graceFilter==='all'||graceFilter==='grace')each(S.grace,function(g){items.push({date:g.date,ts:g.ts||0,h:'<span class="tag">'+esc(graceType(g.type))+'</span><div>'+esc(g.text)+'</div>'});});
+if(graceFilter!=='grace')each(S.journal,function(j){
+if(graceFilter!=='all'&&graceFilter!==j.kind)return;
+var s='';
+if(j.kind==='devo'){var p=parseId(j.lesson),tt=j.title||S.titles[j.lesson]||'';s='<span class="tag">'+T('fDevo')+(p?' '+p.w+'-'+p.d:'')+'</span> <b>'+esc(tt)+'</b>';
+if(j.a.q2)s+='<div>'+esc(j.a.q2)+'</div>';if(j.a.act)s+='<div class="sub">'+T('todayAct')+esc(j.a.act)+'</div>';}
+else if(j.kind==='dec'){s='<span class="tag">'+T('fDec')+'</span><div><b style="font-weight:500">'+esc(j.a.what)+'</b></div>';if(j.a.sum)s+='<div class="sub">'+esc(j.a.sum)+'</div>';}
+else{s='<span class="tag">'+T('fExam')+'</span>';if(j.a.s)s+='<div class="sub">'+T('kingL')+esc(j.a.s)+'</div>';if(j.a.g)s+='<div>'+T('thanksL')+esc(j.a.g)+'</div>';if(j.a.f)s+='<div class="sub">'+T('forgiveL')+esc(j.a.f)+'</div>';if(j.a.n)s+='<div class="sub">'+T('tomorrowL')+esc(j.a.n)+'</div>';}
+items.push({date:j.date,ts:j.ts||0,h:s});
+});
+items.sort(function(a,b){return a.date<b.date?1:(a.date>b.date?-1:b.ts-a.ts);});
+if(!items.length)h+='<div class="empty">'+T('noRecord')+'</div>';
+else{h+='<div class="tl">';each(items.slice(0,200),function(it){h+='<div class="it"><div class="d">'+nice(it.date)+'</div>'+it.h+'</div>';});h+='</div>';}
+return h+'<div class="foot">'+T('localOnly')+'</div>';
+}
+function graceType(t){var m={'rest':'tyRest','grace':'tyGrace','devo':'tyDevo','assess':'tyAssess','answered':'tyAnswered','安息':'tyRest','恩典':'tyGrace','靈修':'tyDevo','自評':'tyAssess','禱告蒙應允':'tyAnswered'};return m[t]?T(m[t]):(t||T('tyGrace'));}
+function findJournal(kind,date,lesson){for(var i=S.journal.length-1;i>=0;i--){var j=S.journal[i];if(j.kind===kind&&j.date===date&&(!lesson||j.lesson===lesson))return j;}return null;}
+
+/* ===================================================== overlay & devotion flow */
+function openOv(html){var o=$('ov');o.innerHTML=html;o.className='ov show';o.scrollTop=0;document.body.style.overflow='hidden';}
+function closeOvRaw(){var o=$('ov');o.className='ov';o.innerHTML='';document.body.style.overflow='';flow=null;}
+function closeOv(){stopAll();closeOvRaw();if(typeof updPending!=='undefined'&&updPending){doReload();return;}render();}
+function ovOpen(){return $('ov').className.indexOf('show')>=0;}
+function ovHead(mid,extra){return '<div class="ovh"><button class="icb" data-act="close" aria-label="close">'+svg('x')+'</button><div class="ovmid">'+(mid||'')+'</div><div class="ovr">'+(extra||'<span style="width:44px;display:inline-block"></span>')+'</div></div>';}
+function ttsBtnHtml(){return '<button class="icb ttsb" id="ttsBtn" data-act="ttspage" aria-label="read">'+svg('sound')+'</button>';}
+
+function stepList(){if(S.mins===10)return [0,1,4,5];return [0,1,2,3,4,5];}
+function startFlow(id,at){withLesson(id,function(L){
+if(!S.draft[id])S.draft[id]={};S.lastLesson=id;save();
+flow={L:L,steps:stepList(),i:at||0,done:false};if(flow.i>=flow.steps.length)flow.i=0;drawFlow();
+if(L.w<52)loadWeek(L.w+1);});}
+function drawFlow(){
+stopAll();
+var L=flow.L,A=S.draft[L.id],dots='',ST=M().steps;
+each(flow.steps,function(s,i){dots+='<i class="'+(i<=flow.i?'on':'')+'"></i>';});
+if(flow.done){openOv(ovHead('')+doneHtml());return;}
+var st=ST[flow.steps[flow.i]],b='';
+b+='<div class="big'+(isEN()?' en':'')+'">'+st.n+'</div><div class="kick" style="margin-top:8px">'+st.d+' · '+st.m+'</div>';
+if(st.k==='still'){
+b+='<div class="sub" style="margin-top:12px">'+T('wkDay',L.w,L.day)+' · '+esc(SY(L.w).t)+'</div><div class="ttl serif">'+esc(L.title)+'</div><div class="breath"></div>'+blk('p','vsp',L.id,'st',sentHtml(L.still))+'<div class="sub" style="text-align:center;margin-top:12px">'+T('breathHint')+'</div>';
+} else if(st.k==='read'){
+b+='<div class="sub" style="margin-top:12px">'+esc(L.theme)+'</div>';
+each(L.passages,function(p,pi){b+='<div class="card"><div class="kick">'+esc(p.ref)+'</div>'+verseBlk(L,p,pi)+'</div>';});
+b+='<div class="hl-tip">'+T('readHint')+'</div>';
+if(S.mins===30)b+='<div class="banner">'+T('moreRead')+esc(L.more)+'</div>';
+} else if(st.k==='think'){
+each(L.teach,function(p,i){b+=blk('p','',L.id,'t'+i,sentHtml(p));});
+b+=blk('div','light',L.id,'li',sentHtml(L.light));
+if(L.scene)b+='<div class="scene"><div class="kick">'+T('sceneK')+'</div>'+blk('p','',L.id,'sc',sentHtml(L.scene))+'</div>';
+each(L.q,function(q,i){b+='<div class="q">'+esc(q)+'</div><textarea data-k="q'+i+'" placeholder="'+T('qPH')+'">'+esc(A['q'+i]||'')+'</textarea>';});
+b+='<div class="askrow"><button class="btn sm ghost" data-act="asklesson">'+svg('chat')+T('askLesson')+'</button></div>';
+} else if(st.k==='see'){
+b+=blk('p','vsp',L.id,'je',sentHtml(L.jesus))+'<div class="q">'+T('seeQ')+'</div><textarea data-k="see" placeholder="'+T('seePH')+'">'+esc(A.see||'')+'</textarea>';
+} else if(st.k==='pray'){
+b+='<div class="card">'+blk('div','vsp',L.id,'pr',sentHtml(L.pray))+'</div><div class="q">'+T('myPrayQ')+'</div><textarea data-k="pray" placeholder="'+T('myPrayPH')+'">'+esc(A.pray||'')+'</textarea>';
+} else if(st.k==='do'){
+b+='<div class="sub" style="margin-top:12px">'+T('doHint')+'</div>';
+each(L.acts,function(a,i){b+='<button class="opt'+(A.act===a?' on':'')+'" data-act="pick" data-i="'+i+'">'+esc(a)+'</button>';});
+b+='<div class="q">'+T('ownAct')+'</div><input data-k="own" value="'+esc(A.own||'')+'" placeholder="'+T('ownPH')+'">';
+if(isRetreat(L.w)&&L.day===5)b+='<div class="banner" style="margin-top:16px"><b>'+T('stageReview')+'</b><div class="sub">'+T('stageReviewS')+'</div><div style="margin-top:8px"><button class="btn sm" data-act="assess" data-s="'+stageOf(L.w)+'">'+T('assessStart')+'</button></div></div>';
+}
+var last=flow.i===flow.steps.length-1;
+var foot='<div class="stepfoot">'+(flow.i>0?'<button class="btn ghost" data-act="prev">'+T('prev')+'</button>':'')+'<button class="btn" data-act="'+(last?'finish':'next')+'">'+(last?T('finish'):T('next'))+'</button></div>';
+openOv(ovHead('<div class="dots">'+dots+'</div>',ttsBtnHtml())+'<div class="stepbody" id="flowBody">'+b+'</div>'+foot);
+paintHl($('ov'));
+}
+function grabInputs(){if(!flow||flow.done)return;var A=S.draft[flow.L.id];
+each(qa('[data-k]',$('ov')),function(e){A[e.getAttribute('data-k')]=e.value;});save();}
+function finishFlow(){grabInputs();var L=flow.L,A=S.draft[L.id],t=ymd();
+var act=A.own&&!blankish(A.own)?A.own:(A.act||'');
+var j=findJournal('devo',t,L.id);
+var rec={id:uid(),kind:'devo',date:t,ts:Date.now(),lesson:L.id,title:L.title,a:{q0:A.q0||'',q1:A.q1||'',q2:A.q2||'',see:A.see||'',pray:A.pray||'',act:act}};
+if(j){rec.id=j.id;S.journal[S.journal.indexOf(j)]=rec;}else S.journal.push(rec);
+if(!S.done[L.id])S.done[L.id]=t;S.titles[L.id]=L.title;
+delete S.draft[L.id];meetToday();save();flow.done=true;flow.act=act;drawFlow();}
+function doneHtml(){var L=flow.L,nx=nextPos(),wk=weekDone(L.w);
+var h='<div class="stepbody" style="text-align:center"><div class="done-mark">'+svg('check')+'</div><div class="ttl serif">'+T('gloryJesus')+'</div><p class="sub">'+T('gloryS')+'</p>'+
+(flow.act?'<div class="card" style="text-align:left"><div class="kick">'+T('todayAct2')+'</div><div>'+esc(flow.act)+'</div></div>':'')+
+'<div class="card vs" style="text-align:left;font-size:1em">'+esc(dv(L.noon.split(isEN()?' — ':'——')[0]))+'</div>'+
+'<button class="btn full" data-act="addgrace" data-ty="devo">'+T('addGrace')+'</button><div style="height:10px"></div>'+
+'<button class="btn ghost full" data-act="lessoncard">'+svg('img')+T('makeCard')+'</button><div style="height:10px"></div><button class="btn ghost full" data-act="close">'+T('backToday')+'</button>';
+if(wk===5)h+='<p class="sub" style="margin-top:16px">'+T('weekDone',L.w,esc(SY(L.w).mem))+'</p>';
+else if(nx)h+='<p class="sub" style="margin-top:16px">'+T('nextLesson',nx.w,nx.d)+'</p>';
+if(!nx)h+='<p class="sub" style="margin-top:16px">'+T('yearDone')+'</p>';
+return h+'</div>';}
+
+/* ---------- assessment ---------- */
+var asDraft=null;
+function openAssess(stage){var prev=S.assess[stage];asDraft={s:stage,v:prev?prev.items.slice():[]};drawAssess();}
+function drawAssess(){var b='<div class="stepbody"><div class="big'+(isEN()?' en':'')+'">'+T('assessBig')+'</div><div class="kick" style="margin-top:8px">'+T('assessK',M().stages[asDraft.s].n)+'</div>'+
+'<p class="sub">'+esc(Q(verseOf('2CO 13:5')))+'（'+esc(verseRef('2CO 13:5'))+'）'+T('assessIntro')+'</p>';
+var k=0;
+each(M().modules,function(m,i){b+='<h2>'+(i+1)+'. '+m.n+'</h2>';
+each(M().assess[i],function(q){var v=asDraft.v[k];b+='<div class="q" style="font-weight:500">'+esc(q)+'</div><div class="scale">';
+for(var n=1;n<=5;n++)b+='<button class="'+(v===n?'on':'')+'" data-act="asv" data-k="'+k+'" data-n="'+n+'">'+n+'</button>';
+b+='</div>';k++;});});
+b+='</div><div class="stepfoot"><button class="btn" data-act="assave">'+T('seeRadar')+'</button></div>';
+var y=$('ov').scrollTop;openOv(ovHead('')+b);$('ov').scrollTop=y;}
+function saveAssess(){var n=0;each(asDraft.v,function(x){if(x)n++;});if(n<21){toast(T('assessLeft',21-n));return;}
+var sc=[];for(var i=0;i<7;i++)sc.push((asDraft.v[i*3]+asDraft.v[i*3+1]+asDraft.v[i*3+2])/3);
+S.assess[asDraft.s]={date:ymd(),items:asDraft.v.slice(),scores:sc};meetToday();save();showAssess(asDraft.s);}
+function radar(sc,prev){var cx=160,cy=150,R=110,h='<svg viewBox="0 0 320 300" class="radar" role="img" aria-label="radar">';
+function pt(i,r){var a=-Math.PI/2+i*2*Math.PI/7;return [cx+r*Math.cos(a),cy+r*Math.sin(a)];}
+for(var lv=1;lv<=5;lv++){var ps=[];for(var i=0;i<7;i++){var p=pt(i,R*lv/5);ps.push(p[0].toFixed(1)+','+p[1].toFixed(1));}h+='<polygon points="'+ps.join(' ')+'" fill="none" stroke="var(--line)"/>';}
+for(var j=0;j<7;j++){var e=pt(j,R),t=pt(j,R+22);h+='<line x1="'+cx+'" y1="'+cy+'" x2="'+e[0].toFixed(1)+'" y2="'+e[1].toFixed(1)+'" stroke="var(--line)"/><text x="'+t[0].toFixed(1)+'" y="'+(t[1]+4).toFixed(1)+'" text-anchor="middle" font-size="'+(isEN()?10:12)+'" fill="var(--mute)">'+esc(M().modules[j].n)+'</text>';}
+function poly(s,cls){var ps=[];for(var i=0;i<7;i++){var p=pt(i,R*s[i]/5);ps.push(p[0].toFixed(1)+','+p[1].toFixed(1));}return '<polygon points="'+ps.join(' ')+'" class="'+cls+'"/>';}
+if(prev)h+=poly(prev,'rp');h+=poly(sc,'rn');return h+'</svg>';}
+function showAssess(stage){var a=S.assess[stage],prev=stage>0?S.assess[stage-1]:null,sc=a.scores,MO=M().modules;
+var hi=0,lo=0;for(var i=1;i<7;i++){if(sc[i]>sc[hi])hi=i;if(sc[i]<sc[lo])lo=i;}
+var b='<div class="stepbody"><div class="kick">'+M().stages[stage].n+' · '+nice(a.date)+'</div><h1 class="serif">'+T('radarT')+'</h1>'+radar(sc,prev?prev.scores:null)+
+(prev?'<div class="sub" style="text-align:center"><span class="lg rn"></span>'+T('thisTime')+'　<span class="lg rp"></span>'+T('lastStage')+'</div>':'')+
+'<div class="card"><div class="kick">'+T('graceOnYou')+'</div><div class="ttl">'+MO[hi].n+'</div><div class="sub">'+T('graceOnYouS')+'</div></div>'+
+'<div class="card"><div class="kick">'+T('nextInvite')+'</div><div class="ttl">'+MO[lo].n+'</div><div class="sub">'+T('nextInviteS',MO[lo].n)+'</div></div>'+
+'<button class="btn full" data-act="addgrace" data-ty="assess">'+T('assessToGrace')+'</button><div style="height:10px"></div><button class="btn ghost full" data-act="close">'+T('done')+'</button></div>';
+openOv(ovHead('')+b);}
+
+/* ---------- examen ---------- */
+function openExamen(){var b='<div class="stepbody"><div class="big'+(isEN()?' en':'')+'">'+T('examBig')+'</div><div class="kick" style="margin-top:8px">'+T('examK')+'</div><p class="sub">'+esc(Q(verseOf('PSA 139:23')+(isEN()?' ':'')+verseOf('PSA 139:24')))+'（'+esc(verseRef('PSA 139:23'))+'–24）</p>';
+each(M().examen,function(e){b+='<div class="q">'+e.t+'</div><div class="sub">'+e.h+'</div><textarea data-x="'+e.k+'"></textarea>';});
+b+='</div><div class="stepfoot"><button class="btn" data-act="exsave">'+T('examSave')+'</button></div>';
+openOv(ovHead('')+b);}
+function saveExamen(){var a={},any=false;each(qa('[data-x]',$('ov')),function(e){a[e.getAttribute('data-x')]=e.value;if(!blankish(e.value))any=true;});
+if(!any){toast(T('writeOne'));return;}
+S.journal.push({id:uid(),kind:'exam',date:ymd(),ts:Date.now(),a:a});meetToday();save();
+openOv(ovHead('')+'<div class="stepbody" style="text-align:center"><div class="done-mark">'+svg('check')+'</div><p class="vs" style="font-size:1.1em">'+esc(Q(verseOf('PSA 4:8')))+'</p><p class="ref">'+esc(verseRef('PSA 4:8'))+'</p><button class="btn ghost full" data-act="close">'+T('goodnight')+'</button></div>');}
+
+/* ---------- grace entry ---------- */
+function openGraceForm(ty){openOv(ovHead('')+'<div class="stepbody"><div class="big'+(isEN()?' en':'')+'">'+T('graceBig')+'</div><div class="kick" style="margin-top:8px">'+esc(graceType(ty))+' · '+T('graceK')+'</div><label class="f" for="gtext">'+T('graceQ')+'</label><textarea id="gtext" placeholder="'+T('gracePH')+'"></textarea><div style="margin-top:14px"><button class="btn full" data-act="gsave" data-ty="'+esc(ty)+'">'+T('graceSave')+'</button></div></div>');}
+function saveGrace(ty){var v=$('gtext').value;if(blankish(v)){toast(T('writeOne2'));return;}
+S.grace.push({id:uid(),date:ymd(),ts:Date.now(),type:ty,text:v});meetToday();save();closeOv();toast(T('graceSaved'));}
+
+/* ---------- partner ---------- */
+function openPartner(){var sy=SY(curWeek()),b='<div class="stepbody"><div class="big'+(isEN()?' en':'')+'">'+T('partnerBig')+'</div><div class="kick" style="margin-top:8px">'+T('partnerK')+'</div><p class="sub">'+esc(Q(verseOf('ECC 4:9')))+'（'+esc(verseRef('ECC 4:9'))+'）</p>';
+b+='<label class="f" for="ptn">'+T('myPartner')+'</label><input id="ptn" value="'+esc(S.partner)+'" placeholder="'+T('partnerPH')+'">';
+b+='<div class="banner" style="margin-top:14px"><div class="kick">'+T('weekMem')+'　'+esc(sy.mem)+'</div><div class="vs" style="font-size:1em">'+esc(dv(sy.memT))+'</div></div>';
+each(M().partnerQ,function(q,i){b+='<div class="li"><div class="n">'+(i+1)+'</div><div class="b"><b style="font-weight:500">'+esc(q)+'</b></div></div>';});
+b+='<div style="margin-top:16px"><button class="btn full" data-act="pshare">'+T('invite')+'</button></div><div style="height:10px"></div><button class="btn ghost full" data-act="psave">'+T('save')+'</button></div>';
+openOv(ovHead('')+b);}
+function shareText(title,text){
+if(navigator.share){var sp=navigator.share({title:title,text:text});if(sp&&sp['catch'])sp['catch'](function(){});}
+else{copyText(text);toast(T('copied'));}}
+function copyText(t){var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(a);}
+
+/* ---------- settings ---------- */
+function chipRow(act,list,cur,attr){var b='<div class="chips">';each(list,function(x){b+='<button class="chip'+(String(cur)===String(x[0])?' on':'')+'" data-act="'+act+'" data-'+attr+'="'+x[0]+'">'+x[1]+'</button>';});return b+'</div>';}
+function openSettings(){var b='<div class="stepbody"><h1 class="serif">'+T('settings')+'</h1>';
+b+='<label class="f">'+T('language')+'</label>'+chipRow('slang',[['zh','繁體中文'],['zs','简体中文'],['en','English']],LG(),'l');
+b+='<label class="f" for="sn">'+T('nameLabel')+'</label><input id="sn" value="'+esc(S.name)+'" placeholder="'+T('namePH')+'">';
+b+='<label class="f">'+T('devoTime')+'</label>'+chipRow('smins',[[10,T('minN',10)],[20,T('minN',20)],[30,T('minN',30)]],S.mins,'m')+'<div class="sub">'+T('devoTimeS')+'</div>';
+b+='<label class="f">'+T('fontSize')+'</label>'+chipRow('sfont',[[1,T('fs1')],[1.15,T('fs2')],[1.3,T('fs3')],[1.5,T('fs4')]],S.font,'f');
+b+='<label class="f">'+T('themeL')+'</label>'+chipRow('stheme',[['auto',T('th0')],['morning',T('th1')],['noon',T('th2')],['night',T('th3')]],S.theme,'t');
+b+='<label class="f">'+T('voiceL')+'</label>'+chipRow('svoice',(function(){var a=[];each(VOICES[LG()],function(v,i){a.push([i,v.n]);});return a;})(),S.voice[LG()]||0,'i');
+if(false)b+='<label class="f">'+T('godWord')+'</label>'+chipRow('sgw',[['神',T('gwShen')],['上帝',T('gwSD')]],S.gw||'神','g')+'<div class="sub">'+T('godWordS')+'</div>';
+b+='<label class="f">'+T('partnerL')+'</label><button class="btn sm ghost" data-act="partner">'+T('partnerBtn')+'</button>';
+b+='<label class="f">'+T('offline')+'</label><div class="sub">'+T('offlineS')+'</div><div style="margin-top:8px"><button class="btn sm ghost" data-act="dlall" id="dlb">'+T('dlAll')+'</button></div>';
+b+='<label class="f">'+T('backup')+'</label><div class="sub">'+T('backupS')+'</div><div class="row" style="margin-top:8px"><button class="btn sm ghost" data-act="export">'+T('exportB')+'</button><button class="btn sm ghost" data-act="import">'+T('importB')+'</button><input type="file" id="impf" accept=".json,application/json" style="display:none"></div>';
+b+='<label class="f">'+T('diag')+'</label><button class="btn sm ghost" data-act="diag" id="diagBtn">'+T('diagRun')+'</button><div id="diagOut" class="sub" style="white-space:pre-wrap;margin-top:8px;font-size:.8em"></div>';
+b+='<h2>'+T('about321')+'</h2><div class="card" style="font-size:.95em"><img class="heroimg" src="hero.jpg" alt="" style="margin:0 0 12px">'+T('about321T')+'<div class="sub" style="margin-top:8px">'+T('aboutVer')+'</div></div>';
+b+='<div style="margin:18px 0"><button class="btn full" data-act="ssave">'+T('save')+'</button></div><button class="btn sm ghost danger" data-act="reset">'+T('resetAll')+'</button></div>';
+openOv(ovHead('')+b);}
+function keepSettings(){var n=$('sn');if(n)S.name=n.value;save();applyChrome();var y=$('ov').scrollTop;openSettings();$('ov').scrollTop=y;}
+function downloadAll(){var w=1,ok=0,btn=$('dlb'),lg=LG();
+function nxt(){if(w>52){if(btn)btn.textContent=T('dlDone',ok);toast(ok===52?T('dlOk'):T('dlPart'));return;}
+var cur=w++;if(btn)btn.textContent=T('dlIng',cur);
+if(WK[lg][cur]){ok++;nxt();return;}loadWeek(cur,function(o){if(o)ok++;nxt();},lg);}
+nxt();}
+function exportData(){var blob=new Blob([JSON.stringify(S,null,1)],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='321-work-life-backup-'+ymd()+'.json';document.body.appendChild(a);a.click();document.body.removeChild(a);toast(T('exported'));}
+function importData(f){var r=new FileReader();r.onload=function(){try{var d=JSON.parse(r.result);if(!d||!d.v)throw 0;S=d;fill();save();closeOv();applyChrome();render();toast(T('imported'));}catch(e){toast(T('badFile'));}};r.readAsText(f);}
+function runDiag(){var out=$('diagOut');if(!out)return;out.textContent=T('diagBusy');var lines=[];
+var t0=Date.now();
+ajax('POST',API.chat,{system:'你是小智。',messages:[{role:'user',content:'你好'}]},null,function(st,txt){
+lines.push('① 小智 Xiaozhi: HTTP '+st+' · '+(Date.now()-t0)+'ms\n'+String(txt||'').replace(/\s+/g,' ').slice(0,140));
+var t1=Date.now();
+ajax('POST',API.tts,{voice:VOICES[LG()][S.voice[LG()]||0].v,rate:TTS_RATE,sil:TTS_SIL,silc:TTS_SILC,sile:TTS_SILE,text:isEN()?'God is love.':'神愛世人。'},'arraybuffer',function(st2,buf){
+lines.push('② TTS: HTTP '+st2+' · '+(buf&&buf.byteLength?buf.byteLength+' bytes':'—')+' · '+(Date.now()-t1)+'ms');
+lines.push('origin: '+location.origin);out.textContent=lines.join('\n');});});}
+
+/* ---------- onboarding ---------- */
+var ob={i:0,since:'',mins:20,grow:[],name:''};
+function openOnboard(){var b='<div class="stepbody">';
+if(ob.i===0){b+='<div class="obLang">'+chipRow('oblang',[['zh','繁體中文'],['zs','简体中文'],['en','English']],LG(),'l')+'</div><img class="heroimg" src="hero.jpg" alt="321"><h1 class="serif" style="margin-top:14px">'+T('welcomeHome')+'</h1><p class="vs" style="font-size:1.05em">'+esc(Q(appVerseT()))+'</p><p class="ref">'+esc(verseRef(M().appVerseRef))+'</p><p>'+T('obIntro')+'</p><label class="f" for="obn">'+T('obName')+'</label><input id="obn" value="'+esc(ob.name)+'">';}
+else if(ob.i===1){b+='<div class="kick" style="margin-top:20px">1 / 3</div><h1 class="serif">'+T('obSince')+'</h1>';each(['obS0','obS1','obS2','obS3'],function(k){b+='<button class="opt'+(ob.since===k?' on':'')+'" data-act="obs" data-s="'+k+'">'+T(k)+'</button>';});}
+else if(ob.i===2){b+='<div class="kick" style="margin-top:20px">2 / 3</div><h1 class="serif">'+T('obTime')+'</h1>';each([[10,'obM10'],[20,'obM20'],[30,'obM30']],function(m){b+='<button class="opt'+(ob.mins===m[0]?' on':'')+'" data-act="obm" data-m="'+m[0]+'">'+T(m[1])+'</button>';});b+='<p class="sub">'+T('obTimeS')+'</p>';}
+else {b+='<div class="kick" style="margin-top:20px">3 / 3</div><h1 class="serif">'+T('obGrow')+'</h1><p class="sub">'+T('obMulti')+'</p>';each(M().modules,function(m,i){b+='<button class="chip'+(ob.grow.indexOf(i)>=0?' on':'')+'" data-act="obg" data-i="'+i+'">'+m.n+'</button>';});}
+b+='</div><div class="stepfoot">'+(ob.i>0?'<button class="btn ghost" data-act="obp">'+T('prev')+'</button>':'')+'<button class="btn" data-act="obn">'+(ob.i===3?T('obStart'):T('next'))+'</button></div>';
+openOv('<div class="ovh"><div></div><div></div><div style="width:44px"></div></div>'+b);}
+function obNext(){if(ob.i===0){var n=$('obn');ob.name=n?trim(n.value):'';}
+if(ob.i<3){ob.i++;openOnboard();return;}
+S.name=ob.name;S.since=ob.since;S.mins=ob.mins;S.grow=ob.grow;S.onboard=true;S.start=ymd();save();
+closeOvRaw();render();startFlow(lid(1,1));}
+
+/* ---------- memory cards ---------- */
+var IV=[1,2,4,7,14,30,60];
+function dueCards(){var due=[];each(memList(),function(c){if(cardDue(c))due.push(c);});return due;}
+function gradeCard(ok){var due=dueCards(),c=due[cardIdx];if(!c)return;
+var r=S.cards[c.ref]||{lvl:0};r.lvl=ok?Math.min(r.lvl+1,IV.length-1):0;r.due=addDays(ymd(),ok?IV[r.lvl]:1);S.cards[c.ref]=r;
+if(!ok)cardIdx++;cardShow=false;save();render();if(ok)toast(T('nextReview',nice(r.due)));}
+
+/* ===================================================== 畫線 highlight */
+var HL_COLORS=['gold','green','blue','pink','purple','maroon','brown','charcoal'];
+var HL_SWATCH={gold:'#D9B168',green:'#6FAE71',blue:'#6C93D1',pink:'#E58FA0',purple:'#A48AC9',maroon:'#8C4A4E',brown:'#8A6740',charcoal:'#54534E'};
+function hlRoot(){return ovOpen()?$('ov'):$('main');}
+function blkOf(el){var n=el;while(n&&n!==document){if(n.className&&String(n.className).indexOf('blk')>=0&&n.getAttribute('data-b'))return n;n=n.parentNode;}return null;}
+function hlKeyOf(el){var b=blkOf(el);if(!b)return null;return LG()+'|'+b.getAttribute('data-l')+'|'+b.getAttribute('data-b')+'|'+el.getAttribute('data-s');}
+function sentList(root){var a=[];each(qa('.sent',root||hlRoot()),function(e){a.push(e);});return a;}
+function hlRef(els){var b=blkOf(els[0]);if(!b)return '';var l=b.getAttribute('data-l'),bk=b.getAttribute('data-b'),L=lessonById(l),p=parseId(l);
+if(bk.charAt(0)==='p'&&L){var pa=L.passages[+bk.slice(1)];if(pa){var v1=verseNoOf(els[0]),v2=verseNoOf(els[els.length-1]);
+var head=pa.ref.replace(/:\d+([–-]\d+)?$/,':');return head+v1+(v2>v1?'–'+v2:'');}}
+return p?T('lessonRef',p.w,p.d,L?L.title:''):'';}
+function hlText(els){var t='';each(els,function(e){t+=e.textContent+(isEN()?' ':'');});return trim(t.replace(/\s+/g,' '));}
+function spanApply(list,el,h,n){var i=list.indexOf(el);if(i<0)return h;n=Math.max(1,Math.min(n,list.length-i));
+var part=list.slice(i,i+n);h.sp=n;h.t=hlText(part);h.ref=hlRef(part);return h;}
+function onSentTap(el){
+if(el.getAttribute('data-op')!=null){var own=findOwner(el);if(own)return openHlSheet(own);}
+var k=hlKeyOf(el);if(!k)return;
+if(!S.hl[k]){var b=blkOf(el),list=sentList();
+var h={c:'gold',n:'',sp:1,t:'',ref:'',l:b.getAttribute('data-l'),b:b.getAttribute('data-b'),s:+el.getAttribute('data-s'),lang:LG(),ts:Date.now()};
+spanApply(list,el,h,1);S.hl[k]=h;save();paintHl(hlRoot());toast(T('hlAdded'));
+} else openHlSheet(el);}
+function findOwner(el){var list=sentList(),i=list.indexOf(el),k=el.getAttribute('data-op');
+for(var j=i;j>=0;j--){if(hlKeyOf(list[j])===k)return list[j];}return null;}
+function paintHl(root){if(!root)return;var list=sentList(root),cover=[];
+each(list,function(el,i){var k=hlKeyOf(el),h=k&&S.hl[k];if(!h)return;var n=Math.max(1,+h.sp||1);
+for(var d=0;d<n&&i+d<list.length;d++)cover[i+d]={h:h,head:d===0,k:k};});
+each(list,function(el,i){var o=cover[i];
+if(o){el.setAttribute('data-hl','1');el.setAttribute('data-color',o.h.c);if(o.head)el.removeAttribute('data-op');else el.setAttribute('data-op',o.k);}
+else{el.removeAttribute('data-hl');el.removeAttribute('data-color');el.removeAttribute('data-op');}});
+each(qa('.hl-note',root),function(n){n.parentNode.removeChild(n);});
+var lastBlk=null,after=null;
+each(list,function(el,i){var o=cover[i];if(!o||!o.head||!o.h.n)return;var b=blkOf(el);if(!b)return;
+if(b!==lastBlk){lastBlk=b;after=b;}
+var d=document.createElement('div');d.className='hl-note';d.setAttribute('data-color',o.h.c);d.setAttribute('data-hk',o.k);d.textContent=o.h.n;
+if(after.nextSibling)after.parentNode.insertBefore(d,after.nextSibling);else after.parentNode.appendChild(d);after=d;});}
+function closeSheet(){var m=$('sheet');if(m)m.parentNode.removeChild(m);}
+function openSheet(html){closeSheet();var m=document.createElement('div');m.id='sheet';m.className='sheet-mask';m.innerHTML='<div class="sheet-card">'+html+'</div>';
+document.body.appendChild(m);m.onclick=function(e){if(e.target===m)closeSheet();};return m;}
+var hlCur=null;
+function openHlSheet(el){var k=hlKeyOf(el),h=S.hl[k];if(!h)return;hlCur={el:el,k:k,h:h};
+var sw='';each(HL_COLORS,function(c){sw+='<button class="hlswatch'+(h.c===c?' on':'')+'" data-act="hlc" data-c="'+c+'" style="background:'+HL_SWATCH[c]+'" aria-label="'+c+'"></button>';});
+openSheet('<div class="sheet-title">'+T('hlTitle')+'<span class="sheet-ref" id="hlRef">'+esc(h.ref)+'</span></div>'+
+'<span class="sheet-quote" id="hlQuote">'+esc(h.t)+'</span>'+
+'<div class="sheet-row"><span class="sheet-lab">'+T('hlColor')+'</span><div class="swatches">'+sw+'</div></div>'+
+'<div class="sheet-row"><span class="sheet-lab">'+T('hlSpan')+'</span><div class="spanrow"><button class="spanbtn" data-act="hlsp" data-d="-1">－</button><span class="spannum" id="hlNum">'+T('spanUnit',h.sp)+'</span><button class="spanbtn" data-act="hlsp" data-d="1">＋</button><button class="spanbtn wide" data-act="hlsp" data-d="p">'+T('spanP')+'</button></div></div>'+
+'<textarea class="sheet-ta" id="hlNote" placeholder="'+T('hlNotePH')+'">'+esc(h.n||'')+'</textarea>'+
+'<div class="sheet-acts"><button class="btn" data-act="hlsave">'+T('save')+'</button><button class="btn ghost" data-act="hlask">'+svg('chat')+T('askXz')+'</button></div>'+
+'<div class="sheet-acts2"><button class="btn sm gold" data-act="hlcard">'+svg('img')+T('makeCard')+'</button><button class="btn sm ghost" data-act="hlread">'+svg('sound')+T('readThis')+'</button><button class="btn sm ghost" data-act="hlcopy">'+T('copy')+'</button><button class="btn sm ghost" data-act="hlshare">'+T('share')+'</button><button class="btn sm ghost danger" data-act="hldel">'+T('hlDel')+'</button></div>');}
+function hlNoteGrab(){var ta=$('hlNote');if(ta&&hlCur){hlCur.h.n=trim(ta.value);save();}}
+function hlSpan(d){if(!hlCur)return;var list=sentList(),h=hlCur.h,el=hlCur.el,n;
+if(d==='p'){var b=blkOf(el),i=list.indexOf(el);n=1;while(i+n<list.length&&blkOf(list[i+n])===b)n++;
+toast(n===h.sp?T('spanIsP'):T('spanDoneP',n));}
+else n=(h.sp||1)+(+d);
+spanApply(list,el,h,n);save();paintHl(hlRoot());$('hlQuote').textContent=h.t;$('hlNum').textContent=T('spanUnit',h.sp);$('hlRef').textContent=h.ref;}
+function hlShareText(h){return Q(h.t)+'\n—— '+h.ref+(h.n?'\n\n'+h.n:'')+'\n\n'+T('app')+' · '+T('fellowship');}
+function hlListHtml(){var arr=[],h='';for(var k in S.hl){var x=S.hl[k];if((x.lang||'zh')===LG())arr.push([k,x]);}
+arr.sort(function(a,b){return b[1].ts-a[1].ts;});
+if(!arr.length)return '<div class="empty">'+T('noHl')+'</div>';
+h='<div class="card" style="padding:4px 16px">';
+each(arr,function(e){var x=e[1];h+='<div class="hitem"><div class="q vs" data-c="'+x.c+'">'+esc(x.t)+'</div>'+(x.n?'<div class="n">'+esc(x.n)+'</div>':'')+
+'<div class="m"><span>'+esc(x.ref)+'</span><span><button data-act="hlgo" data-l="'+x.l+'" data-b="'+x.b+'">↗</button><button data-act="hlcard2" data-k="'+esc(e[0])+'">'+svg('img')+'</button><button data-act="hldel2" data-k="'+esc(e[0])+'">✕</button></span></div></div>';});
+return h+'</div>';}
+function favListHtml(){if(!S.fav.length)return '<div class="empty">'+T('noFav')+'</div>';var h='<div class="card" style="padding:4px 16px">';
+each(S.fav.slice().reverse(),function(f,i){h+='<div class="hitem"><div class="md">'+mdToHtml(f.text)+'</div><div class="m"><span>'+(f.ts?nice(ymd(new Date(f.ts))):'')+'</span><button data-act="favdel" data-i="'+(S.fav.length-1-i)+'">✕</button></div></div>';});
+return h+'</div>';}
+
+/* ===================================================== 朗讀 TTS（跟讀標示） */
+var TTS_RETRY=[800,1600], TTS_LOOK=2, RA_COOL=4000;
+var spk={on:false,items:[],idx:0,cache:{},native:false,abort:false}, raManualAt=0, ttsEl=null, ttsUnlocked=false, ttsLastErr='', sayKey=null, wakeLock=null;
+var TTS_FIX=[[/長老/g,'掌老'],[/長子/g,'掌子'],[/家長/g,'家掌'],[/長大/g,'掌大'],[/行為/g,'行圍'],[/為大/g,'圍大'],[/教會/g,'叫會'],[/傳道/g,'船道'],[/應當/g,'英當'],[/應許/g,'英許'],[/看守/g,'刊守'],[/種子/g,'腫子'],[/中間/g,'衷間'],
+[/长老/g,'掌老'],[/长子/g,'掌子'],[/长大/g,'掌大'],[/行为/g,'行围'],[/为大/g,'围大'],[/教会/g,'叫会'],[/传道/g,'船道'],[/应当/g,'英当'],[/应许/g,'英许'],[/种子/g,'肿子'],[/中间/g,'衷间']];
+var SILENT_WAV='data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAZGF0YQAAAAA=';
+function voiceNow(){var a=VOICES[LG()];return a[S.voice[LG()]||0]||a[0];}
+function ttsRef(x){return String(x||'').replace(/([^\s\d:：，。、；（）「」]{1,12}|[1-3]?\s?[A-Z][a-z]+(?: of [A-Z][a-z]+)?)\s?(\d+)[:：](\d+)(?:\s*[–\-~～至]\s*(\d+))?/g,function(m,bk,c,v,v2){
+if(isEN())return bk+' chapter '+c+(v2?' verses '+v+' to '+v2:' verse '+v);
+var ps=/^詩篇?$|^诗篇?$/.test(bk);return bk+c+(ps?'篇':'章')+v+(v2?'到'+v2:'')+(isZS()?'节':'節');});}
+function ttsPrep(s){var x=ttsRef(String(s||'')).replace(/[←-⇿☀-➿]/g,'');
+if(isEN())return trim(x.replace(/\s+/g,' '));
+x=x.replace(/[「」『』（）〔〕\[\]—－]/g,'');each(TTS_FIX,function(f){x=x.replace(f[0],f[1]);});return trim(x);}
+function ttsAudio(){if(!ttsEl){ttsEl=new Audio();ttsEl.preload='auto';try{ttsEl.setAttribute('playsinline','');}catch(e){}}return ttsEl;}
+function ttsUnlock(){if(ttsUnlocked)return;try{var a=ttsAudio();a.src=SILENT_WAV;var p=a.play();if(p&&p.then)p.then(function(){ttsUnlocked=true;},function(){});else ttsUnlocked=true;}catch(e){}}
+function ttsFetch(text,cb,tries){tries=tries||0;
+ajax('POST',API.tts,{voice:voiceNow().v,rate:TTS_RATE,sil:TTS_SIL,silc:TTS_SILC,sile:TTS_SILE,text:text},'arraybuffer',function(st,buf){
+if(st===200&&buf&&buf.byteLength>128){cb(URL.createObjectURL(new Blob([buf],{type:'audio/mpeg'})));return;}
+ttsLastErr=st?'http '+st:'network';
+if(tries<TTS_RETRY.length)setTimeout(function(){ttsFetch(text,cb,tries+1);},TTS_RETRY[tries]);else cb(null);});}
+function keepAwake(on){try{if(on&&navigator.wakeLock&&!wakeLock){navigator.wakeLock.request('screen').then(function(w){wakeLock=w;},function(){});}
+else if(!on&&wakeLock){wakeLock.release();wakeLock=null;}}catch(e){}}
+function mediaSession(title){try{if('mediaSession' in navigator&&window.MediaMetadata){navigator.mediaSession.metadata=new MediaMetadata({title:title||T('app'),artist:T('fellowship'),artwork:[{src:'icon-512.png',sizes:'512x512',type:'image/png'}]});
+navigator.mediaSession.setActionHandler('pause',function(){stopAll();});navigator.mediaSession.setActionHandler('stop',function(){stopAll();});}}catch(e){}}
+
+/* --- 一頁一頁跟讀 --- */
+function buildQueue(root){var els=sentList(root),from=0;
+for(var i=0;i<els.length;i++){if(els[i].getBoundingClientRect().bottom>60){from=i;break;}}
+els=els.slice(from);var items=[],cur={text:'',segs:[],lens:[],at:-1},MAX=isEN()?320:130;
+each(els,function(e){var t=e.textContent;if(cur.text.length+t.length>MAX&&cur.text){items.push(cur);cur={text:'',segs:[],lens:[],at:-1};}
+cur.text+=t+(isEN()?' ':'');cur.segs.push(e);cur.lens.push(Math.max(1,ttsPrep(t).length));});
+if(cur.text)items.push(cur);var out=[];each(items,function(it){if(ttsPrep(it.text))out.push(it);});return out;}
+function raClear(){each(qa('.tts-reading'),function(e){e.className=e.className.replace(/\s*tts-reading/g,'');});}
+function raSeg(item,k){if(!item||!item.segs.length)return;k=Math.max(0,Math.min(k,item.segs.length-1));
+if(item.at===k&&document.querySelector('.tts-reading'))return;item.at=k;raClear();var e=item.segs[k];if(!e||!e.parentNode)return;
+e.className+=' tts-reading';if(Date.now()-raManualAt>RA_COOL){try{e.scrollIntoView({behavior:'smooth',block:'center'});}catch(x){}}}
+function raProgress(item,ratio){if(!item||item.lens.length<2||!(ratio>=0))return;var tot=0,acc=0,k=0,j;for(j=0;j<item.lens.length;j++)tot+=item.lens[j];
+var tg=Math.min(ratio,1)*tot;for(j=0;j<item.lens.length;j++){acc+=item.lens[j];k=j;if(tg<acc)break;}raSeg(item,k);}
+function ttsBtnState(st){var b=$('ttsBtn');if(!b)return;b.setAttribute('data-state',st||'');b.innerHTML=svg(st==='playing'||st==='loading'?'pause':'sound');}
+function ttsPage(){if(spk.on){stopAll();return;}ttsUnlock();
+var items=buildQueue(hlRoot());if(!items.length)return;
+spk={on:true,items:items,idx:0,cache:{},native:false,abort:false};ttsBtnState('loading');keepAwake(true);mediaSession(flow?flow.L.title:'');ttsPlayFrom(0);}
+function ttsPrefetch(i,cb){var it=spk.items[i];if(!it||spk.cache[i]!==undefined){if(cb)cb();return;}spk.cache[i]=0;
+ttsFetch(ttsPrep(it.text),function(u){spk.cache[i]=u;if(cb)cb();});}
+function ttsPlayFrom(i){if(!spk.on||spk.abort)return;if(i>=spk.items.length){stopAll();return;}
+spk.idx=i;spk.items[i].at=-1;raSeg(spk.items[i],0);
+var go=function(){for(var k=i+1;k<=i+TTS_LOOK;k++)ttsPrefetch(k);if(!spk.on||spk.abort)return;var url=spk.cache[i];
+if(!url){ttsNativeFrom(i);return;}
+ttsBtnState('playing');var a=ttsAudio();a.onended=null;a.onerror=null;a.ontimeupdate=null;a.src=url;
+a.ontimeupdate=function(){if(!spk.on||spk.idx!==i)return;var d=a.duration;if(d&&isFinite(d))raProgress(spk.items[i],a.currentTime/d);};
+a.onended=function(){a.ontimeupdate=null;if(spk.on&&!spk.abort)ttsPlayFrom(i+1);};
+a.onerror=function(){if(spk.on&&!spk.abort)ttsNativeFrom(i);};
+var p=a.play();if(p&&p['catch'])p['catch'](function(){if(spk.on&&!spk.abort)ttsNativeFrom(i);});};
+if(spk.cache[i]===undefined)ttsPrefetch(i,go);else if(spk.cache[i]===0){var w=setInterval(function(){if(spk.cache[i]!==0||!spk.on){clearInterval(w);go();}},120);}else go();}
+function nativeLang(){return isEN()?'en-US':(isZS()?'zh-CN':'zh-TW');}
+function ttsNativeFrom(i){if(!('speechSynthesis' in window)){toast(T('ttsErr'));stopAll();return;}
+if(!spk.native){spk.native=true;toast(T('ttsFallback')+(ttsLastErr?'（'+ttsLastErr+'）':''));}
+if(!spk.on||spk.abort||i>=spk.items.length){stopAll();return;}
+spk.idx=i;spk.items[i].at=-1;raSeg(spk.items[i],0);ttsBtnState('playing');
+var say=ttsPrep(spk.items[i].text),u=new SpeechSynthesisUtterance(say);u.lang=nativeLang();u.rate=.95;
+u.onboundary=function(e){if(spk.on&&spk.idx===i&&say.length)raProgress(spk.items[i],(e.charIndex||0)/say.length);};
+u.onend=function(){if(spk.on&&!spk.abort)ttsNativeFrom(i+1);};u.onerror=u.onend;
+try{speechSynthesis.speak(u);}catch(e){stopAll();}}
+/* --- 單段朗讀（小智回答、畫線） --- */
+function speakText(text,key,onEnd){stopAll();ttsUnlock();sayKey=key||'x';paintSay();keepAwake(true);
+var clean=ttsPrep(text).slice(0,1200);if(!clean){stopAll();return;}
+var done=function(){if(sayKey===(key||'x')){sayKey=null;paintSay();keepAwake(false);}if(onEnd)onEnd();};
+ttsFetch(clean,function(url){if(sayKey!==(key||'x'))return;
+if(url){var a=ttsAudio();a.onended=done;a.onerror=done;a.ontimeupdate=null;a.src=url;var p=a.play();if(p&&p['catch'])p['catch'](function(){nat();});}
+else nat();});
+function nat(){if('speechSynthesis' in window){var u=new SpeechSynthesisUtterance(clean);u.lang=nativeLang();u.onend=done;u.onerror=done;speechSynthesis.speak(u);toast(T('ttsFallback'));}else{toast(T('ttsErr'));done();}}}
+function paintSay(){each(qa('[data-act="msgtts"]'),function(b){var on=sayKey==='m'+b.getAttribute('data-i');b.className='msg-act'+(on?' on':'');b.innerHTML=on?'⏸':'🔊';});}
+function stopAll(){spk.on=false;spk.abort=true;sayKey=null;try{if(ttsEl){ttsEl.pause();}}catch(e){}
+try{if('speechSynthesis' in window)speechSynthesis.cancel();}catch(e){}raClear();ttsBtnState('');paintSay();keepAwake(false);}
+window.addEventListener('touchmove',function(){raManualAt=Date.now();},{passive:true});
+window.addEventListener('wheel',function(){raManualAt=Date.now();},{passive:true});
+
+/* ===================================================== 小智 AI 陪伴 */
+var chatBusy=false, chatPending=null, chatCtx=null;
+function tbRow(x){return /^\s*\|.*\|\s*$/.test(x);}
+function tbSep(x){return /^\s*\|[\s:|\-]+\|\s*$/.test(x)&&x.indexOf('-')>=0;}
+function tbCells(x){var a=trim(x).replace(/^\||\|$/g,'').split('|'),o=[];each(a,function(c){o.push(trim(c));});return o;}
+function mdTableMap(src,fmt){var L=String(src||'').split('\n'),out=[],i=0;
+while(i<L.length){if(tbRow(L[i])&&i+1<L.length&&tbSep(L[i+1])){var head=tbCells(L[i]);i+=2;var rows=[];while(i<L.length&&tbRow(L[i])){rows.push(tbCells(L[i]));i++;}
+out.push(rows.length?fmt(head,rows):head.join(' '));continue;}
+out.push(L[i]);i++;}
+return out.join('\n');}
+function mdStrip(x){return trim(mdTableMap(String(x||''),function(head,rows){var ls=[];var hh=[];each(head,function(c){if(c)hh.push(c);});if(hh.length)ls.push(hh.join(' → '));
+each(rows,function(r){var rr=[];each(r,function(c){if(c)rr.push(c);});ls.push('・'+rr.join(' → '));});return ls.join('\n');})
+.replace(/^#{1,6} /gm,'').replace(/\*\*([\s\S]+?)\*\*/g,'$1').replace(/\*([\s\S]+?)\*/g,'$1').replace(/\*/g,'')
+.replace(/^> ?/gm,'').replace(/^---+$/gm,'').replace(/^[-*] /gm,'・').replace(/`+/g,'').replace(/\n{3,}/g,'\n\n'));}
+function mdSpeak(md){var zh=!isEN();return mdStrip(mdTableMap(md,function(head,rows){var body=[];
+each(rows,function(r){var p=[];each(r,function(c,j){var h=trim(head[j]||'');if(c)p.push(h?(zh?h+'是'+c:h+' is '+c):c);});body.push(p.join(zh?'，':', ')+(zh?'。':'.'));});
+return (zh?'下面用表格整理：':'Here is a summary:')+'\n'+body.join('\n');}));}
+function mdToHtml(s){var h=esc(s);
+h=mdTableMap(h,function(head,rows){var t='\n\n<table class="mdtb"><thead><tr>';each(head,function(c){t+='<th>'+c+'</th>';});t+='</tr></thead><tbody>';
+each(rows,function(r){t+='<tr>';each(r,function(c){t+='<td>'+c+'</td>';});t+='</tr>';});return t+'</tbody></table>\n\n';});
+h=h.replace(/^#{5,6} (.*)$/gm,'<h5>$1</h5>').replace(/^#{1,4} (.*)$/gm,'<h4>$1</h4>');
+h=h.replace(/\*\*([\s\S]+?)\*\*/g,'<b>$1</b>').replace(/(^|[^*])\*([^*\n]+?)\*/g,'$1<i>$2</i>');
+h=h.replace(/^&gt; ?(.*)$/gm,'<blockquote>$1</blockquote>').replace(/<\/blockquote>\n<blockquote>/g,'<br>');
+h=h.replace(/^---+$/gm,'<hr>');
+h=h.replace(/^(\d+)[.、] (.*)$/gm,'<li class="ol" data-n="$1">$2</li>');
+h=h.replace(/^[-*・] (.*)$/gm,'<li>$1</li>');
+h=h.replace(/((?:<li[^>]*>[\s\S]*?<\/li>\n?)+)/g,function(m){return (m.indexOf('class="ol"')>=0?'<ol>':'<ul>')+m.replace(/\n/g,'')+(m.indexOf('class="ol"')>=0?'</ol>':'</ul>');});
+h=h.replace(/(\d+:\d+(?:[–-]\d+)?)/g,'<span class="vref">$1</span>');
+var parts=h.split(/\n{2,}/),o='';each(parts,function(p){o+=/^\s*<(h\d|ul|ol|blockquote|hr|table)/.test(p)?p:'<p>'+trim(p).replace(/\n/g,'<br>')+'</p>';});return o;}
+function sysPrompt(){var L=S.lastLesson&&lessonById(S.lastLesson),ctx='';
+if(L){var refs=[];each(L.passages,function(p){refs.push(p.ref);});ctx=isEN()?' (The user is on Week '+L.w+', Lesson '+L.day+': "'+L.title+'" — '+refs.join('; ')+'. Theme: '+L.theme+')':'（使用者正在上：第 '+L.w+' 週第 '+L.day+' 課〈'+L.title+'〉，經文 '+refs.join('、')+'；主旨：'+L.theme+'）';}
+return T('xzSystem')+T('xzFormat')+ctx;}
+function extractReply(d){if(!d)return '';if(typeof d==='string')return d;if(d.content&&d.content[0]&&d.content[0].text)return d.content[0].text;
+return d.reply||d.text||d.message||(d.choices&&d.choices[0]&&d.choices[0].message?d.choices[0].message.content:'')||'';}
+function vChat(){var L=S.lastLesson&&lessonById(S.lastLesson),qs='';
+each(M().chatQ,function(q){qs+='<button class="qs-chip" data-act="chatq">'+esc(q)+'</button>';});
+return '<div class="xz-head"><img src="icon-192.png" alt=""><div><b>'+T('xzName')+'</b><div class="sub">'+T('xzTag')+'</div></div></div>'+
+(L?'<div class="chatctx">'+T('xzCtx',L.w,L.day,esc(L.title))+'</div>':'')+
+'<button class="qs-toggle" data-act="qstog">💡 '+T('xzExamples')+'</button><div class="qs-panel" id="qsPanel" style="display:none">'+qs+'</div>'+
+'<div class="chatlog" id="chatlog">'+chatLogHtml()+'</div>'+
+'<div class="chatinput"><textarea id="chatIn" rows="1" placeholder="'+T('xzPH')+'"></textarea><button data-act="chatsend">'+T('send')+'</button></div>';}
+function isFav(t){for(var i=0;i<S.fav.length;i++)if(S.fav[i].text===t)return true;return false;}
+function chatLogHtml(){if(!S.chat.length)return '<div class="empty">'+T('xzEmpty')+'</div>';var h='';
+each(S.chat,function(m,i){if(m.role==='user'){h+='<div class="msg user">'+esc(m.text)+'</div>';return;}
+h+='<div class="msg ai"><div class="msg-body">'+(m.wait?'<span class="typing"><i></i><i></i><i></i></span> '+T('thinking'):mdToHtml(m.text))+'</div>'+
+(m.wait?'':'<div class="msg-actions"><button class="msg-act'+(isFav(m.text)?' on':'')+'" data-act="msgfav" data-i="'+i+'">★ '+T('favB')+'</button><button class="msg-act" data-act="msgshare" data-i="'+i+'">↗ '+T('share')+'</button><button class="msg-act" data-act="msgcard" data-i="'+i+'">🖼 '+T('makeCard')+'</button><button class="msg-act" data-act="msgcopy" data-i="'+i+'">⧉ '+T('copy')+'</button><button class="msg-act" data-act="msgtts" data-i="'+i+'">🔊</button><button class="msg-act" data-act="msgdel" data-i="'+i+'">✕</button></div>')+'</div>';});
+return h;}
+function paintChat(){var log=$('chatlog');if(!log)return;log.innerHTML=chatLogHtml();paintSay();setTimeout(function(){window.scrollTo(0,document.body.scrollHeight);},30);}
+function chatAfter(){var inp=$('chatIn');if(inp)inp.onkeydown=function(e){if(e.keyCode===13&&!e.shiftKey){e.preventDefault();sendChat(inp.value);}};
+if(chatPending){var p=chatPending;chatPending=null;sendChat(p);}else setTimeout(function(){window.scrollTo(0,document.body.scrollHeight);},30);}
+function sendChat(text,tries){text=trim(text);if(!text||chatBusy)return;var inp=$('chatIn');if(inp)inp.value='';
+S.chat.push({role:'user',text:text,src:chatCtx,ts:Date.now()});var src=chatCtx;chatCtx=null;
+S.chat.push({role:'ai',text:'',wait:true,src:src});if(S.chat.length>60)S.chat=S.chat.slice(-60);chatBusy=true;paintChat();
+var msgs=[];each(S.chat,function(m){if(!m.wait&&m.text)msgs.push({role:m.role==='user'?'user':'assistant',content:m.text});});msgs=msgs.slice(-12);
+var payload={system:sysPrompt(),messages:msgs};
+(function attempt(n){ajax('POST',API.chat,payload,null,function(st,txt){var r='';
+if(st===200){try{r=extractReply(JSON.parse(txt));}catch(e){r=txt;}}
+if(!r&&n<2){setTimeout(function(){attempt(n+1);},900*(n+1));return;}
+var last=S.chat[S.chat.length-1];last.wait=false;last.text=r||T('chatErr')+(st?'（http '+st+'）':'');last.ts=Date.now();
+chatBusy=false;save();if(view==='chat')paintChat();else toast(T('xzReplied'));});})(0);}
+function askXz(q,src){chatPending=q;chatCtx=src||null;closeSheet();if(ovOpen()){grabInputs();closeOvRaw();}go('chat');}
+function cardText(md){var LIM=isEN()?300:140,raw=String(md||''),m=raw.match(/^> ?(.+)$/m);
+if(m){var q=mdStrip(m[1]);if(q.length>=12&&q.length<=LIM+60)return q;}
+var lines=mdStrip(raw).split('\n'),body=[];each(lines,function(l){if(trim(l)&&!/^・/.test(trim(l)))body.push(trim(l));});var b=body.join(isEN()?' ':'');
+if(b.length<=LIM)return b;var cut=b.slice(0,LIM),k=Math.max(cut.lastIndexOf('。'),cut.lastIndexOf('！'),cut.lastIndexOf('. '));return (k>40?cut.slice(0,k+1):cut)+'…';}
+function msgShare(m){var src=m.src,head=src?Q(src.t)+'\n—— '+src.ref+'\n\n':'';shareText(T('app'),head+mdStrip(m.text)+'\n\n—— '+T('fellowship')+'\n'+location.origin+location.pathname.replace(/index\.html$/,''));}
+
+/* ===================================================== 經文美圖 */
+var CARD_TPL={
+navy:{n:'tplNavy',bg:['#123F92','#0D3988','#071A42'],glow:'rgba(212,166,91,.30)',ink:'#F2ECDD',accent:'#F7EFDC',gold:'#D4A65B',sub:'#BBA98A',frame:'rgba(212,166,91,.42)'},
+paper:{n:'tplPaper',bg:['#FBF8F1','#F4EFE3','#EDE6D6'],glow:'rgba(212,166,91,.45)',ink:'#3A3122',accent:'#23211C',gold:'#A9762F',sub:'#8A7C63',frame:'rgba(169,118,47,.34)'},
+dawn:{n:'tplDawn',bg:['#FFF6EC','#FBE9D2','#F6D9B8'],glow:'rgba(255,214,150,.6)',ink:'#3A2A1A',accent:'#8A4B16',gold:'#C97A22',sub:'#8A6A4A',frame:'rgba(181,101,29,.30)'},
+grace:{n:'tplGrace',bg:['#F2F7F1','#E4EFE6','#D6E7DA'],glow:'rgba(160,200,170,.5)',ink:'#1C2E26',accent:'#255943',gold:'#3C8A64',sub:'#5C7A6A',frame:'rgba(46,106,80,.28)'},
+rose:{n:'tplRose',bg:['#FCF5F3','#F6E7E3','#EFD8D2'],glow:'rgba(220,160,150,.45)',ink:'#33221E',accent:'#8A3D2E',gold:'#B36A54',sub:'#8A6A62',frame:'rgba(154,74,58,.28)'},
+sky:{n:'tplSky',bg:['#F1F7FB','#DFEEF6','#CFE4F0'],glow:'rgba(150,200,230,.5)',ink:'#1B2A33',accent:'#1E5270',gold:'#2E7DA0',sub:'#5A7684',frame:'rgba(37,96,128,.28)'},
+linen:{n:'tplLinen',bg:['#F7F4EE','#EFEAE0','#E6DFD2'],glow:'rgba(200,190,170,.4)',ink:'#2A2620',accent:'#4A4234',gold:'#8A7A5A',sub:'#7A7263',frame:'rgba(90,80,64,.26)'},
+night:{n:'tplNight',bg:['#101E1B','#16302A','#0E2420'],glow:'rgba(232,201,122,.26)',ink:'#EDEAE0',accent:'#E8C97A',gold:'#E8C97A',sub:'#9FB0AA',frame:'rgba(232,201,122,.34)'},
+plain:{n:'tplPlain',bg:['#FFFFFF','#FFFFFF','#FFFFFF'],glow:'rgba(0,0,0,0)',ink:'#23211C',accent:'#0D3988',gold:'#A9762F',sub:'#6B6255',frame:'rgba(13,57,136,.22)'}};
+var CARD_ORDER=['navy','paper','dawn','grace','rose','sky','linen','night','plain'];
+var CARD_SIZES={p:[1080,1920,'sz916'],t:[1080,1350,'sz45'],s:[1080,1080,'szSq'],w:[1920,1080,'szWide']};
+var CARD_BORDERS=['classic','corner','inline','dots','ornate','none'];
+var CARD_FS=[[0.9,'cfs0'],[1,'cfs1'],[1.2,'cfs2'],[1.45,'cfs3'],[1.7,'cfs4']];
+var studio=null, photoImg=null, photoBy='', cardImg=null;
+var NO_START='，。、；：？！）」』】》〉·…—％', NO_END='（「『【《〈';
+function cardSerif(){return isZS()?'"Noto Serif SC","Songti SC","STSong","SimSun",Georgia,serif':(isEN()?'Georgia,"Times New Roman",serif':'"Noto Serif TC","Songti TC","PMingLiU",Georgia,serif');}
+function cardSans(){return isZS()?'"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif':(isEN()?'-apple-system,"Segoe UI",Roboto,Arial,sans-serif':'"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif');}
+function rr(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();}
+function wrapText(ctx,text,maxW){var out=[];
+each(String(text||'').split('\n'),function(par){if(!par){out.push('');return;}var line='';
+if(isEN()){each(par.split(/\s+/),function(w){if(!w)return;var pr=line?line+' '+w:w;if(ctx.measureText(pr).width>maxW&&line){out.push(line);line=w;}else line=pr;});out.push(line);return;}
+for(var i=0;i<par.length;i++){var ch=par.charAt(i);
+if(ctx.measureText(line+ch).width>maxW&&line){if(NO_START.indexOf(ch)>=0){line+=ch;continue;}
+var carry='';while(line.length>1&&NO_END.indexOf(line.charAt(line.length-1))>=0){carry=line.charAt(line.length-1)+carry;line=line.slice(0,-1);}
+out.push(line);line=carry+ch;}else line+=ch;}
+out.push(line);});
+return out;}
+function coverDraw(ctx,img,x,y,w,h){var ir=img.width/img.height,r=w/h,sw,sh,sx,sy;
+if(ir>r){sh=img.height;sw=sh*r;sx=(img.width-sw)/2;sy=0;}else{sw=img.width;sh=sw/r;sx=0;sy=(img.height-sh)/2;}ctx.drawImage(img,sx,sy,sw,sh,x,y,w,h);}
+function drawBorder(ctx,W,H,pad,F,Tp){var B=S.card.border;if(B==='none')return;
+var line=Tp.frame,line2=Tp.frame.replace(/[\d.]+\)$/,'0.55)'),gold=Tp.gold,m=pad*.5,x=m,y=m,w=W-m*2,h=H-m*2,R=Math.round(18*F);
+if(B==='classic'){ctx.strokeStyle=line;ctx.lineWidth=Math.max(2,W*.0022);rr(ctx,x,y,w,h,R);ctx.stroke();
+ctx.strokeStyle=line2;ctx.lineWidth=Math.max(1,W*.0009);rr(ctx,x+9*F,y+9*F,w-18*F,h-18*F,Math.round(12*F));ctx.stroke();
+ctx.fillStyle=gold;each([[x,y],[x+w,y],[x,y+h],[x+w,y+h]],function(p){ctx.beginPath();ctx.arc(p[0],p[1],Math.round(5*F),0,7);ctx.fill();});}
+else if(B==='corner'){ctx.strokeStyle=gold;ctx.lineWidth=Math.max(2,W*.003);ctx.lineCap='round';var L=Math.round(56*F);
+var seg=function(cx,cy,dx,dy){ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+dx*L,cy);ctx.moveTo(cx,cy);ctx.lineTo(cx,cy+dy*L);ctx.stroke();};
+seg(x,y,1,1);seg(x+w,y,-1,1);seg(x,y+h,1,-1);seg(x+w,y+h,-1,-1);ctx.lineCap='butt';}
+else if(B==='inline'){ctx.strokeStyle=line2;ctx.lineWidth=Math.max(1,W*.0013);rr(ctx,x+6*F,y+6*F,w-12*F,h-12*F,Math.round(14*F));ctx.stroke();}
+else if(B==='dots'){ctx.fillStyle=line2;var r0=Math.max(2,W*.0026),gap=Math.round(26*F),ex=x+6*F,ey=y+6*F,ew=w-12*F,eh=h-12*F,px,py;
+var dot=function(a,b){ctx.beginPath();ctx.arc(a,b,r0,0,7);ctx.fill();};
+for(px=ex;px<=ex+ew;px+=gap){dot(px,ey);dot(px,ey+eh);}for(py=ey;py<=ey+eh;py+=gap){dot(ex,py);dot(ex+ew,py);}}
+else if(B==='ornate'){ctx.strokeStyle=line;ctx.lineWidth=Math.max(2,W*.0022);rr(ctx,x,y,w,h,R);ctx.stroke();
+ctx.strokeStyle=gold;ctx.lineWidth=Math.max(1.5,W*.0016);ctx.lineCap='round';var L2=Math.round(34*F),o=Math.round(16*F);
+var flo=function(cx,cy,dx,dy){ctx.beginPath();ctx.moveTo(cx+dx*o,cy+dy*o);ctx.lineTo(cx+dx*(o+L2),cy+dy*o);ctx.moveTo(cx+dx*o,cy+dy*o);ctx.lineTo(cx+dx*o,cy+dy*(o+L2));ctx.stroke();
+ctx.fillStyle=gold;ctx.beginPath();ctx.arc(cx+dx*o,cy+dy*o,Math.round(4.5*F),0,7);ctx.fill();};
+flo(x,y,1,1);flo(x+w,y,-1,1);flo(x,y+h,1,-1);flo(x+w,y+h,-1,-1);ctx.lineCap='butt';}}
+function drawCard(cv,c,W,H){var ctx=cv.getContext('2d');cv.width=W;cv.height=H;
+var Tp=CARD_TPL[S.card.tpl]||CARD_TPL.navy,F=W/1080,pad=Math.round(W*.085),iw=W-pad*2,sans=cardSans(),serif=cardSerif(),FB=Math.min(1.8,Math.max(.85,+S.card.fs||1));
+var g=ctx.createLinearGradient(0,0,W*.3,H);g.addColorStop(0,Tp.bg[0]);g.addColorStop(.55,Tp.bg[1]);g.addColorStop(1,Tp.bg[2]);ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+if(photoImg){coverDraw(ctx,photoImg,0,0,W,H);var hx=Tp.bg[1].replace('#',''),R0=parseInt(hx.slice(0,2),16),G0=parseInt(hx.slice(2,4),16),B0=parseInt(hx.slice(4,6),16);
+var sc=ctx.createLinearGradient(0,0,0,H),rgb='rgba('+R0+','+G0+','+B0+',';sc.addColorStop(0,rgb+'0.46)');sc.addColorStop(.5,rgb+'0.66)');sc.addColorStop(1,rgb+'0.56)');ctx.fillStyle=sc;ctx.fillRect(0,0,W,H);}
+var rg=ctx.createRadialGradient(W*.84,H*.10,10,W*.84,H*.10,W*.75);rg.addColorStop(0,Tp.glow);rg.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=rg;ctx.fillRect(0,0,W,H);
+drawBorder(ctx,W,H,pad,F,Tp);
+var grp=trim(S.card.top)||T('fellowship'),grpSz=Math.round(30*F*FB),grpY=pad+Math.round(30*F)+grpSz;
+while(grpSz>Math.round(16*F)){ctx.font='600 '+grpSz+'px '+sans;if(ctx.measureText(grp).width<=iw-80*F)break;grpSz-=2;}
+ctx.textAlign='center';ctx.fillStyle=Tp.sub;ctx.font='600 '+grpSz+'px '+sans;var gw=ctx.measureText(grp).width;ctx.fillText(grp,W/2,grpY);
+ctx.strokeStyle=Tp.frame.replace(/[\d.]+\)$/,'0.6)');ctx.lineWidth=Math.max(1,1.5*F);
+each([[W/2-gw/2-28*F,-1],[W/2+gw/2+28*F,1]],function(a){ctx.beginPath();ctx.moveTo(a[0],grpY-9*F);ctx.lineTo(a[0]+a[1]*30*F,grpY-9*F);ctx.stroke();});
+var toName=trim(S.card.to);
+if(toName){var ts2=Math.round(40*F*FB);ctx.fillStyle=Tp.ink;while(ts2>Math.round(22*F*FB)){ctx.font='600 '+ts2+'px '+serif;if(ctx.measureText(toName).width<=iw)break;ts2-=Math.round(2*F);}
+ctx.font='600 '+ts2+'px '+serif;ctx.fillText(toName,W/2,grpY+Math.round(80*F));}
+var botRoom0=pad+Math.round(40*F)+Math.round(30*F*FB),topRoom=grpY+Math.round((toName?120:46)*F),botRoom=botRoom0,room=H-topRoom-botRoom;
+var raw=trim(String(c.t||'').replace(/\s+/g,isEN()?' ':'')).replace(/[，、；：,;]+$/,'');
+var verse=isEN()?((/^[“"']/.test(raw)?'':'“')+raw+(/[”"']$/.test(raw)?'':'”')):((/^[「『]/.test(raw)?'':'「')+raw+(/[」』]$/.test(raw)?'':'」'));
+if(c.plain)verse=raw;
+var note=trim(c.n||''),vs=Math.round(58*F),vl;
+while(true){ctx.font='600 '+vs+'px '+serif;vl=wrapText(ctx,verse,iw);if(vl.length<=(isEN()?9:7)||vs<=Math.round(28*F))break;vs-=Math.round(3*F);}
+var fixed=vs*.9+vl.length*vs*1.52+Math.round(64*F)+(note?Math.round(86*F):0),ns=Math.round(38*F*FB),nl=[];
+if(note){while(true){ctx.font=ns+'px '+sans;nl=wrapText(ctx,note,iw);if(fixed+nl.length*ns*1.76<=room||ns<=Math.round(21*F))break;ns-=Math.round(2*F);}}
+var total=fixed+(note?nl.length*ns*1.76:0),y=topRoom+Math.max(0,(room-total)/2);
+ctx.fillStyle=Tp.accent;ctx.font='600 '+vs+'px '+serif;y+=vs*.9;each(vl,function(l){ctx.fillText(l,W/2,y);y+=vs*1.52;});
+if(c.ref){ctx.font=Math.round(30*F)+'px '+sans;ctx.fillStyle=Tp.accent;ctx.fillText(c.ref,W/2,y);}y+=Math.round(64*F);
+if(note){ctx.fillStyle=Tp.gold;ctx.beginPath();ctx.arc(W/2,y,Math.round(5*F),0,7);ctx.fill();ctx.strokeStyle=Tp.gold;ctx.lineWidth=2.5*F;
+ctx.beginPath();ctx.moveTo(W/2-52*F,y);ctx.lineTo(W/2-16*F,y);ctx.stroke();ctx.beginPath();ctx.moveTo(W/2+16*F,y);ctx.lineTo(W/2+52*F,y);ctx.stroke();
+y+=Math.round(44*F)+ns;ctx.textAlign='left';ctx.fillStyle=Tp.ink;ctx.font=ns+'px '+sans;each(nl,function(l){ctx.fillText(l,pad,y);y+=ns*1.76;});ctx.textAlign='center';}
+var sign=trim(S.card.sign)||T('cardBless'),ss=Math.round(30*F*FB);ctx.fillStyle=Tp.sub;
+while(ss>Math.round(15*F*FB)){ctx.font='600 '+ss+'px '+sans;if(ctx.measureText(sign).width<=iw)break;ss-=2;}
+ctx.fillText(sign,W/2,H-pad*.72-Math.round(18*F));
+if(photoBy){ctx.font=Math.round(16*F)+'px '+sans;ctx.globalAlpha=.7;ctx.fillText('Photo: '+photoBy+' / Pexels',W/2,H-pad*.38);ctx.globalAlpha=1;}}
+function openStudio(c){stopAll();closeSheet();studio={t:c.t||'',ref:c.ref||'',n:c.n||'',plain:!!c.plain};drawStudio();}
+function drawStudio(){var c=studio,b='<div class="stepbody"><h1 class="serif">'+T('studioT')+'</h1><div class="cardpv" id="cardPv"></div>'+
+'<div class="row" style="gap:8px"><button class="btn full" data-act="csave">'+T('saveImg')+'</button><button class="btn ghost full" data-act="cshare">'+T('share')+'</button></div>';
+var tp=[];each(CARD_ORDER,function(k){tp.push([k,T(CARD_TPL[k].n)]);});
+b+='<label class="f">'+T('cTpl')+'</label>'+chipRow('ctpl',tp,S.card.tpl,'v');
+b+='<label class="f">'+T('cSize')+'</label>'+chipRow('csize',[['p',T('sz916')],['t',T('sz45')],['s',T('szSq')],['w',T('szWide')]],S.card.size,'v');
+var bd=[];each(CARD_BORDERS,function(k){bd.push([k,T('bd_'+k)]);});b+='<label class="f">'+T('cBorder')+'</label>'+chipRow('cborder',bd,S.card.border,'v');
+var fs=[];each(CARD_FS,function(f){fs.push([f[0],T(f[1])]);});b+='<label class="f">'+T('cFs')+'</label>'+chipRow('cfs',fs,S.card.fs,'v');
+b+='<label class="f">'+T('cPhoto')+'</label><div class="row" style="flex-wrap:wrap;gap:8px"><button class="btn sm ghost" data-act="cphoto">'+T('pickPhoto')+'</button><button class="btn sm ghost" data-act="cpexels">'+T('pexels')+'</button>'+(photoImg?'<button class="btn sm ghost danger" data-act="cnophoto">'+T('noPhoto')+'</button>':'')+'<input type="file" id="cphotoIn" accept="image/*" style="display:none"></div>';
+b+='<label class="f" for="cT">'+T('cText')+'</label><textarea id="cT" data-c="t">'+esc(c.t)+'</textarea>';
+b+='<label class="f" for="cR">'+T('cRef')+'</label><input id="cR" data-c="ref" value="'+esc(c.ref)+'">';
+b+='<label class="f" for="cN">'+T('cNote')+'</label><textarea id="cN" data-c="n" placeholder="'+T('cNotePH')+'">'+esc(c.n)+'</textarea>';
+b+='<label class="f" for="cTo">'+T('cTo')+'</label><input id="cTo" data-cs="to" value="'+esc(S.card.to)+'" placeholder="'+T('cToPH')+'">';
+b+='<label class="f" for="cTop">'+T('cTop')+'</label><input id="cTop" data-cs="top" value="'+esc(S.card.top)+'" placeholder="'+esc(T('fellowship'))+'">';
+b+='<label class="f" for="cSign">'+T('cSignL')+'</label><input id="cSign" data-cs="sign" value="'+esc(S.card.sign)+'" placeholder="'+esc(T('cardBless'))+'"></div>';
+var y=ovOpen()?$('ov').scrollTop:0;openOv(ovHead(T('studioT'))+b);$('ov').scrollTop=y;renderCard();
+each(qa('[data-c],[data-cs]',$('ov')),function(e){e.oninput=function(){var k=e.getAttribute('data-c');if(k)studio[k]=e.value;else{S.card[e.getAttribute('data-cs')]=e.value;save();}clearTimeout(drawStudio._t);drawStudio._t=setTimeout(renderCard,250);};});
+$('cphotoIn').onchange=function(){var f=this.files&&this.files[0];if(!f)return;var rd=new FileReader();rd.onload=function(){var im=new Image();im.onload=function(){photoImg=im;photoBy='';drawStudio();};im.onerror=function(){toast(T('photoBad'));};im.src=rd.result;};rd.readAsDataURL(f);};}
+function renderCard(){var sz=CARD_SIZES[S.card.size]||CARD_SIZES.t,cv=document.createElement('canvas');drawCard(cv,studio,sz[0],sz[1]);
+try{cardImg=cv.toDataURL('image/png');}catch(e){cardImg=null;toast(T('photoBad'));}var box=$('cardPv');if(box&&cardImg)box.innerHTML='<img src="'+cardImg+'" alt="">';}
+function cardBlob(url){var b=atob(url.split(',')[1]),a=new Uint8Array(b.length);for(var i=0;i<b.length;i++)a[i]=b.charCodeAt(i);return new Blob([a],{type:'image/png'});}
+function isIOS(){return /iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);}
+function holdSave(){openSheet('<div class="sheet-title">'+T('holdT')+'</div><div class="hl-tip">'+T('holdS')+'</div><div class="holdpv"><img src="'+cardImg+'" alt=""></div><div class="sheet-acts" style="margin-top:12px"><button class="btn ghost" data-act="sheetclose">'+T('close')+'</button></div>');}
+function shareFile(){var f;try{f=new File([cardBlob(cardImg)],'321-card.png',{type:'image/png'});}catch(e){return false;}
+if(navigator.canShare&&navigator.canShare({files:[f]})){var p=navigator.share({files:[f],title:T('app')});if(p&&p['catch'])p['catch'](function(){});return true;}return false;}
+function cardSave(){if(!cardImg)return;if(isIOS()){if(!shareFile())holdSave();else toast(T('saveIOS'),5000);return;}
+var a=document.createElement('a');a.href=cardImg;a.download='321-card-'+Date.now()+'.png';document.body.appendChild(a);a.click();document.body.removeChild(a);toast(T('savedFile'));}
+function cardShare(){if(!cardImg)return;if(!shareFile())cardSave();}
+/* --- Pexels 免費圖庫 --- */
+var px={q:'',page:1,items:[],busy:false,end:false};
+var PX_PRE={zh:[['風景','landscape'],['日出','sunrise'],['天空','sky'],['海','ocean'],['山','mountain'],['花','flowers'],['光','light rays'],['樹','tree'],['小路','path'],['麥田','wheat field'],['水','calm water'],['雲','clouds'],['晨霧','morning mist'],['星空','starry sky'],['十字架','cross']],
+en:[['Landscape','landscape'],['Sunrise','sunrise'],['Sky','sky'],['Ocean','ocean'],['Mountain','mountain'],['Flowers','flowers'],['Light','light rays'],['Tree','tree'],['Path','path'],['Wheat','wheat field'],['Water','calm water'],['Clouds','clouds'],['Mist','morning mist'],['Stars','starry sky'],['Cross','cross']]};
+function pxOrient(){var s=S.card.size;return s==='w'?'landscape':(s==='s'?'square':'portrait');}
+function openPexels(){var pre=PX_PRE[isEN()?'en':'zh'],chips='';each(pre,function(p){chips+='<button class="chip" data-act="pxq" data-q="'+esc(p[1])+'">'+esc(isZS()?zsOf(p[0]):p[0])+'</button>';});
+openSheet('<div class="sheet-title">'+T('pexelsT')+'</div><div class="row" style="gap:8px;margin-bottom:10px"><input id="pxQ" value="'+esc(px.q)+'" placeholder="'+T('pxPH')+'"><button class="btn sm" data-act="pxgo">'+T('search')+'</button></div><div class="chips pxchips">'+chips+'</div><div class="pxgrid" id="pxGrid"></div><div class="sheet-acts2" style="margin-top:12px"><button class="btn sm ghost" data-act="pxmore" id="pxMore">'+T('more')+'</button><button class="btn sm ghost" data-act="sheetclose">'+T('close')+'</button></div><div class="sub" style="font-size:.78em;margin-top:8px">'+T('pxHint')+'</div>');
+pxRun(true);}
+function pxPaint(){var g=$('pxGrid');if(!g)return;if(!px.items.length){g.innerHTML='<div class="empty" style="grid-column:1/-1">'+(px.busy?T('loading'):T('pxNone'))+'</div>';return;}
+var h='';each(px.items,function(p,i){h+='<button class="pxcell" data-act="pxpick" data-i="'+i+'"><img src="'+esc(p.src&&(p.src.tiny||p.src.small)||'')+'" alt="" loading="lazy"><span>'+esc(p.photographer||'')+'</span></button>';});g.innerHTML=h;
+var mb=$('pxMore');if(mb)mb.style.display=px.end?'none':'';}
+function pxRun(reset){if(px.busy)return;px.busy=true;if(reset){px.page=1;px.items=[];px.end=false;}pxPaint();
+var q=trim(px.q),url=(q?'https://api.pexels.com/v1/search?query='+encodeURIComponent(q)+'&orientation='+pxOrient()+'&':'https://api.pexels.com/v1/curated?')+'per_page=24&page='+px.page;
+ajax('GET',url,null,null,function(st,txt){px.busy=false;if(st!==200){toast(T('pxErr')+' ('+st+')');pxPaint();return;}
+try{var d=JSON.parse(txt),got=d.photos||[];px.items=px.items.concat(got);px.end=got.length<24;px.page++;}catch(e){}pxPaint();},{Authorization:PEXELS_KEY});}
+function pxPick(i){var p=px.items[i];if(!p)return;toast(T('pxLoading'));var url=p.src&&(p.src.large2x||p.src.large||p.src.original);
+ajax('GET',url,null,'blob',function(st,blob){if(st!==200||!blob){toast(T('photoBad'));return;}var u=URL.createObjectURL(blob),im=new Image();
+im.onload=function(){photoImg=im;photoBy=p.photographer||'';closeSheet();drawStudio();toast(T('pxPicked'));};im.onerror=function(){toast(T('photoBad'));};im.src=u;});}
+var ZS_PX={'風景':'风景','樹':'树','麥田':'麦田','雲':'云','晨霧':'晨雾'};
+function zsOf(s){return ZS_PX[s]||s;}
+
+/* ===================================================== events & boot */
+function actEl(el){while(el&&el!==document){if(el.getAttribute&&el.getAttribute('data-act'))return el;el=el.parentNode;}return null;}
+function sentEl(el){while(el&&el!==document){if(el.className&&String(el.className).indexOf('sent')===0)return el;if(el.getAttribute&&el.getAttribute('data-act'))return null;el=el.parentNode;}return null;}
+function noteEl(el){while(el&&el!==document){if(el.className==='hl-note')return el;el=el.parentNode;}return null;}
+var STEP_OF_BLK={st:0,p:1,t:2,li:2,sc:2,je:3,pr:4};
+function gotoBlock(l,b){var si=STEP_OF_BLK[b.charAt(0)==='p'?'p':(b.charAt(0)==='t'?'t':b)];if(si==null)si=1;
+var st=stepList(),i=st.indexOf(si);startFlow(l,i<0?0:i);}
+document.addEventListener('click',function(ev){
+var se=sentEl(ev.target);
+if(se&&blkOf(se)){var root=hlRoot();if(root.contains(se)){onSentTap(se);return;}}
+var ne=noteEl(ev.target);if(ne){var list=sentList(),k=ne.getAttribute('data-hk');for(var i=0;i<list.length;i++)if(hlKeyOf(list[i])===k){openHlSheet(list[i]);break;}return;}
+var el=actEl(ev.target);if(!el)return;var a=el.getAttribute('data-act'),h,m,i2,v;
+switch(a){
+case 'tab':stopAll();if(ovOpen()){grabInputs();closeOvRaw();}go(el.getAttribute('data-v'));break;
+case 'lang':setLang(el.getAttribute('data-l'));break;
+case 'retry':failW=0;render();break;
+case 'chkupd':checkUpdate(true);break;
+case 'start':startFlow(el.getAttribute('data-id'));break;
+case 'next':grabInputs();flow.i++;drawFlow();break;
+case 'prev':grabInputs();flow.i--;drawFlow();break;
+case 'finish':finishFlow();break;
+case 'close':if(flow&&!flow.done)grabInputs();closeOv();break;
+case 'pick':grabInputs();S.draft[flow.L.id].act=flow.L.acts[+el.getAttribute('data-i')];save();drawFlow();break;
+case 'ttspage':ttsPage();break;
+case 'asklesson':grabInputs();var L=flow.L;askXz(T('askLessonQ',L.w,L.day,L.title));break;
+case 'noon':meetToday();save();toast(T('noonToast'));render();break;
+case 'examen':openExamen();break;
+case 'exsave':saveExamen();break;
+case 'addgrace':grabInputs();flow=null;openGraceForm(el.getAttribute('data-ty')||'grace');break;
+case 'gsave':saveGrace(el.getAttribute('data-ty'));break;
+case 'gf':graceFilter=el.getAttribute('data-f');render();break;
+case 'stage':courseStage=+el.getAttribute('data-i');openWeek=0;render();break;
+case 'week':v=+el.getAttribute('data-w');openWeek=openWeek===v?0:v;render();break;
+case 'assess':grabInputs();flow=null;v=+el.getAttribute('data-s');if(S.assess[v]&&!confirm(T('reassess')))showAssess(v);else openAssess(v);break;
+case 'asv':asDraft.v[+el.getAttribute('data-k')]=+el.getAttribute('data-n');drawAssess();break;
+case 'assave':saveAssess();break;
+case 'flip':cardShow=!cardShow;render();break;
+case 'card':gradeCard(el.getAttribute('data-ok')==='1');break;
+case 'memcard':m=dueCards()[cardIdx];if(m)openStudio({t:m.t,ref:m.ref,n:''});break;
+case 'lessoncard':h=flow.L;var nq=dv(h.noon.split(isEN()?' — ':'——')[0]).replace(/^[「“]|[」”]$/g,'');openStudio({t:nq,ref:h.passages[0].ref,n:flow.act||''});break;
+case 'padd':v=$('pin').value;if(blankish(v))return;S.prayers.unshift({id:uid(),text:v,date:ymd(),answered:null});save();render();toast(T('prayerAdded'));break;
+case 'pans':var p=findP(el.getAttribute('data-id'));if(!p)return;var note=prompt(T('howAnswered'),'')||'';p.answered=ymd();p.note=note;S.grace.push({id:uid(),date:ymd(),ts:Date.now(),type:'answered',text:p.text+(note?'——'+note:'')});meetToday();save();render();toast(T('answeredToast'));break;
+case 'pdel':if(confirm(T('delPrayer'))){var q=findP(el.getAttribute('data-id'));S.prayers.splice(S.prayers.indexOf(q),1);save();render();}break;
+case 'sos':openSos(+el.getAttribute('data-i'));break;
+case 'sosamen':meetToday();save();closeOv();toast(T('noonToast'));break;
+case 'rhythm':openRhythm();break;
+case 'rhdone':meetToday();save();if(ovOpen())closeOv();toast(T('noonToast'));break;
+case 'dec':openDec('');break;
+case 'decnext':grabDec();if(dec.i===0&&blankish(dec.a.what)){toast(T('decNeed'));return;}dec.i++;drawDec();$('ov').scrollTop=0;break;
+case 'decprev':grabDec();dec.i--;drawDec();break;
+case 'decsave':saveDec();break;
+case 'cases':openCases();break;
+case 'casecat':caseCat=+el.getAttribute('data-i');drawCases();break;
+case 'case':drawCase(+el.getAttribute('data-i'));break;
+case 'caseuse':v=CASES[LG()][+el.getAttribute('data-i')];openDec(v.t+(isEN()?': ':'：')+v.s);break;
+case 'partner':openPartner();break;
+case 'psave':S.partner=$('ptn').value;save();closeOv();toast(T('saved'));break;
+case 'pshare':S.partner=$('ptn').value;save();shareText(T('app'),T('inviteText')+location.href);break;
+case 'settings':stopAll();openSettings();break;
+case 'slang':v=el.getAttribute('data-l');loadPack(v,function(ok){if(!ok){packFail();return;}S.lang=v;save();applyChrome();render();openSettings();});break;
+case 'smins':S.mins=+el.getAttribute('data-m');keepSettings();break;
+case 'sfont':S.font=+el.getAttribute('data-f');keepSettings();break;
+case 'stheme':S.theme=el.getAttribute('data-t');keepSettings();break;
+case 'svoice':S.voice[LG()]=+el.getAttribute('data-i');keepSettings();speakText(isEN()?'God is love.':(isZS()?'神爱世人。':'神愛世人。'));break;
+case 'sgw':S.gw=el.getAttribute('data-g');keepSettings();break;
+case 'ssave':S.name=trim($('sn').value);save();closeOv();toast(T('saved'));break;
+case 'dlall':downloadAll();break;
+case 'export':exportData();break;
+case 'import':$('impf').click();break;
+case 'diag':runDiag();break;
+case 'reset':if(confirm(T('resetConfirm'))){var lg=LG();S=blank();S.lang=lg;save();closeOv();ob={i:0,since:'',mins:20,grow:[],name:''};openOnboard();}break;
+case 'oblang':v=el.getAttribute('data-l');loadPack(v,function(ok){if(!ok){packFail();return;}S.lang=v;save();applyChrome();render();openOnboard();});break;
+case 'obs':ob.since=el.getAttribute('data-s');openOnboard();break;
+case 'obm':ob.mins=+el.getAttribute('data-m');openOnboard();break;
+case 'obg':var gi=+el.getAttribute('data-i'),ix=ob.grow.indexOf(gi);if(ix>=0)ob.grow.splice(ix,1);else ob.grow.push(gi);openOnboard();break;
+case 'obn':if(ob.i===1&&!ob.since){toast(T('pickOne'));return;}obNext();break;
+case 'obp':ob.i--;openOnboard();break;
+/* 畫線面板 */
+case 'hlc':if(!hlCur)return;hlNoteGrab();hlCur.h.c=el.getAttribute('data-c');save();paintHl(hlRoot());each(qa('.hlswatch'),function(b){b.className='hlswatch'+(b===el?' on':'');});break;
+case 'hlsp':hlNoteGrab();hlSpan(el.getAttribute('data-d'));break;
+case 'hlsave':hlNoteGrab();closeSheet();paintHl(hlRoot());toast(T('saved'));break;
+case 'hlask':hlNoteGrab();h=hlCur.h;askXz(T('meditateQ',Q(h.t),h.ref),{t:h.t,ref:h.ref});break;
+case 'hlcard':hlNoteGrab();h=hlCur.h;if(flow)grabInputs();openStudio({t:h.t,ref:h.ref,n:h.n});break;
+case 'hlread':hlNoteGrab();speakText(hlCur.h.t,'hl');break;
+case 'hlcopy':hlNoteGrab();copyText(hlShareText(hlCur.h));toast(T('copied'));break;
+case 'hlshare':hlNoteGrab();shareText(T('app'),hlShareText(hlCur.h));break;
+case 'hldel':delete S.hl[hlCur.k];save();closeSheet();paintHl(hlRoot());break;
+case 'hlgo':gotoBlock(el.getAttribute('data-l'),el.getAttribute('data-b'));break;
+case 'hlcard2':h=S.hl[el.getAttribute('data-k')];if(h)openStudio({t:h.t,ref:h.ref,n:h.n});break;
+case 'hldel2':if(confirm(T('delHl'))){delete S.hl[el.getAttribute('data-k')];save();render();}break;
+case 'favdel':S.fav.splice(+el.getAttribute('data-i'),1);save();render();break;
+case 'sheetclose':closeSheet();break;
+/* 小智 */
+case 'qstog':var qp=$('qsPanel');qp.style.display=qp.style.display==='none'?'':'none';break;
+case 'chatq':$('qsPanel').style.display='none';sendChat(el.textContent);break;
+case 'chatsend':sendChat($('chatIn').value);break;
+case 'msgfav':m=S.chat[+el.getAttribute('data-i')];if(!m)return;if(isFav(m.text)){for(i2=0;i2<S.fav.length;i2++)if(S.fav[i2].text===m.text){S.fav.splice(i2,1);break;}}else{S.fav.push({text:m.text,ts:Date.now()});toast(T('favSaved'));}save();paintChat();break;
+case 'msgshare':m=S.chat[+el.getAttribute('data-i')];if(m)msgShare(m);break;
+case 'msgcopy':m=S.chat[+el.getAttribute('data-i')];if(m){copyText(mdStrip(m.text));toast(T('copied'));}break;
+case 'msgcard':m=S.chat[+el.getAttribute('data-i')];if(m){var src=m.src;openStudio({t:src?src.t:cardText(m.text),ref:src?src.ref:T('xzName'),n:src?cardText(m.text):'',plain:!src});}break;
+case 'msgtts':i2=+el.getAttribute('data-i');if(sayKey==='m'+i2){stopAll();return;}m=S.chat[i2];if(m)speakText(mdSpeak(m.text),'m'+i2);break;
+case 'msgdel':S.chat.splice(+el.getAttribute('data-i'),1);save();paintChat();break;
+case 'chatclear':if(confirm(T('clearChat'))){S.chat=[];save();render();}break;
+/* 美圖 */
+case 'ctpl':S.card.tpl=el.getAttribute('data-v');save();drawStudio();break;
+case 'csize':S.card.size=el.getAttribute('data-v');save();drawStudio();break;
+case 'cborder':S.card.border=el.getAttribute('data-v');save();drawStudio();break;
+case 'cfs':S.card.fs=+el.getAttribute('data-v');save();drawStudio();break;
+case 'cphoto':$('cphotoIn').click();break;
+case 'cnophoto':photoImg=null;photoBy='';drawStudio();break;
+case 'cpexels':openPexels();break;
+case 'pxq':px.q=el.getAttribute('data-q');$('pxQ').value=px.q;pxRun(true);break;
+case 'pxgo':px.q=$('pxQ').value;pxRun(true);break;
+case 'pxmore':pxRun(false);break;
+case 'pxpick':pxPick(+el.getAttribute('data-i'));break;
+case 'csave':cardSave();break;
+case 'cshare':cardShare();break;
+}
+});
+document.addEventListener('change',function(ev){if(ev.target&&ev.target.id==='impf'&&ev.target.files[0])importData(ev.target.files[0]);});
+function findP(id){for(var i=0;i<S.prayers.length;i++)if(S.prayers[i].id===id)return S.prayers[i];return null;}
+document.addEventListener('visibilitychange',function(){if(document.hidden&&!spk.on&&!sayKey)return;});
+
+
+/* ===================================================== 321職場生活 workplace tools */
+var SEND=(META.zh.stageEnd||[8,21,30,44,52]);
+function stageA(s){return s?SEND[s-1]+1:1;}
+function unitAt(w){var u=M().units||[];for(var i=0;i<u.length;i++)if(u[i].a===w)return u[i];return null;}
+function rhNow(){var h=new Date().getHours();if(h<5)h+=24;var r=M().rhythm;for(var i=0;i<r.length;i++)if(h>=r[i].from&&h<r[i].to)return r[i];return r[0];}
+function toolCards(){var h='',r=rhNow();
+h+='<div class="card"><div class="kick">'+T('rhK')+'</div><div class="ttl" style="font-size:1.02em">'+T('rhNow',esc(r.n))+'</div><div class="vs" style="font-size:1em;margin-top:6px">'+esc(Q(verseOf(r.ref)))+'</div><div class="ref">'+esc(verseRef(r.ref))+'</div><div class="sub" style="margin-top:6px">'+esc(r.p)+'</div><div class="row" style="margin-top:10px;flex-wrap:wrap"><button class="btn sm" data-act="rhdone">'+T('rhDone')+'</button><button class="btn sm ghost" data-act="rhythm">'+T('rhAll')+'</button></div></div>';
+h+='<div class="card"><div class="kick">'+T('sosK')+'</div><div class="sub">'+T('sosS')+'</div><div class="sosg">';
+each(M().sos,function(s,i){h+='<button class="sosb" data-act="sos" data-i="'+i+'">'+esc(s.n)+'</button>';});
+h+='</div></div>';
+h+='<div class="card"><div class="kick">'+T('decK')+'</div><div class="sub">'+T('decS')+'</div><div class="row" style="margin-top:10px;flex-wrap:wrap"><button class="btn sm" data-act="dec">'+T('decMine')+'</button><button class="btn sm ghost" data-act="cases">'+T('decCases')+'</button></div></div>';
+return h;}
+function openSos(i){var s=M().sos[i];var b='<div class="stepbody"><div class="big'+(isEN()?' en':'')+'">'+esc(s.n)+'</div><div class="kick" style="margin-top:8px">'+T('sosK')+'</div><div class="card"><div class="vs" style="font-size:1.05em">'+esc(Q(verseOf(s.ref)))+'</div><div class="ref">'+esc(verseRef(s.ref))+'</div></div><p>'+esc(s.w)+'</p><div class="q">'+T('sosPray')+'</div><div class="card vsp">'+esc(s.p)+'</div><div class="banner"><b>'+T('sosAct')+'</b>'+esc(s.a)+'</div><div style="margin-top:14px"><button class="btn full" data-act="sosamen">'+T('sosAmen')+'</button></div></div>';openOv(ovHead('')+b);}
+function openRhythm(){var b='<div class="stepbody"><h1 class="serif">'+T('rhK')+'</h1><div class="sub">'+T('rhS')+'</div>';
+each(M().rhythm,function(r){b+='<div class="card"><div class="kick">'+esc(r.n)+'</div><div class="vs" style="font-size:1em">'+esc(Q(verseOf(r.ref)))+'</div><div class="ref">'+esc(verseRef(r.ref))+'</div><div class="sub" style="margin-top:6px">'+esc(r.p)+'</div></div>';});
+openOv(ovHead('')+b+'<button class="btn full" data-act="rhdone">'+T('rhDone')+'</button></div>');}
+var dec=null;
+function openDec(pre){dec={i:0,a:{what:pre||'',j:'',b:'',h:'',g:'',x:'',sum:''}};drawDec();}
+function grabDec(){if(!dec)return;each(qa('[data-d]',$('ov')),function(e){dec.a[e.getAttribute('data-d')]=e.value;});}
+function drawDec(){var D=M().decide,b='<div class="stepbody"><div class="big'+(isEN()?' en':'')+'">321</div><div class="kick" style="margin-top:8px">'+T('decTitle')+'</div>';
+if(dec.i===0){b+='<p class="sub">'+T('decIntro')+'</p><label class="f">'+T('decWhat')+'</label><textarea data-d="what" placeholder="'+T('decWhatPH')+'">'+esc(dec.a.what)+'</textarea>';}
+else if(dec.i<=5){var s=D[dec.i-1];b+='<div class="sub">'+T('decStep',dec.i)+'</div><div class="banner"><div class="sub" style="white-space:pre-wrap">'+esc(dec.a.what)+'</div></div><h2>'+esc(s.n)+'</h2><div class="q">'+esc(s.q)+'</div><div class="sub">'+esc(s.h)+'</div><textarea data-d="'+s.k+'">'+esc(dec.a[s.k])+'</textarea>';}
+else{b+='<h2>'+T('decSum')+'</h2><div class="banner"><div class="sub" style="white-space:pre-wrap">'+esc(dec.a.what)+'</div></div>';each(D,function(s){if(!blankish(dec.a[s.k]))b+='<div class="li"><div class="b"><b>'+esc(s.n)+'</b><span>'+esc(dec.a[s.k])+'</span></div></div>';});b+='<textarea data-d="sum" placeholder="'+T('decSumPH')+'">'+esc(dec.a.sum)+'</textarea>';}
+b+='</div><div class="stepfoot">'+(dec.i>0?'<button class="btn ghost" data-act="decprev">'+T('prev')+'</button>':'')+(dec.i<6?'<button class="btn" data-act="decnext">'+T('next')+'</button>':'<button class="btn" data-act="decsave">'+T('decSave')+'</button>')+'</div>';
+openOv(ovHead('')+b);}
+function saveDec(){grabDec();S.journal.push({id:uid(),kind:'dec',date:ymd(),ts:Date.now(),a:dec.a});meetToday();save();dec=null;closeOv();toast(T('decSaved'));}
+var CASES={},caseCat=-1;
+function loadCases(cb){var lg=LG();if(CASES[lg]){cb(CASES[lg]);return;}getJSON(['cases-'+lg+'.json','content/cases-'+lg+'.json'],function(o){if(o)CASES[lg]=o;cb(o);});}
+function openCases(){openOv(ovHead('')+'<div class="stepbody"><div class="sub">'+T('caseLoad')+'</div></div>');loadCases(function(o){if(!o){closeOv();toast(T('loadFail')+loadErr,6000);return;}drawCases();});}
+function drawCases(){var o=CASES[LG()],cats=M().caseCats,b='<div class="stepbody"><h1 class="serif">'+T('decCases')+'</h1><div class="chips">';
+b+='<button class="chip'+(caseCat<0?' on':'')+'" data-act="casecat" data-i="-1">'+T('caseAll')+'</button>';
+each(cats,function(c,i){b+='<button class="chip'+(caseCat===i?' on':'')+'" data-act="casecat" data-i="'+i+'">'+esc(c)+'</button>';});
+b+='</div><div class="card">';each(o,function(c,i){if(caseCat>=0&&c.cat!==caseCat)return;b+='<div class="li" data-act="case" data-i="'+i+'"><div class="n">'+(i+1)+'</div><div class="b"><b>'+esc(c.t)+'</b><span>'+esc(cats[c.cat])+'</span></div></div>';});
+var y=$('ov').scrollTop;openOv(ovHead('')+b+'</div></div>');if(caseCat!==-2)$('ov').scrollTop=y;}
+function drawCase(i){var c=CASES[LG()][i],cats=M().caseCats;function row(k,v){return '<div class="q">'+T(k)+'</div><div>'+esc(v)+'</div>';}
+var b='<div class="stepbody"><div class="kick">'+esc(cats[c.cat])+'</div><h1 class="serif">'+esc(c.t)+'</h1><div class="banner">'+esc(c.s)+'</div>'+row('caseJ',c.j)+
+'<div class="q">'+T('caseB')+'</div><div class="card"><div class="vs" style="font-size:1em">'+esc(Q(dv(c.b.t||'')))+'</div><div class="ref">'+esc(c.b.ref)+'</div><div class="sub" style="margin-top:6px">'+esc(c.b.p)+'</div></div>'+
+row('caseH',c.h)+row('caseG',c.g)+row('caseX',c.x)+'<div class="card" style="margin-top:14px"><div class="kick">'+T('caseN')+'</div><div>'+esc(c.n)+'</div></div><button class="btn full" data-act="caseuse" data-i="'+i+'">'+T('caseUse')+'</button><div style="height:10px"></div><button class="btn ghost full" data-act="cases">'+T('caseBack')+'</button></div>';
+openOv(ovHead('')+b);}
+
+function boot(){load();
+loadPack(LG(),function(ok){if(!ok)S.lang='zh';boot2();});}
+function boot2(){document.documentElement.setAttribute('data-ver',APPVER);
+applyChrome();$('gear').innerHTML=svg('gear');
+var ls='';each([['zh','繁'],['zs','简'],['en','EN']],function(x){ls+='<button data-act="lang" data-l="'+x[0]+'">'+x[1]+'</button>';});$('langsw').innerHTML=ls;applyChrome();
+render();
+if(!S.onboard)openOnboard();
+S.lastOpen=ymd();save();
+if(S.lastLesson){var p=parseId(S.lastLesson);if(p)loadWeek(p.w);}
+setInterval(function(){if(S.theme==='auto'&&!flow)applyTheme();},600000);
+swInit();
+}
+boot();
+
+/* ---------- 自動更新 ----------
+新版上傳後：瀏覽器在背景下載新的 sw.js → 裝好就接手 → 不在上課中就自動重新載入；
+正在靈修／寫東西時只顯示提示條，按一下（或下次回到 App）才更新，不會打斷。 */
+var swReg=null,updPending=false,reloading=false;
+function busyNow(){return !!(flow&&!flow.done)||!!$('sheet')||(ovOpen()&&!!qa('textarea',$('ov')).length);}
+function doReload(){if(reloading)return;reloading=true;grabInputs();save();location.reload();}
+function updBar(){if($('updbar'))return;var d=document.createElement('div');d.id='updbar';d.className='updbar';d.textContent=T('updReady');d.onclick=doReload;document.body.appendChild(d);}
+function onNewVersion(){updPending=true;if(!busyNow())doReload();else updBar();}
+function checkUpdate(manual){if(swReg){try{swReg.update();}catch(e){}}
+ajax('GET','version.json?t='+Date.now(),null,null,function(st,txt){var v=null;try{v=JSON.parse(txt).v;}catch(e){}
+if(v&&v!==APPVER){if(swReg&&swReg.waiting){swReg.waiting.postMessage('skip');}else if(!swReg){onNewVersion();}if(manual)toast(T('updFound'));}
+else if(manual)toast(st===200?T('updLatest',APPVER):T('updFail'));});}
+function swInit(){
+if(!('serviceWorker' in navigator)||location.protocol.indexOf('http')!==0){setTimeout(function(){checkUpdate(false);},4000);return;}
+try{navigator.serviceWorker.register('sw.js',{updateViaCache:'none'}).then(function(reg){swReg=reg;
+if(reg.waiting)reg.waiting.postMessage('skip');
+reg.addEventListener('updatefound',function(){var nw=reg.installing;if(!nw)return;nw.addEventListener('statechange',function(){if(nw.state==='installed'&&navigator.serviceWorker.controller)nw.postMessage('skip');});});
+setTimeout(function(){checkUpdate(false);},3000);
+})['catch'](function(){});
+var had=!!navigator.serviceWorker.controller;
+navigator.serviceWorker.addEventListener('controllerchange',function(){if(!had){had=true;return;}onNewVersion();});}catch(e){}
+document.addEventListener('visibilitychange',function(){if(document.hidden){if(updPending)doReload();}else checkUpdate(false);});
+setInterval(function(){checkUpdate(false);},30*60*1000);
+}
+
+})();</script>
+</body>
+</html>
