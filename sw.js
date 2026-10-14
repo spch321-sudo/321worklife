@@ -1,5 +1,5 @@
 /* 321職場生活 service worker — 版本 1.0.10050122（每次建置自動更新，舊版會自動被取代） */
-var C='worklife321-1.0.10050122';
+var C='worklife321-1.0.10050122-gx10141439';
 var F=['./','./index.html','./manifest.json','./icon-192.png','./icon-512.png','./apple-touch-icon.png','./hero.jpg'];
 self.addEventListener('install',function(e){self.skipWaiting();e.waitUntil(caches.open(C).then(function(c){return Promise.all(F.map(function(u){return c.add(new Request(u,{cache:'reload'}))['catch'](function(){});}));}));});
 self.addEventListener('activate',function(e){e.waitUntil(caches.keys().then(function(k){return Promise.all(k.filter(function(x){return x!==C;}).map(function(x){return caches['delete'](x);}));}).then(function(){return self.clients.claim();}));});
