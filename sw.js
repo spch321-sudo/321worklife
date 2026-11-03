@@ -1,8 +1,8 @@
 /* 321職場生活 service worker — 版本 1.0.10050122（每次建置自動更新，舊版會自動被取代） */
-var C='worklife321-1.0.10050122-gx10171750-gxa1019-vp1023-cr1031-ws3-fs1103-xz1103';
+var C='worklife321-1.0.10050122-gx10171750-gxa1019-vp1023-cr1031-ws3-fs1103-xz1103-au1103';
 var F=['./','./index.html','./xz2.js','./manifest.json','./icon-192.png','./icon-512.png','./apple-touch-icon.png','./hero.jpg','./peerjs.min.js','./qrcode.js'];
 self.addEventListener('install',function(e){self.skipWaiting();e.waitUntil(caches.open(C).then(function(c){return Promise.all(F.map(function(u){return c.add(new Request(u,{cache:'reload'}))['catch'](function(){});}));}));});
-self.addEventListener('activate',function(e){e.waitUntil(caches.keys().then(function(k){return Promise.all(k.filter(function(x){return x!==C;}).map(function(x){return caches['delete'](x);}));}).then(function(){return self.clients.claim();}));});
+self.addEventListener('activate',function(e){e.waitUntil(caches.keys().then(function(k){return Promise.all(k.filter(function(x){return x!==C&&x.indexOf('worklife321-')===0;}).map(function(x){return caches['delete'](x);}));}).then(function(){return self.clients.claim();}));});
 self.addEventListener('message',function(e){if(e.data==='skip')self.skipWaiting();});
 self.addEventListener('fetch',function(e){var r=e.request;if(r.method!=='GET'||r.url.indexOf(self.location.origin)!==0)return;
   if(r.url.indexOf('version.json')>=0){e.respondWith(fetch(r,{cache:'no-store'}));return;}
